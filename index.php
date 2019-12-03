@@ -1,5 +1,6 @@
 <?php
-
+require_once('connexionSkink.php');
+Connexion::initConnexion();
 
 $module = "acceuil";
 
@@ -18,7 +19,5 @@ switch($module){
 		break;
 
 }
-
-
 
 ?>
