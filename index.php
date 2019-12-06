@@ -1,15 +1,26 @@
 <?php
-require_once('connexionSkink.php');
+session_start();
+
+require_once('connexion.php');
+require_once('modules/module_connexion/mod_Connexion.php');
+
 Connexion::initConnexion();
 
-$module = "acceuil";
+if(isset($_GET['module']))
+	$module = $_GET['module'];
+else
+	$module = 'acceuil';
+
+$moduleConnexion = new mod_Connexion();
 
 switch($module){
 
 	case "connexion":
+		$moduleConnexion->launchModConnexion();
 		break;
 	
 	case "inscription":
+		//à voir mais va sans doute se retrouver inutile
 		break;
 
 	case "gallerie":
