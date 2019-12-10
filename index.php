@@ -1,8 +1,12 @@
+
 <?php
 session_start();
 
+
 require_once('connexion.php');
 require_once('modules/module_connexion/mod_Connexion.php');
+require_once("modules/acceuil/mod_accueil.php");
+
 
 Connexion::initConnexion();
 
@@ -27,8 +31,10 @@ switch($module){
 		break;
 	
 	case "acceuil":
+		$modAcceuil = new ModAccueil();
 		break;
 
 }
 
 ?>
+
