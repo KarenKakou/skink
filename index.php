@@ -1,4 +1,7 @@
+
 <?php
+
+require_once "modules/acceuil/mod_accueil.php";
 
 
 $module = "acceuil";
@@ -15,6 +18,7 @@ switch($module){
 		break;
 	
 	case "acceuil":
+		$modAcceuil = new ModAccueil();
 		break;
 
 }
@@ -22,3 +26,4 @@ switch($module){
 
 
 ?>
+
