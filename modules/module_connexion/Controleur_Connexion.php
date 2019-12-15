@@ -49,3 +49,4 @@ require_once('modules/module_connexion/Modele_connexion.php');
             $this->modeleConnexion->deleteCompte($email);
         }
     }
+?>

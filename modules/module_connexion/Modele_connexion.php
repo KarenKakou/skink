@@ -1,6 +1,6 @@
 <?php
 
-require_once('modules/module_connexion/Controleur_Connexion.php');
+require_once('connexion.php');
 
 class Modele_connexion extends Connexion
 {
@@ -86,3 +86,4 @@ class Modele_connexion extends Connexion
     }
 
 }
+?>
