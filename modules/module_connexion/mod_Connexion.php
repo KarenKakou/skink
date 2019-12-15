@@ -69,8 +69,13 @@ require_once('modules/module_connexion/Controleur_Connexion.php');
                 //Cas d'erreur à coder
                 case "error" :
                     break;
+
+                case "deleteCompte" :
+                    $this->controleur->delCompte($_GET['email']);
+                    break;
             }
         }
 
     }
+
 ?>

@@ -74,5 +74,16 @@ class Modele_connexion extends Connexion
         }
     }
 
+    //Method qui permet de supprimer un compte
+    public function deleteCompte($email) {
+        $deleteUser = $this::$bdd->prepare('DELETE from compte where emailCompte=?');
+        $array = array($email);
+        if ($deleteUser->execute($array)) {
+            echo "L'utilisateur $email a bien été supprimé";
+        } else {
+            echo "Il y a eu un problème avec la suppression de $email";
+        }
+    }
+
 }
 ?>
