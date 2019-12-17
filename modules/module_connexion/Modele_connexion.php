@@ -10,15 +10,17 @@ class Modele_connexion extends Connexion
 
     //Connect teste la connection et la permet si le login et le motDePasse correspond
     public function connect($email, $password) {
-        $selectUser = $this::$bdd->prepare('SELECT motDePasse from compte where emailCompte=?');
+        $selectUser = $this::$bdd->prepare('SELECT motDePasse,idStatut from compte where emailCompte=?');
         $array = array($email);
         $selectUser->execute($array);
         $resultUser = $selectUser->fetchAll();
+        $statut = $resultUser[1];
         $hashedpassword= array_shift($resultUser);
         if(password_verify($password, $hashedpassword['motDePasse']))
         {
             $_SESSION['Login'] = $email;
-            echo "Vous etes connecté $email !";
+            $_SESSION['Statut'] = $statut;
+            echo "Vous etes connecté $email et de statut $statut!";
         }
         else
         {
