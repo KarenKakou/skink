@@ -7,7 +7,7 @@
         }
 
         public function afficherImage($image) {
-            $chemin = "images/".$image['cheminImage'];
+            $chemin = "images/images_galerie/".$image['cheminImage'];
             $idImage = $row['idImage'];
             $date = $row['dateAjoutImage'];
             echo "<img src=\"$chemin\"alt=\"modifiée le $date\"/>";

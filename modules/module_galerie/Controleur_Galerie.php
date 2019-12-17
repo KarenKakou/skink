@@ -24,6 +24,11 @@ require_once('modules/module_galerie/Modele_Galerie.php');
             $this->vueGalerie->afficherTatoueurGalerie($array[0]);
         }
 
+        public function recupererTousTatoueurs($statut) {
+            $array = $this->modeleGalerie->obtenirTousTatoueurs($statut);
+            $this->vueGalerie->afficherTousTatoueursGalerie($array);
+        }
+
         public function afficherUpload($tatoueur) {
             $this->vueGalerie->afficherUpload($tatoueur);
         }

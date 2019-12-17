@@ -24,6 +24,10 @@ require_once('modules/module_galerie/Controleur_Galerie.php');
                     $this->controleur->uploaderImage($_GET['id']);
                 break;
                 case "noAction" :
+                    //correcte ?
+                    $this->controleur->recupererTousTatoueurs(2);
+                break;
+                case "voirGalerie" :
                     $this->controleur->recupererTatoueur($_GET['id']);
                     $this->controleur->recupererImages($_GET['id']);
                     $this->controleur->afficherUpload($_GET['id']);

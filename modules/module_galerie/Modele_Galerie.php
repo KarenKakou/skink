@@ -24,11 +24,19 @@ class Modele_Galerie extends Connexion
         return $resultTatoueur;
     }
 
+    public function obtenirTousTatoueurs($statut) {
+        $selectTatoueurs = $this::$bdd->prepare('SELECT * from COMPTE where idStatut=?');
+        $array = array($statut);
+        $selectTatoueurs->execute($array);
+        $resultTatoueurs = $selectTatoueurs->fetchAll();
+        return $resultTatoueurs;
+    }
+
     public function insererImage($nomImage, $idCompte) {
 		$insertImage = $this::$bdd->prepare('INSERT INTO IMAGE values (DEFAULT,?,now(),?)');
         $array = array($nomImage, $idCompte);
         $insertImage->execute($array);
-	}
+	  }
 
     public function uploadImage($tatoueur) {
 
@@ -47,10 +55,10 @@ class Modele_Galerie extends Connexion
       	}
 
        	$temp = explode(".", $image_name);
-       	$imagepath="images/images_galerie".$image_name;
+       	$imagepath="images/images_galerie/".$image_name;
 
       	if(empty($errors)==true){
- 			move_uploaded_file($_FILES["image"]["tmp_name"],$imagepath);
+ 			    move_uploaded_file($_FILES["image"]["tmp_name"],$imagepath);
         	echo "image ajoutée";
       	}
       	else{
