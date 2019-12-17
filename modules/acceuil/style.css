@@ -1,0 +1,35 @@
+.carousel-inner > .carousel-item > img{
+	margin:auto;
+	width:100%;
+}
+
+.carousel {
+
+	border : 1px solid black;
+
+}
+
+body{
+	width: 90%;
+	margin: auto;
+}
+
+nav{
+	opacity:0.7;
+}
+
+section{
+	margin-top: 8%;
+}
+
+#carte{
+	margin-top:8%;
+	padding-top:5%;
+	border-top: 1px solid black;
+}
+
+footer{
+
+	background-color: black;
+	margin-top: 10%;
+}
