@@ -54,7 +54,7 @@ switch($module){
 
 	case "messagerie":
 		$moduleALancer= new Mod_Messagerie();
-		$moduleALancer->launch
+		$moduleALancer->launchModMessagerie();
 		break;
 
 	case "acceuil":
