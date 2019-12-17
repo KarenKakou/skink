@@ -25,7 +25,7 @@
                 Entrez votre prenom : <input type='text' name='prenomInscription'>
                 Adresse (Non obligatoire) : <input type='text' name='adresseInscription'>
                 Telepone (Non obligatoire) : <input type='text' name='telephoneInscription'>
-                Email (Non obligatoire) : <input type='text' name='emailInscription'>
+                Email (Obligatoire) : <input type='text' name='emailInscription'>
                 Mot de passe : <input type='password' name='motDePasseInscription'>
                 <input type='submit' value='Valider inscription'>
             </form>";

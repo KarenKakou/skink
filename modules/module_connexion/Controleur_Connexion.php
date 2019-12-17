@@ -43,5 +43,10 @@ require_once('modules/module_connexion/Modele_connexion.php');
         public function deconnect() {
             $this->modeleConnexion->deconnect();
         }
+
+        //Method permettant la suppression d'un compte
+        public function delCompte($email){
+            $this->modeleConnexion->deleteCompte($email);
+        }
     }
 ?>
