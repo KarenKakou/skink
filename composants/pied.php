@@ -1,3 +1,4 @@
+
     <footer id="pied">
 
 		<span>Skink tatouage - un projet de l'équipe du Skink - 2019</span>    	

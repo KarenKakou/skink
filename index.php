@@ -1,8 +1,10 @@
 
 <?php
 
+require_once "connexion.php";
 require_once "modules/acceuil/mod_accueil.php";
 
+Connexion::initConnexion();
 
 $module = "acceuil";
 
