@@ -13,4 +13,8 @@ class Controleur_messagerie
         $this->vueMessagerie= new Vue_Messagerie();
         $this->modeleMessagerie= new Modele_Messagerie();
     }
+
+    public function demarreDiscussion() {
+
+    }
 }

@@ -19,6 +19,11 @@ class Mod_Messagerie
             $actionMessagerie = 'errorMessagerie';
         }
 
+        switch ($actionMessagerie) {
+            case "DemarreDiscussion":
+                $this->controleur->
+                break;
+        }
     }
 
 
