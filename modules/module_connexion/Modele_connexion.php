@@ -53,8 +53,9 @@ class Modele_connexion extends Connexion
                     $nbStatut = 1;
             }
 
-            $insertPrepare = $this::$bdd->prepare('INSERT into compte values(DEFAULT, ?, ?, ?, ?, ?, ?, ?, ?)');
-            $array = array($nom, $prenom, $adresse, $telephone, $hashpassword, $email, NULL, $nbStatut);
+            $insertPrepare = $this::$bdd->prepare('INSERT into compte values(DEFAULT, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
+            $array = array($nom, $prenom, $adresse, $telephone, $hashpassword, $email, NULL, NULL, $nbStatut);
+            var_dump($array);
             if ($insertPrepare->execute($array)) {
                 echo "L'utilisateur $nom $prenom a bien été enregistré au statut de $statut";
             } else {
