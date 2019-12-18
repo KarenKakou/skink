@@ -79,40 +79,6 @@ class VueAccueil {
 
 					<?php } ?>
 
-
-				<!-- 
-  				<div class="col-sm-4">
-					<div class="card bg-secondary">
-					  <img src="images/dadyInk.png" alt="photo de dadyink" class="rounded-circle">
-					  <div class="card-body">
-					    <h5 class="card-title">DadyInk</h5>
-					    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-					    <a href="#" class="btn btn-primary">Button</a>
-					   </div>
-					</div>
-				</div>
-
-				<div class="col-sm-4">
-					<div class="card bg-secondary">
-					  <img src="images/motherInk.png" alt="photo de dadyink" class="rounded-circle">
-					  <div class="card-body">
-					    <h5 class="card-title">MotherInk</h5>
-					    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-					    <a href="#" class="btn btn-primary">Button</a>
-					  </div>
-					</div>
-				</div>
-
-				<div class="col-sm-4">
-					<div class="card bg-secondary">
-					  <img src="images/inkator.png" alt="photo de dadyink" class="rounded-circle">
-					  <div class="card-body">
-					    <h5 class="card-title">Inkator</h5>
-					    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-					    <a href="#" class="btn btn-primary">Button</a>
-					  </div>
-					</div>
-				</div> -->
 			</div>
 		</div>
 	<?php

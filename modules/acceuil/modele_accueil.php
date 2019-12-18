@@ -6,7 +6,7 @@ class ModeleAccueil extends Connexion{
 	}
 
 	public function recupNomTatoueur(){
-		$selectTatoo = $this::$bdd->prepare('SELECT nomCompte from COMPTE where idStatut=1');
+		$selectTatoo = $this::$bdd->prepare('SELECT nomCompte from COMPTE where idStatut=2');
 		$array = array(1);
 		$selectTatoo->execute($array);
 		$result = $selectTatoo->fetchAll();
