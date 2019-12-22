@@ -42,7 +42,8 @@ class Modele_Galerie extends Connexion
 
     	$image_name=$_FILES['image']['name'];
     	$file_size =$_FILES['image']['size'];
-    	$file_ext=strtolower(end(explode('.',$_FILES['image']['name'])));
+      $explode = explode('.',$_FILES['image']['name']);
+    	$file_ext=strtolower(end($explode));
       
       	$extensions= array("jpeg","jpg","png");
       
