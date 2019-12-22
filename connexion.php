@@ -4,7 +4,7 @@ class Connexion {
     protected static $bdd;
 
     public static function initConnexion() {
-		$dns = 'mysql:host=localhost; dbname=skinkv2';
+		$dns = 'mysql:host=localhost; dbname=skink';
 		self::$bdd = new PDO($dns, 'root', '');
 	}
 

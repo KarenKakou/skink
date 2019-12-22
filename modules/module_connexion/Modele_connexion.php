@@ -52,14 +52,14 @@ class Modele_connexion extends Connexion
                 default:
                     $nbStatut = 1;
             }
-
-            $insertPrepare = $this::$bdd->prepare('INSERT into compte values(DEFAULT, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
+            $this::$bdd->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING );
+            $insertPrepare = $this::$bdd->prepare('INSERT into COMPTE values(DEFAULT, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
             $array = array($nom, $prenom, $adresse, $telephone, $hashpassword, $email, NULL, NULL, $nbStatut);
-            var_dump($array);
+    
             if ($insertPrepare->execute($array)) {
                 echo "L'utilisateur $nom $prenom a bien été enregistré au statut de $statut";
             } else {
-                echo "Il y a eu un problème avec l'inscription de l'utilisateur $nom $prenom";
+                echo $this::$bdd->errorInfo();
             }
         }else {
             echo "L'adresse email n'est pas valide";

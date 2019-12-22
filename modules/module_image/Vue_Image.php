@@ -8,8 +8,8 @@
 
         public function afficherImage($image) {
             $chemin = "images/images_galerie/".$image['cheminImage'];
-            $idImage = $row['idImage'];
-            $date = $row['dateAjoutImage'];
+            $date = $image['dateAjoutImage'];
+            var_dump($date);
             echo "<img src=\"$chemin\"alt=\"modifiée le $date\"/>";
         }
 
