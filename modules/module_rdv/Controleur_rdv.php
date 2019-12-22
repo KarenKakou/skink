@@ -18,11 +18,11 @@ class Controleur_rdv
             $this->vue->formulaireRDV($listProjet);
         }
 
-        public function ajoutRDV($date, $projet, $dureeRDV, $modePaiement){
-            $this->modele->ajoutRDV($date, $projet, $dureeRDV, $modePaiement);
+        public function ajoutRDV($date, $heureDebRDV, $projet, $dureeRDV){
+            $this->modele->ajoutRDV($date, $heureDebRDV,$projet, $dureeRDV);
         }
 
-        public function listProjet() {
-            return $this->modele->listProjet();
+        public function listProjetAvecActeur() {
+            return $this->modele->listProjetAvecActeur();
         }
 }
