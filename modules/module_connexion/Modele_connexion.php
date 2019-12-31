@@ -10,14 +10,16 @@ class Modele_connexion extends Connexion
 
     //Connect teste la connection et la permet si le login et le motDePasse correspond
     public function connect($email, $password) {
-        $selectUser = $this::$bdd->prepare('SELECT motDePasse from compte where emailCompte=?');
+        $selectUser = $this::$bdd->prepare('SELECT * from COMPTE where emailCompte=?');
         $array = array($email);
         $selectUser->execute($array);
         $resultUser = $selectUser->fetchAll();
-        $hashedpassword= array_shift($resultUser);
-        if(password_verify($password, $hashedpassword['motDePasse']))
+        $varUser= array_shift($resultUser);
+        if(password_verify($password, $varUser['motDePasseCompte']))
         {
             $_SESSION['Login'] = $email;
+            $_SESSION['Statut'] = $varUser['idStatut'];
+            $_SESSION['idCompte'] = $varUser['idCompte'];
             echo "Vous etes connecté $email !";
         }
         else
@@ -28,10 +30,13 @@ class Modele_connexion extends Connexion
 
     //deconnect permet la deconnexion a la session
     public function deconnect() {
-        $log = $_SESSION['Login'];
-        echo "Déconnection de $log";
-        session_destroy();
-        echo "Vous êtes déconnecté";
+        if(isset($_SESSION['Login'])) {
+            $log = $_SESSION['Login'];
+            session_destroy();
+            echo "Vous êtes déconnecté $log";
+        }else{
+            echo "Vous n'êtes pas connecté";
+        }
     }
 
     //Methode permettant d'ajouter un compte a la base de donnee / Statut est par défaut a 1 pour les clients
@@ -77,7 +82,7 @@ class Modele_connexion extends Connexion
 
     //Method qui permet de supprimer un compte
     public function deleteCompte($email) {
-        $deleteUser = $this::$bdd->prepare('DELETE from compte where emailCompte=?');
+        $deleteUser = $this::$bdd->prepare('DELETE from COMPTE where emailCompte=?');
         $array = array($email);
         if ($deleteUser->execute($array)) {
             echo "L'utilisateur $email a bien été supprimé";
