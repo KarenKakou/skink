@@ -29,7 +29,6 @@ class Modele_projet extends Connexion
         public function ajoutProjet($nomProjet, $idClient, $idTatoueur, $descriptionProjet, $montantProjet, $nbEcheance) {
            $insertProjet = $this::$bdd->prepare('INSERT into PROJET values(DEFAULT, ?, ?, ?, ?, ?, ?)');
            $array = array($nomProjet, $descriptionProjet, intval($montantProjet), intval($nbEcheance), 0, 0);
-           var_dump($array);
            if($insertProjet->execute($array)) {
                echo "Le projet $nomProjet a bien été enregistré";
                //Select idProjet
