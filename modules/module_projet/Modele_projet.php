@@ -20,20 +20,20 @@ class Modele_projet extends Connexion
                     break;
             }
 
-            $listCompte = $this::$bdd->prepare('SELECT * from compte where idStatut=?');
+            $listCompte = $this::$bdd->prepare('SELECT * from COMPTE where idStatut=?');
             $array = array($idStatut);
             $listCompte->execute($array);
             return $listCompte->fetchAll();
         }
 
         public function ajoutProjet($nomProjet, $idClient, $idTatoueur, $descriptionProjet, $montantProjet, $nbEcheance) {
-           $insertProjet = $this::$bdd->prepare('INSERT into projet values(DEFAULT, ?, ?, ?, ?, ?, ?)');
+           $insertProjet = $this::$bdd->prepare('INSERT into PROJET values(DEFAULT, ?, ?, ?, ?, ?, ?)');
            $array = array($nomProjet, $descriptionProjet, intval($montantProjet), intval($nbEcheance), 0, 0);
            var_dump($array);
            if($insertProjet->execute($array)) {
                echo "Le projet $nomProjet a bien été enregistré";
                //Select idProjet
-               $selectProjet = $this::$bdd->prepare('SELECT idProj from projet where nomProjet=?');
+               $selectProjet = $this::$bdd->prepare('SELECT idProj from PROJET where nomProjet=?');
                $array=array($nomProjet);
                $selectProjet->execute($array);
                $resultProjet = $selectProjet->fetchAll();
@@ -41,7 +41,7 @@ class Modele_projet extends Connexion
                $idProjet=$projet['idProj'];
 
                //Insertion dans Gerer
-               $insertGererProjet = $this::$bdd->prepare('INSERT into gerer values(?, ?, ?)');
+               $insertGererProjet = $this::$bdd->prepare('INSERT into GERER values(?, ?, ?)');
                $array = array($idClient, $idProjet, $idTatoueur);
                if($insertGererProjet->execute($array)) {
                    echo "Le projet est inséré avec succès, IdProjet = $idProjet";
