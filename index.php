@@ -2,7 +2,6 @@
 <?php
 session_start();
 
-
 require_once('connexion.php');
 require_once('modules/module_connexion/mod_Connexion.php');
 require_once ('modules/module_rdv/mod_rdv.php');
@@ -11,6 +10,8 @@ require_once("modules/acceuil/mod_accueil.php");
 require_once('modules/module_galerie/Mod_Galerie.php');
 require_once('modules/module_image/Mod_Image.php');
 require_once ('modules/module_messagerie/Mod_Messagerie.php');
+require_once "modules/acceuil/mod_accueil.php";
+
 
 Connexion::initConnexion();
 
