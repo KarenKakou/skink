@@ -29,7 +29,7 @@
                 $chemin = "images/images_galerie/".$row['cheminImage'];
                 $idImage = $row['idImage'];
                 $date = $row['dateAjoutImage'];
-                echo "<a href=\"index.php?module=image&action=noAction&id=$idImage\"><img src=\"$chemin\"alt=\"modifiée le $date\"width=\"300\" height=\"300\"/></a>";
+                echo "<a href=\"index.php?module=galerie&action=voirImage&id=$idImage\"><img src=\"$chemin\"alt=\"modifiée le $date\"width=\"300\" height=\"300\"/></a>";
                 //permet d'avoir un affichage sous forme de tableau (provisoir)
                 if($i===2) {
                     echo "</br>";
@@ -40,12 +40,22 @@
         }
 
         public function afficherUpload($idTatoueur) {
-            echo 
+            echo
             "<form action=\"index.php?module=galerie&id=$idTatoueur&action=upload\" method=\"post\" 
             enctype=\"multipart/form-data\">
                 <input type=\"file\" name=\"image\" >
                 <input type=\"submit\" value=\"submit\">
             </form>";
+        }
+
+        public function afficherImage($image) {
+            $chemin = "images/images_galerie/".$image['cheminImage'];
+            $date = $image['dateAjoutImage'];
+            echo "<img src=\"$chemin\"alt=\"modifiée le $date\"/>";
+        }
+
+        public function optionSuppression($image) {
+            echo "</br><a href=\"index.php?module=galerie&action=supprimer&id=$image\">Supprimer cette image</a></br>";
         }
     }
 ?>

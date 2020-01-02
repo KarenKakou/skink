@@ -37,5 +37,15 @@ require_once('modules/module_galerie/Modele_Galerie.php');
             $image = $this->modeleGalerie->uploadImage($tatoueur);
             $this->modeleGalerie->insererImage($image,$tatoueur);
         }
+
+        public function recupererImage($image) {
+            $array = $this->modeleGalerie->obtenirImage($image);
+            $this->vueGalerie->afficherImage($array[0]);
+            $this->vueGalerie->optionSuppression($image);
+        }
+
+        public function supprimerImage($image) {
+            $this->modeleGalerie->supprimerImage($image);
+        }
     }
 ?>

@@ -32,6 +32,12 @@ require_once('modules/module_galerie/Controleur_Galerie.php');
                     $this->controleur->recupererImages($_GET['id']);
                     $this->controleur->afficherUpload($_GET['id']);
                 break;
+                case "supprimer" :
+                    $this->controleur->supprimerImage($_GET['id']);
+                break;
+                case "voirImage" :
+                    $this->controleur->recupererImage($_GET['id']);
+                break;
             }
         }
     }
