@@ -60,7 +60,7 @@ class VueAccueil {
 
 	public function carteTatoueur($nomTatoueur){
 		?>
-		<div id="carte">
+		<div id="carte" class="container">
 			<div class="row">
 
 				<?php
