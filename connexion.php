@@ -8,6 +8,5 @@ class Connexion {
 		self::$bdd = new PDO($dns, 'root', '');
 	}
 
-
 }
 ?>
