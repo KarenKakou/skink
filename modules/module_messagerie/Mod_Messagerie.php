@@ -20,8 +20,28 @@ class Mod_Messagerie
         }
 
         switch ($actionMessagerie) {
-            case "DemarreDiscussion":
-                $this->controleur->
+            case "creerOuAcceder":
+                $this->controleur->creerOuAccederConv();
+                break;
+
+            case "formCreatConv":
+                $this->controleur->formCreateConv();
+                break;
+
+            case "accesConv":
+                $this->controleur->accessConv();
+                break;
+
+            case "creatConv":
+                $this->controleur->createConv($_POST['CompteTatoueurNewMessage']);
+                break;
+
+            case "lireConv" :
+                $this->controleur->afficheConv($_POST['idConvMessagerie']);
+                break;
+
+            case "envoyerMessage":
+                $this->controleur->envoyerMessage($_POST['MessageConv'], null, $_GET['idConv'], $_SESSION['idCompte']);
                 break;
         }
     }

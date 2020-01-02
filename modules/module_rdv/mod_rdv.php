@@ -22,11 +22,11 @@ class mod_rdv
         switch ($actionRDV) {
 
             case "formRDV":
-                $this->controleur->formRDV($this->controleur->listProjet());
+                $this->controleur->formRDV($this->controleur->listProjetAvecActeur());
                 break;
 
             case "ajoutRDV" :
-                $this->controleur->ajoutRDV($_POST['dateRDV'], $_POST['RDVProjet'], $_POST['tempsRDV'],$_POST['modePaiementRDV']);
+                $this->controleur->ajoutRDV($_POST['dateRDV'], $_POST['heureDebRDV'], $_POST['RDVProjet'], $_POST['tempsRDV']);
                 break;
         }
     }

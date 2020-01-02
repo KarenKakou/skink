@@ -1,5 +1,5 @@
-
 <?php
+ob_start();
 session_start();
 
 require_once('connexion.php');
@@ -11,6 +11,7 @@ require_once('modules/module_galerie/Mod_Galerie.php');
 require_once('modules/module_image/Mod_Image.php');
 require_once ('modules/module_messagerie/Mod_Messagerie.php');
 require_once "modules/acceuil/mod_accueil.php";
+require_once ('modules/module_paiement/Mod_Paiement.php');
 
 
 Connexion::initConnexion();
@@ -24,6 +25,8 @@ $moduleALancer = new mod_Connexion();
 $moduleConnexion = new mod_Connexion();
 $moduleGalerie = new Mod_Galerie();
 $moduleImage = new Mod_Image();
+$modulePaiement = new Mod_Paiement();
+
 
 switch($module){
 	case "connexion":
@@ -51,6 +54,10 @@ switch($module){
 
 	case "image":
 		$moduleImage->launchModImage();
+		break;
+
+	case "paiement":
+		$modulePaiement->launchModPaiement();
 		break;
 
 	case "messagerie":
