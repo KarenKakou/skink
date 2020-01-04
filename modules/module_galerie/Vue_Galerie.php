@@ -7,26 +7,89 @@
             include("composants/entete.php");
         }
 
+        //affiche tous les tatoueurs
+        public function afficherTousTatoueursGalerie($array) {
+            ?>
+                <div class="container bg-dark">
+                    <div class="row">
+
+            <?php
+
+            foreach ($array as $row) {
+                $idTatoueur = $row['idCompte'];
+                $nomTatoueur = $row['nomCompte'];
+                $avatar = $row['avatarCompte'];
+                echo " 
+                        <div class='col-12 col-md'>
+                        <div class='card carteGalerie'>
+                            </br><a href=\"index.php?module=galerie&action=voirGalerie&id=$idTatoueur\"><img src='images/$avatar' class='card-img-top'></img></a></br>
+                            <div class='card-body'>
+                                <a href='index.php?module=galerie&action=voirGalerie&id=$idTatoueur'><h5 class='card-text text-body'>$nomTatoueur</h5></a>
+                            </div>
+                        </div></div>";
+            }
+                ?>
+                    </div>
+                </div><?php
+            
+        }
+
+        public function afficheGaleriePerso($tatoo, $img){
+
+            $nomTatoueur = $tatoo[0]['nomCompte'];
+            $avatar = $tatoo[0]['avatarCompte'];
+            $i=0;
+            echo "
+                <div class='container'>
+                    <div class='row'>
+                        <div class='col-md-4 border'>
+                            <img src='images/$avatar' class='rounded-circle' width='200'>
+                            <h2>$nomTatoueur</h2>
+                            <div class='logo'>
+                                <a href=''><img src='images/logoFB.png' width='50' height='50'/></a>
+                            </div>
+                            <div class='logo'>
+                                <a href=''><img src='images/logoInsta.png' width='50' height='50'/></a>
+                            </div>
+                            <input type='button' value='contacter $nomTatoueur'>
+                        </div>
+
+                        <div class='col-md-8'>";
+            foreach ($img as $row) 
+            {
+                $chemin = "images/images_galerie/".$row['cheminImage'];
+                $idImage = $row['idImage'];
+                $date = $row['dateAjoutImage'];
+            
+                if($i%2==0){
+                    echo "
+                            <div class='row'>
+                            ";
+                }
+                echo "
+                                <div class='col-lg imgGalerie'>
+                                     <a href=\"index.php?module=image&action=noAction&id=$idImage\"><img src=\"$chemin\"alt=\"modifiée le $date\"width=\"250\" height=\"250\"/></a>
+                                </div>
+                ";
+                if($i%2 != 0){
+                    echo "</div>";
+                }
+
+                $i++;
+            }
+
+            echo "     </div>
+                    </div>
+                </div>";
+            
+            
+
+        }
+
         public function afficherTatoueurGalerie($row) {
             $prenomTatoueur = $row['prenomCompte'];
             $nomTatoueur = $row['nomCompte'];
             echo "</br>Travaux de $nomTatoueur</br>";
-        }
-
-        public function afficherTousTatoueursGalerie($array) {
-            ?>
-                <div class="container bg-dark">
-
-            <?php
-            foreach ($array as $row) {
-                $idTatoueur = $row['idCompte'];
-                $prenomTatoueur = $row['prenomCompte'];
-                $nomTatoueur = $row['nomCompte'];
-                echo "</br><a href=\"index.php?module=galerie&action=voirGalerie&id=$idTatoueur\">$nomTatoueur</a></br>";
-            }
-                ?>
-                </div><?php
-            
         }
 
         public function afficherImagesGalerie($array) {

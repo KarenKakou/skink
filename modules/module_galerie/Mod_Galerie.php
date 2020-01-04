@@ -28,8 +28,11 @@ require_once('modules/module_galerie/Controleur_Galerie.php');
                     $this->controleur->recupererTousTatoueurs(2);
                 break;
                 case "voirGalerie" :
+                    /*
                     $this->controleur->recupererTatoueur($_GET['id']);
-                    $this->controleur->recupererImages($_GET['id']);
+                    $this->controleur->recupererImages($_GET['id']);*/
+
+                    $this->controleur->galeriePerso($_GET['id']);
                     $this->controleur->afficherUpload($_GET['id']);
                 break;
             }
