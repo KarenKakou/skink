@@ -1,12 +1,13 @@
 .carousel-inner > .carousel-item > img{
 	margin:auto;
 	width:100%;
-	height: 100%;
+	height: 150px;
 }
 
 .carousel {
 
-	border : 1px solid black;
+	border : 1px solid gray;
+	/*height: 200px;*/
 
 }
 
@@ -43,4 +44,28 @@ footer{
 
 .bordure{
 	border: 1px solid red;
+}
+
+.center{
+	margin:auto;
+	/*border: 1px solid red;*/
+}
+
+.deuxTiers{
+	width: 70%;
+}
+
+#inscription{
+	padding-bottom: 10px;
+	color:white;
+}
+
+h1{
+	margin-top:15px;
+	margin-bottom: 30px;
+}
+
+.padcenter{
+	padding-left:40px;
+	margin-bottom: 20px;
 }

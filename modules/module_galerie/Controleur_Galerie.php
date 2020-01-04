@@ -37,5 +37,9 @@ require_once('modules/module_galerie/Modele_Galerie.php');
             $image = $this->modeleGalerie->uploadImage($tatoueur);
             $this->modeleGalerie->insererImage($image,$tatoueur);
         }
+
+        public function pied(){
+            $this->vueGalerie->affichePied();
+        }
     }
 ?>

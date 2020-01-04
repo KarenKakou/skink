@@ -29,6 +29,16 @@ $modulePaiement = new Mod_Paiement();
 
 
 switch($module){
+
+	case "espacePerso":
+		if(isset($_SESSION['login'])){
+			echo "deja connecté";
+		}
+		else{
+			$module = "connexion";
+		}
+
+
 	case "connexion":
 		$moduleALancer = new mod_Connexion();
 		$moduleALancer->launchModConnexion();

@@ -12,7 +12,7 @@ class VueAccueil {
 
 	<div class="container-fluide">
   <div class="row">
-    <div class="col-lg-6">
+    <div class="col-lg-5 center">
       <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
           <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -40,7 +40,7 @@ class VueAccueil {
         </a>
     </div>
 </div>
-    <div class="col-lg-6">
+    <div class="col-lg-5 center">
     	<div class="">
     		<h1>Skink tatoo</h1>
       <span>
@@ -70,9 +70,9 @@ class VueAccueil {
 							<div class="card bg-secondary">
 							  <img src="images/dadyInk.png" alt="photo de dadyink" class="rounded-circle">
 							  <div class="card-body">
-							    <h5 class="card-title"><?php echo $nomTatoueur[$i]["nomCompte"]; ?></h5>
+							    <h5 class="card-title"><?php echo $nomTatoueur[$i]["nomCompte"];?></h5>
 							    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-							    <a href="#" class="btn btn-primary">voir ses créations</a>
+							    <a href="index.php?module=galerie&action=voirGalerie&id=<?php echo $i+2; ?>" class="btn btn-primary">voir ses créations</a>
 							   </div>
 							</div>
 						</div>

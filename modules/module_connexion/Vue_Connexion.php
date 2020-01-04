@@ -7,18 +7,64 @@
         {
         }
 
-        public function form_Connexion() {
+        public function form_Connexion_Inscription() {
+
             echo"
-            <form action =\"index.php?module=connexion&actionConnexion=connexion\" method=\"POST\">
-                <h1>Connexion a SKINK</h1>
-                Entrez votre identifiant (e-mail) : <input type='text' name='identifiantConnexion'>
-                Entrez votre MotDePasse : <input type='password' name='MotDePasseConnexion'>
-                <input type='submit' value='Se connecter'>
-            </form>";
+            <div class='container bg-dark' id='inscription'>
+                <div class='row'>
+                    <div class='col-10 col-md-6 padcenter'>
+                        <form action =\"index.php?module=connexion&actionConnexion=connexion\" method=\"POST\">
+                            <h1>Déjà inscrit</h1>
+                            <div class='form-group'>
+                                <label for='email'>Entrez votre identifiant (e-mail)</label> 
+                                <input type='text' name='identifiantConnexion' id='email' class='form-control deuxTiers'>
+                            </div>
+                            <div class='form-group'>
+                                <label for='mdp'>Entrez votre MotDePasse</label>
+                                <input type='password' name='MotDePasseConnexion' id='mdp' class='form-control deuxTiers'>
+                            </div>
+                            <input type='submit' value='Se connecter' class='btn btn-light'>
+                        </form>
+                    </div>
+                    <div class='col-10 col-md-6 padcenter'>
+                        <form action =\"index.php?module=connexion&actionConnexion=ajoutInscription\" method=\"POST\">
+                            <h1>Pas encore de compte ?</h1>
+                            <div class='form-group'>
+                                <label for='nom'>Entrez votre nom* </label> 
+                                <input type='text' name='nomInscription' id='nom' class='form-control deuxTiers'>
+                            </div>
+                            <div class='form-group'>
+                                <label for='prenom'>Entrez votre prenom* </label> 
+                                <input type='text' name='prenomInscription' id='prenom' class='form-control deuxTiers'>
+                            </div>
+                            <div class='form-group'>
+                                <label for='adresse'>Adresse</label> 
+                                <input type='text' name='adresseInscription' id='adresse' class='form-control deuxTiers'>
+                            </div> 
+                            <div class='form-group'>
+                                <label for='tel'>Telepone*</label> 
+                                <input type='text' name='telephoneInscription' id='tel' class='form-control deuxTiers'>
+                            </div>
+                            <div class='form-group'>
+                                <label for='mail'>Email*</label>
+                                <input type='text' name='emailInscription' id='mail' class='form-control deuxTiers'>
+                            </div>
+                            <div class='form-group'>
+                                <label for='mdp'>Mot de passe* </label>
+                                <input type='password' name='motDePasseInscription' id='mdp' class='form-control deuxTiers'>
+                            </div>
+                            <input type='submit' value='Valider inscription' class='btn btn-light'>
+                        </form>
+                     </div>
+                </div>
+            </div>";
+
+            include("composants/pied.php");
         }
 
         public function form_InscriptionClient() {
             echo"
+            <div class='container bg-dark'>
             <form action =\"index.php?module=connexion&actionConnexion=ajoutInscription\" method=\"POST\">
                 <h1>Creation de compte</h1>
                 Entrez votre nom : <input type='text' name='nomInscription'>
@@ -28,11 +74,13 @@
                 Email (Obligatoire) : <input type='text' name='emailInscription'>
                 Mot de passe : <input type='password' name='motDePasseInscription'>
                 <input type='submit' value='Valider inscription'>
-            </form>";
+            </form>
+            </div>";
         }
 
         public function form_InscriptionParAdmin() {
             echo"
+            <div class='container bg-dark'>
             <form action =\"index.php?module=connexion&actionConnexion=ajoutInscriptionAdmin\" method=\"POST\">
                 <h1>Creation de compte par Admin</h1>
                 Entrez le nom : <input type='text' name='nomInscriptionAdmin'>
@@ -47,7 +95,8 @@
                                 <option>Admin</option>
                         </select> 
                 <input type='submit' value='Valider inscription'>
-            </form>";
+            </form>
+            </div>";
         }
     }
 ?>

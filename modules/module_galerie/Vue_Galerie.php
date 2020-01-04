@@ -4,21 +4,28 @@
     {
         public function __construct()
         {
+            include("composants/entete.php");
         }
 
         public function afficherTatoueurGalerie($row) {
             $prenomTatoueur = $row['prenomCompte'];
             $nomTatoueur = $row['nomCompte'];
-            echo "</br>Travaux de $prenomTatoueur $nomTatoueur</br>";
+            echo "</br>Travaux de $nomTatoueur</br>";
         }
 
         public function afficherTousTatoueursGalerie($array) {
+            ?>
+                <div class="container bg-dark">
+
+            <?php
             foreach ($array as $row) {
                 $idTatoueur = $row['idCompte'];
                 $prenomTatoueur = $row['prenomCompte'];
                 $nomTatoueur = $row['nomCompte'];
-                echo "</br><a href=\"index.php?module=galerie&action=voirGalerie&id=$idTatoueur\">$prenomTatoueur $nomTatoueur</a></br>";
+                echo "</br><a href=\"index.php?module=galerie&action=voirGalerie&id=$idTatoueur\">$nomTatoueur</a></br>";
             }
+                ?>
+                </div><?php
             
         }
 
@@ -46,6 +53,10 @@
                 <input type=\"file\" name=\"image\" >
                 <input type=\"submit\" value=\"submit\">
             </form>";
+        }
+
+        public function affichePied(){
+            include("composants/pied.php");
         }
     }
 ?>

@@ -33,6 +33,8 @@ require_once('modules/module_galerie/Controleur_Galerie.php');
                     $this->controleur->afficherUpload($_GET['id']);
                 break;
             }
+
+            $this->controleur->pied();
         }
     }
 ?>
