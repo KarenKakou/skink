@@ -33,6 +33,7 @@ switch($module){
 
 	case "espacePerso":
 		if(isset($_SESSION['Login'])){
+			echo "hiylb rbhfy g r yegr ryegerbfgh frg fue rreg brg regrjbg";
 			include("composants/espacePerso.php");
 			break;
 		}
@@ -81,8 +82,5 @@ switch($module){
 		break;
 
 }
-
-include("composants/pied.php");
-
 ?>
 

@@ -32,13 +32,13 @@ $modulePaiement = new Mod_Paiement();
 switch($module){
 
 	case "espacePerso":
-		if(isset($_SESSION['Login'])){
-			include("composants/espacePerso.php");
-			break;
+		if(isset($_SESSION['login'])){
+			echo "deja connecté";
 		}
 		else{
 			$module = "connexion";
 		}
+
 
 	case "connexion":
 		$moduleALancer = new mod_Connexion();
@@ -81,8 +81,5 @@ switch($module){
 		break;
 
 }
-
-include("composants/pied.php");
-
 ?>
 

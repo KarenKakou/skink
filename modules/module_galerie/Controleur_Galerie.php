@@ -44,8 +44,5 @@ require_once('modules/module_galerie/Modele_Galerie.php');
             $this->modeleGalerie->insererImage($image,$tatoueur);
         }
 
-        public function pied(){
-            $this->vueGalerie->affichePied();
-        }
     }
 ?>

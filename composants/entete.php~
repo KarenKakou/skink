@@ -34,9 +34,6 @@
           <li class="nav-item">
             <a class="nav-link" href="index.php?module=connexion">Connexion provisoire</a>
           </li>
-          <li class="nav-item">
-          	<a class="nav-link" href="index.php?module=espacePerso">Espace perso</a>	
-          </li>
         </ul>
       </div>
     </nav>

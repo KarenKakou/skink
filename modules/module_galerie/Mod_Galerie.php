@@ -33,11 +33,12 @@ require_once('modules/module_galerie/Controleur_Galerie.php');
                     $this->controleur->recupererImages($_GET['id']);*/
 
                     $this->controleur->galeriePerso($_GET['id']);
-                    $this->controleur->afficherUpload($_GET['id']);
+
+                    if(isset($_SESSION['Statut']) && $_SESSION['Statut'] == 2)
+                        $this->controleur->afficherUpload($_GET['id']);
                 break;
             }
 
-            $this->controleur->pied();
         }
     }
 ?>
