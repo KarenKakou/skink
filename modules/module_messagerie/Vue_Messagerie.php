@@ -1,6 +1,8 @@
 <?php
 
 
+include_once ('modules/module_messagerie/Envoyer_Message.php');
+
 class Vue_Messagerie
 {
     public function __construct()
@@ -100,7 +102,7 @@ class Vue_Messagerie
           </div>
           <div class=\"type_msg\">
             <div class=\"input_msg_write\">
-              <form action =\"index.php?module=messagerie&actionMessagerie=envoyerMessage&idConv=$idConv\" method=\"POST\" enctype=\"multipart/form-data\">
+              <form action =\"modules/module_messagerie/Envoyer_Message.php\" method=\"POST\" enctype=\"multipart/form-data\">
                 <input type=\"text\" name ='MessageConv' class=\"write_msg\" placeholder=\"Type a message\" /> 
                 <input type=\"file\" name=\"MessageImage\" class='btn btn-light uploadButton'/>
                 <button class=\"msg_send_btn\" type=\"submit\"><i class=\"fa fa-paper-plane-o\" aria-hidden=\"true\"></i></button>
