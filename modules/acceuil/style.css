@@ -45,15 +45,12 @@ footer{
 	border: 1px solid red;
 }
 
-<<<<<<< HEAD
 .center{
 	margin:auto;
 }
-
+/*----------------------- Style paiement --------------------------*/
 .profile 
 {
-/*    height: 321px;
-    width: 265px;*/
 margin-top: 2px;
 padding:1px;
 background-color: #fff;
@@ -84,6 +81,22 @@ span.tags2
 {
     background: #f56954;
     border-radius: 3px;
+    color: #f5f5f5;
+    font-weight: bold;
+    padding: 2px 4px;
+    }
+span.tags3
+{
+    background: #da7951;
+    border-radius: 1px;
+    color: #f5f5f5;
+    font-weight: bold;
+    padding: 2px 4px;
+    }
+ span.tags4
+{
+    background: #347dc6;
+    border-radius: 1px;
     color: #f5f5f5;
     font-weight: bold;
     padding: 2px 4px;
@@ -165,7 +178,6 @@ color: #fff;
 
 
 
-=======
 /*----------------------- Test Style Messagerie --------------------------*/
 
 .bodyMessagerie{

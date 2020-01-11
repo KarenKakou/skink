@@ -59,12 +59,12 @@
                                         <div class=row>
                                             <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12 divider text-center\"></div>
                                             <div class=\"col-lg-6\" style=\"text-align:center;overflow-wrap: break-word;\">
-                                                <p><small class=\"label label-success\">tatoueur</small></p>
+                                                </strong><span class=\"tags3\" id=\"user-status\">Tatoueur</span></p>
                                                 <p style=\"text-align: center;\"><strong>$nomTatoueur $prenomTatoueur</strong></p>
                                                 <p style=\"text-align: center;\">tel : $telTatoueur</p>          
                                             </div>
                                             <div class=\" col-lg-6\" style=\"text-align:center;overflow-wrap: break-word;\">               
-                                                <p> <small class=\"label label-warning\">client</small></p>
+                                                </strong><span class=\"tags4\" id=\"user-status\">Client</span></p>
                                                 <p style=\"text-align: center;\"><strong>$nomClient $prenomClient</strong></p>
                                                 <p style=\"text-align: center;\">tel : $telClient</p>   
                                             </div>
