@@ -41,7 +41,7 @@ class Mod_Messagerie
                 break;
 
             case "envoyerMessage":
-                $this->controleur->envoyerMessage($_POST['MessageConv'], null, $_GET['idConv'], $_SESSION['idCompte']);
+                $this->controleur->envoyerMessage($_POST['MessageConv'], $_GET['idConv'], $_SESSION['idCompte']);
                 break;
         }
     }
