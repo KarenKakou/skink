@@ -27,12 +27,8 @@ require_once('modules/module_paiement/Modele_Paiement.php');
         public function recupererProjet($idProjet) {
             $arrayClient = $this->modelePaiement->obtenirProjet($idProjet);
             $arrayTatoueur = $this->modelePaiement->obtenirTatoueurProjet($idProjet);
-            $this->vuePaiement->afficherProjet($arrayClient[0]);
+            $this->vuePaiement->afficherAvancementPaiement($arrayClient[0], $arrayClient[0], $arrayTatoueur[0]);
             //attention le client n'a pas besoin de se voir lui même dans le proj le client (utiliser var globale plus tard) same pour le tatoueur
-            $this->vuePaiement->afficherClientProjet($arrayClient[0]);
-            $this->vuePaiement->afficherTatoueurProjet($arrayTatoueur[0]);
-            $this->vuePaiement->afficherMajArrhes($idProjet);
-            $this->vuePaiement->afficherIncrementerEcheances($idProjet);
 
         }
 
@@ -41,6 +37,7 @@ require_once('modules/module_paiement/Modele_Paiement.php');
         }
 
         public function incrementerEcheances($idProjet) {
+
             $array = $this->modelePaiement->obtenirProjet($idProjet);
             $this->modelePaiement->incrementerEcheances($array[0]);
         }
