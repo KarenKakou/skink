@@ -58,11 +58,10 @@ class Modele_Messagerie  extends Connexion {
     public function newConversation($compteTatoueur) {
         $insertPrepare = $this::$bdd->prepare('INSERT into CONVERSATION values(DEFAULT)');
         if($insertPrepare->execute()) {
-            echo "La conversation a bien été créée";
             $idConv = $this::$bdd->lastInsertId();
 
             //Insérer le message "Nouvelle conversation"
-            $this->nouveauMessage("Nouvelle conversation", null, $idConv, $_SESSION['idCompte'], $compteTatoueur);
+            $this->nouveauMessage("Voici votre nouvelle conversation avec un tatoueur, écrivez lui votre idée de projet ou demandez lui des conseils !", $idConv, $_SESSION['idCompte'], $compteTatoueur);
             return $idConv;
         }else {
             echo "Il y a eu un problème avec la création de la conversation";
@@ -72,7 +71,6 @@ class Modele_Messagerie  extends Connexion {
     //Methode permettant d'envoyer un nouveau message
     public function nouveauMessage($corps, $idConv, $idCompteEmetteur, $idCompteReceveur) {
         if(isset($_FILES['MessageImage'])) {
-            var_dump($_FILES['MessageImage']);
             $pieceJointe = $this->uploadImageMessagerie();
         }else {
             $pieceJointe = null;
@@ -117,7 +115,7 @@ class Modele_Messagerie  extends Connexion {
         $extensions= array("jpeg","jpg","png");
 
             if(in_array($file_ext,$extensions)=== false){
-                $errors[]="extension non prise en charge";
+                //s$errors[]="extension non prise en charge";
             }
 
             if($file_size > 2097152){
