@@ -27,7 +27,7 @@ require_once('modules/module_paiement/Controleur_Paiement.php');
                     $this->controleur->recupererProjetsDeTatoueur($_GET['id']);
                 break;
                 case "voirProjet" :
-                    $this->controleur->recupererProjet($_GET['id']);
+                    $this->controleur->avancementPaiement($_GET['id']);
                 break;
                 case "majArrhes" :
                     $this->controleur->majArrhes($_GET['id']);

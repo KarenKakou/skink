@@ -16,19 +16,19 @@ require_once('modules/module_paiement/Modele_Paiement.php');
 
         public function recupererProjetsDeClient($idCompte) {
             $array = $this->modelePaiement->obtenirProjetsDeClient($idCompte);
-            $this->vuePaiement->afficherProjets($array);
+            $this->vuePaiement->afficherProjetsPaiement($array);
         }
 
         public function recupererProjetsDeTatoueur($idCompte) {
             $array = $this->modelePaiement->obtenirProjetsDeTatoueur($idCompte);
-            $this->vuePaiement->afficherProjets($array);
+            $this->vuePaiement->afficherProjetsPaiement($array);
         }
 
-        public function recupererProjet($idProjet) {
+        public function avancementPaiement($idProjet) {
             $arrayClient = $this->modelePaiement->obtenirProjet($idProjet);
             $arrayTatoueur = $this->modelePaiement->obtenirTatoueurProjet($idProjet);
             $this->vuePaiement->afficherAvancementPaiement($arrayClient[0], $arrayClient[0], $arrayTatoueur[0]);
-            //attention le client n'a pas besoin de se voir lui même dans le proj le client (utiliser var globale plus tard) same pour le tatoueur
+
 
         }
 

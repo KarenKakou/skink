@@ -1,19 +1,9 @@
 <?php
-
+    include("composants/entete.php");
     class Vue_Paiement
     {
         public function __construct()
         {
-            include("composants/entete.php");
-        }
-
-        public function afficherProjets($array) {
-            foreach ($array as $row) {
-                $idCompte = $row['idCompte'];
-                $idProjet = $row['idProj'];
-                $nomProjet = $row['nomProjet'];
-                echo "<a href=\"index.php?module=paiement&action=voirProjet&id=$idProjet\">$nomProjet</a>";
-            }
         }
 
         public function afficherAvancementPaiement($projet, $client, $tatoueur) {
@@ -124,6 +114,52 @@
                     </div>
                 </div>
             </section>";
+        }
+
+        public function afficherProjetsPaiement($array) {
+            echo "
+            <section>
+            <div class=\"container\">
+                <div class=\"row\">
+                    <div class=\"span5 col-lg-10 center\">
+                        <table class=\"table table-striped table-condensed\">
+                        <thead>
+                            <tr>
+                                <th>Nom du projet</th>
+                                <th>Client</th>
+                                <th>Tatoueur</th>
+                                <th>Paiement</th>                                          
+                            </tr>
+                        </thead>   
+                        <tbody>";
+                        foreach ($array as $row) {
+                            $nomCompte = $row['nomCompte'];
+                            $nomProjet = $row['nomProjet'];
+                            $idProjet = $row['idProj'];
+                            $echeanceTotal = $row['nbEcheancesTotales'];
+                            $echeancePayee = $row['nbEcheancesPayees'];
+                            $arrhes = $row['arrhesPayees'];
+                            echo "<tr>
+                                <td>$nomProjet</td>
+                                <td>$nomCompte</td>
+                                <td>$nomCompte</td>
+                                <td>
+                                    <a href=\"index.php?module=paiement&action=voirProjet&id=$idProjet\"></strong>";
+                                    if($arrhes != 0 && $echeancePayee == $echeanceTotal) {
+                                                echo "</strong><span class=\"tags1\" id=\"user-status\">Terminé</span></p>";
+                                            }
+                                            else {
+                                                echo "</strong><span class=\"tags2\" id=\"user-status\">En cours</span></p>";
+                                            }
+                                echo"</td>                              
+                            </tr>";
+                        }                      
+                        echo "</tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        </section>";
         }
     }
 ?>
