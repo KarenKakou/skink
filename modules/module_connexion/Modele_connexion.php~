@@ -18,7 +18,6 @@ class Modele_connexion extends Connexion
         if(password_verify($password, $varUser['motDePasseCompte']))
         {
             $_SESSION['Login'] = $email;
-            $_SESSION['prenom'] = $varUser['prenomCompte'];
             $_SESSION['Statut'] = $varUser['idStatut'];
             $_SESSION['idCompte'] = $varUser['idCompte'];
             echo "Vous etes connecté $email !";

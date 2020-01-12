@@ -43,10 +43,31 @@ class Vue_rdv
                 <option value='60'>1h</option>
                 <option value='90'>1h30</option>
                 <option value='120'>2h</option>
+                <option value='150'>2h30</option>
+                <option value='180'>3h</option>
+                <option value='210'>3h30</option>
                 </select>
                 
                 <input type='submit' value='Valider le RDV'>
             </form>";
     }
+
+    public function afficheRdv($rdvs){
+
+        echo "<div class='container-fluide'>
+                ";
+
+        foreach ($rdvs as $key => $value){
+                echo  "
+                    <div class='container bg-light rdv'>
+                        <h2>RDV</h2>
+                        <span>vous avez rdv le : "; echo $value['debRdv']; echo " </span>
+                        <span>avec : "; echo $value['nomCompteTatoueur']; echo " </span>
+                    </div>
+                ";
+        }
+    }
+
+    
 
 }

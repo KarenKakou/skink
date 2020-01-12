@@ -9,6 +9,7 @@ require_once ('modules/module_rdv/mod_rdv.php');
 require_once ('modules/module_projet/mod_projet.php');
 require_once("modules/acceuil/mod_accueil.php");
 require_once('modules/module_galerie/Mod_Galerie.php');
+require_once('modules/module_image/Mod_Image.php');
 require_once ('modules/module_messagerie/Mod_Messagerie.php');
 require_once "modules/acceuil/mod_accueil.php";
 require_once ('modules/module_paiement/Mod_Paiement.php');
@@ -24,10 +25,20 @@ else
 $moduleALancer = new mod_Connexion();
 $moduleConnexion = new mod_Connexion();
 $moduleGalerie = new Mod_Galerie();
+$moduleImage = new Mod_Image();
 $modulePaiement = new Mod_Paiement();
 
 
 switch($module){
+
+	case "espacePerso":
+		if(isset($_SESSION['login'])){
+			echo "deja connecté";
+		}
+		else{
+			$module = "connexion";
+		}
+
 
 	case "connexion":
 		$moduleALancer = new mod_Connexion();
@@ -44,20 +55,16 @@ switch($module){
 		break;
 
 	case "rdv" :
-
-		if(isset($_SESSION['Login'])){
-			$moduleALancer = new mod_rdv();
-			$moduleALancer->launchModRdv();
-			break;			
-		}
-		else{
-			$moduleALancer = new mod_Connexion();
-			$moduleALancer->launchModConnexion();
-			break;
-		}
+		$moduleALancer = new mod_rdv();
+		$moduleALancer->launchModRdv();
+		break;
 
 	case "galerie":
 		$moduleGalerie->launchModGalerie();
+		break;
+
+	case "image":
+		$moduleImage->launchModImage();
 		break;
 
 	case "paiement":
@@ -74,8 +81,5 @@ switch($module){
 		break;
 
 }
-
-include("composants/pied.php");
-
 ?>
 
