@@ -28,7 +28,7 @@ class Controleur_messagerie
 
     public function createConv($compteTatoueur) {
         $idConv = $this->modeleMessagerie->newConversation($compteTatoueur);
-        $this->vueMessagerie->afficheMessages($this->modeleMessagerie->accederMessage($idConv));
+        $this->afficheConv($idConv);
     }
 
     public function afficheConv($idConv) {
