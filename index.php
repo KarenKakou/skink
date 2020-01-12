@@ -31,15 +31,6 @@ $modulePaiement = new Mod_Paiement();
 
 switch($module){
 
-	case "espacePerso":
-		if(isset($_SESSION['Login'])){
-			include("composants/espacePerso.php");
-			break;
-		}
-		else{
-			$module = "connexion";
-		}
-
 	case "connexion":
 		$moduleALancer = new mod_Connexion();
 		$moduleALancer->launchModConnexion();
@@ -55,9 +46,17 @@ switch($module){
 		break;
 
 	case "rdv" :
-		$moduleALancer = new mod_rdv();
-		$moduleALancer->launchModRdv();
-		break;
+
+		if(isset($_SESSION['Login'])){
+			$moduleALancer = new mod_rdv();
+			$moduleALancer->launchModRdv();
+			break;			
+		}
+		else{
+			$moduleALancer = new mod_Connexion();
+			$moduleALancer->launchModConnexion();
+			break;
+		}
 
 	case "galerie":
 		$moduleGalerie->launchModGalerie();

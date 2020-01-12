@@ -16,32 +16,49 @@
 
 
   <body class="bg-secondary">
+    <header>
+  <?php 
 
+  echo "
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-      <a class="navbar-brand" href="index.php?module=acceuil">Skink</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+    <nav class='navbar navbar-expand-lg navbar-dark bg-dark fixed-top'>
+      <a class='navbar-brand' href='index.php?module=acceuil'>Skink</a>
+      <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation'>
+        <span class='navbar-toggler-icon'></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item active">
-            <a class="nav-link" href="index.php?module=acceuil">Home <span class="sr-only">(current)</span></a>
+      <div class='collapse navbar-collapse' id='navbarNav'>
+        <ul class='navbar-nav'>
+          <li class='nav-item'>
+            <a class='nav-link' href='index.php?module=acceuil'>Home <span class='sr-only'>(current)</span></a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="index.php?module=galerie">Galeries</a>
+          <li class='nav-item'>
+            <a class='nav-link' href='index.php?module=galerie'>Galeries</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="index.php?module=connexion">Connexion provisoire</a>
-          </li>
-          <li class="nav-item">
-          	<a class="nav-link" href="index.php?module=espacePerso">Espace perso</a>	
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="index.php?module=rdv&actionRDV=formRDV">rdv</a>
+          <li class='nav-item dropdown right'>
+            <a class='nav-link dropdown-toggle' href='index.php?module=connexion' id='navbarDropdown' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+              espace perso  <img src='images/compte.png' id='logoCompte'/>
+            </a>
+            <div class='dropdown-menu' aria-labelledby='navbarDropdown'>
+            ";
+
+            if(isset($_SESSION['Login'])){
+              $login = $_SESSION['prenom'];
+              echo "<span class='dropdown-item text-danger'>$login</span>";
+            }
+
+            echo "
+              <a class='dropdown-item' href='#'>messagerie</a>
+              <a class='dropdown-item' href='index.php?module=rdv'>rdv</a>
+              <a class='dropdown-item' href=''>suivre mes paiements</a>
+              <div class='dropdown-divider'></div>
+              <a class='dropdown-item' href='index.php?module=connexion'>se connecter</a>
+            </div>
           </li>
         </ul>
       </div>
-    </nav>
+    </nav>";
 
+?>
+
+    </header>
     <section>

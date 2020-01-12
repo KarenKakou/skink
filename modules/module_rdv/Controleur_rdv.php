@@ -26,7 +26,7 @@ class Controleur_rdv
             return $this->modele->listProjetAvecActeur();
         }
 
-        public function calendrier(){
-            $this->vue->calendrier();
+        public function listeRdv($idClient){
+            $this->vue->afficheRdv($this->modele->listeDesRdvs($idClient));
         }
 }
