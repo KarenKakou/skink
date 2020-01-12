@@ -1,7 +1,7 @@
 <?php
 
 
-include_once ('modules/module_messagerie/Envoyer_Message.php');
+//require_once ('modules/module_messagerie/Envoyer_Message.php');
 
 class Vue_Messagerie
 {
@@ -63,15 +63,15 @@ class Vue_Messagerie
 
     public function vue_AffichesMessages($listMessage, $idConv) {
         include("composants/entete.php");
-        echo "<body>
+        echo "
                 <section>
                     <div class=\"container\">
-                    <h3 class=\" text-center\">Messaging</h3>
+                    <h3 class=\" text-center\">Conversation ".$idConv."</h3>
                     <div class=\"messaging\">
                           <div class=\"inbox_msg\">
                           
                             <div class=\"mesgs\">
-                              <div class=\"msg_history\">";
+                              <div id='Messagerie' class=\"msg_history\">";
         foreach ($listMessage as $key => $value) {
             if($listMessage[$key]['idCompte'] == $_SESSION['idCompte']){
                 echo "<div class=\"outgoing_msg\">
@@ -102,10 +102,11 @@ class Vue_Messagerie
           </div>
           <div class=\"type_msg\">
             <div class=\"input_msg_write\">
-              <form action =\"modules/module_messagerie/Envoyer_Message.php\" method=\"POST\" enctype=\"multipart/form-data\">
-                <input type=\"text\" name ='MessageConv' class=\"write_msg\" placeholder=\"Type a message\" /> 
-                <input type=\"file\" name=\"MessageImage\" class='btn btn-light uploadButton'/>
-                <button class=\"msg_send_btn\" type=\"submit\"><i class=\"fa fa-paper-plane-o\" aria-hidden=\"true\"></i></button>
+              <form action =\"Envoyer_Message.php\" id='formMessage' method=\"POST\" enctype=\"multipart/form-data\">
+                <input type=\"text\" id='Message' name ='messageconv' class=\"write_msg\" placeholder=\"Type a message\" /> 
+                <input type=\"file\" id='MessageImage' name=\"MessageImage\" class='btn btn-light uploadButton'/>
+                <input type='hidden' id='idConv' value=".$idConv." />
+                <button class=\"msg_send_btn\" id='envoi' name='submit' type=\"submit\"><i class=\"fa fa-paper-plane-o\" aria-hidden=\"true\"></i></button>
               </form>
             </div>
           </div>
@@ -115,7 +116,7 @@ class Vue_Messagerie
     </div>
     </div>
     </section>
-    </body>";
+    <script type='text/javascript' src='modules/module_messagerie/MessageScript.js'></script>";
         include ("composants/pied.php");
     }
 

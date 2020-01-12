@@ -58,11 +58,10 @@ class Modele_Messagerie  extends Connexion {
     public function newConversation($compteTatoueur) {
         $insertPrepare = $this::$bdd->prepare('INSERT into CONVERSATION values(DEFAULT)');
         if($insertPrepare->execute()) {
-            echo "La conversation a bien été créée";
             $idConv = $this::$bdd->lastInsertId();
 
             //Insérer le message "Nouvelle conversation"
-            $this->nouveauMessage("Nouvelle conversation", null, $idConv, $_SESSION['idCompte'], $compteTatoueur);
+            $this->nouveauMessage("Voici votre nouvelle conversation avec un tatoueur, écrivez lui votre idée de projet ou demandez lui des conseils !", $idConv, $_SESSION['idCompte'], $compteTatoueur);
             return $idConv;
         }else {
             echo "Il y a eu un problème avec la création de la conversation";
