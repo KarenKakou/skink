@@ -72,7 +72,7 @@ class VueAccueil {
 							  <div class="card-body">
 							    <h5 class="card-title"><?php echo $nomTatoueur[$i]["nomCompte"];?></h5>
 							    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-							    <a href="index.php?module=galerie&action=voirGalerie&id=<?php echo $i+1; ?>" class="btn btn-primary">voir ses créations</a>
+							    <a href="index.php?module=galerie&action=voirGalerie&id=<?php echo $i+1; ?>" class="btn btn-primary">Voir ses créations</a>
 							   </div>
 							</div>
 						</div>

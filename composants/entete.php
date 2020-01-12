@@ -22,7 +22,8 @@
 
   <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script> <!-- jQuery est inclus ! -->
 
-<?php 
+<?php
+  $idCompte = $_SESSION['idCompte']; 
   echo "
 
     <nav class='navbar navbar-expand-lg navbar-dark bg-dark fixed-top'>
@@ -33,14 +34,14 @@
       <div class='collapse navbar-collapse' id='navbarNav'>
         <ul class='navbar-nav'>
           <li class='nav-item'>
-            <a class='nav-link' href='index.php?module=acceuil'>Home <span class='sr-only'>(current)</span></a>
+            <a class='nav-link' href='index.php?module=acceuil'>Home<span class='sr-only'>(current)</span></a>
           </li>
           <li class='nav-item'>
             <a class='nav-link' href='index.php?module=galerie'>Galeries</a>
           </li>
           <li class='nav-item dropdown right'>
             <a class='nav-link dropdown-toggle' href='index.php?module=connexion' id='navbarDropdown' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
-              espace perso  <img src='images/compte.png' id='logoCompte'/>
+              Mon espace <img src='images/compte.png' id='logoCompte'/>
             </a>
             <div class='dropdown-menu' aria-labelledby='navbarDropdown'>
             ";
@@ -51,10 +52,15 @@
             }
 
             echo "
-              <a class='dropdown-item' href='#'>messagerie</a>
-              <a class='dropdown-item' href='index.php?module=rdv'>rdv</a>
-              <a class='dropdown-item' href=''>suivre mes paiements</a>
-              <div class='dropdown-divider'></div>
+              <a class='dropdown-item' href='#'>Messagerie</a>
+              <a class='dropdown-item' href='index.php?module=rdv'>Mes rendez-vous</a>";
+              if($_SESSION['Statut'] == 2) {
+                echo "<a class='dropdown-item' href='http://localhost/skink/index.php?module=paiement&action=tatoueur&id=$idCompte'>Suivre mes paiements</a>";
+              }
+              else {
+                 echo "<a class='dropdown-item' href='http://localhost/skink/index.php?module=paiement&action=client&id=$idCompte'>Suivre mes paiements</a>";
+              }
+              echo "<div class='dropdown-divider'></div>
               <a class='dropdown-item' href='index.php?module=connexion'>se connecter</a>
             </div>
           </li>
