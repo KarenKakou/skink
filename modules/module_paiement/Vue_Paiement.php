@@ -80,12 +80,14 @@
                                     <div class=\"tile-progressbar\">
                                         <span data-fill=\"$pourcentage%\" style=\"width: $pourcentage%;\"></span>
                                     </div>
-                                    <div class=\"tile-footer\">
-                                        <a href=\"index.php?module=paiement&action=incEcheances&id=$idProjet\">
+                                    <div class=\"tile-footer\">";
+                                    if($_SESSION['Statut'] == 2) {
+                                        echo "<a href=\"index.php?module=paiement&action=incEcheances&id=$idProjet\">
                                             <div class=\"alert alert-warning\">Incrémenter</div>
-                                        </a>
-                                    </div>";
-                            echo "</div>
+                                        </a>";
+                                    }
+                                echo " </div>
+                            </div>
                         </div>
                         <div class=\"col-sm-6\">";
                             if($arrhes!=0) {
@@ -125,15 +127,24 @@
                         <table class=\"table table-striped table-condensed\">
                         <thead>
                             <tr>
-                                <th>Nom du projet</th>
-                                <th>Client</th>
-                                <th>Tatoueur</th>
-                                <th>Paiement</th>                                          
+                                <th>Nom du projet</th>";
+                                if($_SESSION['Statut']==2) {
+                                    echo "<th>Client</th>";
+                                }
+                                else {
+                                    echo "<th>Tatoueur</th>";
+                                }
+                                echo "<th>Paiement</th>                                          
                             </tr>
                         </thead>   
                         <tbody>";
                         foreach ($array as $row) {
-                            $nomCompte = $row['nomCompte'];
+                            if ($_SESSION['Statut']==2) {
+                                 $nomCompte = $row['nomCompte']." ".$row['prenomCompte'];
+                            }
+                            else {
+                                $nomCompte = $row['nomCompteTatoueur']." ".$row['prenomCompteTatoueur'];
+                            }
                             $nomProjet = $row['nomProjet'];
                             $idProjet = $row['idProj'];
                             $echeanceTotal = $row['nbEcheancesTotales'];
@@ -141,7 +152,6 @@
                             $arrhes = $row['arrhesPayees'];
                             echo "<tr>
                                 <td>$nomProjet</td>
-                                <td>$nomCompte</td>
                                 <td>$nomCompte</td>
                                 <td>
                                     <a href=\"index.php?module=paiement&action=voirProjet&id=$idProjet\"></strong>";
