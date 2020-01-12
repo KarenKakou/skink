@@ -54,8 +54,18 @@
               <a class='dropdown-item' href='#'>messagerie</a>
               <a class='dropdown-item' href='index.php?module=rdv'>rdv</a>
               <a class='dropdown-item' href=''>suivre mes paiements</a>
-              <div class='dropdown-divider'></div>
-              <a class='dropdown-item' href='index.php?module=connexion'>se connecter</a>
+              <div class='dropdown-divider'></div>";
+
+            if(isset($_SESSION['Login'])){
+              echo "
+              <a class='dropdown-item' href='index.php?module=connexion&actionConnexion=deconnexion'>se deconnecter</a>";
+            }
+            else{
+              echo "
+              <a class='dropdown-item' href='index.php?module=connexion'>se connecter</a>";
+            }
+
+            echo "
             </div>
           </li>
         </ul>
