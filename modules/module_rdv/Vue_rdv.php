@@ -49,4 +49,10 @@ class Vue_rdv
             </form>";
     }
 
+    public function afficheRdv(){
+     
+    }
+
+    
+
 }

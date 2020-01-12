@@ -25,4 +25,8 @@ class Controleur_rdv
         public function listProjetAvecActeur() {
             return $this->modele->listProjetAvecActeur();
         }
+
+        public function calendrier(){
+            $this->vue->calendrier();
+        }
 }

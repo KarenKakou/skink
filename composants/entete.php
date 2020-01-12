@@ -37,6 +37,9 @@
           <li class="nav-item">
           	<a class="nav-link" href="index.php?module=espacePerso">Espace perso</a>	
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.php?module=rdv&actionRDV=formRDV">rdv</a>
+          </li>
         </ul>
       </div>
     </nav>
