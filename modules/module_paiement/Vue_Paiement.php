@@ -77,11 +77,12 @@
                                         <h4 style=\"text-align:center\";>Echéances</h4>
                                         <span>échéances payées : $echeancePayee/$echeanceTotal</span>
                                     </div>
+                                    <span>$pourcentage%</span>
                                     <div class=\"tile-progressbar\">
                                         <span data-fill=\"$pourcentage%\" style=\"width: $pourcentage%;\"></span>
                                     </div>
                                     <div class=\"tile-footer\">";
-                                    if($_SESSION['Statut'] == 2) {
+                                    if($_SESSION['Statut'] == 2 && $echeancePayee != $echeanceTotal) {
                                         echo "<a href=\"index.php?module=paiement&action=incEcheances&id=$idProjet\">
                                             <div class=\"alert alert-warning\">Incrémenter</div>
                                         </a>";
