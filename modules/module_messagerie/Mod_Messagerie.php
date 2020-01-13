@@ -37,7 +37,12 @@ class Mod_Messagerie
                 break;
 
             case "lireConv" :
-                $this->controleur->afficheConv($_POST['idConvMessagerie']);
+                if(isset($_POST['idConvMessagerie']))
+                    $idConv = $_POST['idConvMessagerie'];
+                else
+                    $idConv = null;
+
+                $this->controleur->afficheConv($idConv);
                 break;
 
             case "envoyerMessage":

@@ -54,7 +54,7 @@
             }
 
             echo "
-              <a class='dropdown-item' href='#'>Messagerie</a>
+              <a class='dropdown-item' href='index.php?module=messagerie&actionMessagerie=lireConv'>Messagerie</a>
               <a class='dropdown-item' href='index.php?module=rdv'>Mes rendez-vous</a>";
               if(isset($_SESSION['Statut'])) {
                 if($_SESSION['Statut'] == 2) {
