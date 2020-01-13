@@ -58,4 +58,15 @@ class Modele_rdv extends Connexion
         $listRDV->execute();
         return $listRDV->fetchAll();
     }
+
+
+    //retourne la liste de tous les rdv du compte entré en parametre
+    public function listeDesRdvs($idClient){
+
+        $requete = 'SELECT debRdv, finRdv, TATOUEUR.nomCompte as nomCompteTatoueur FROM PROJET NATURAL JOIN GERER INNER JOIN COMPTE as CLIENT on GERER.idCompte = CLIENT.idCompte INNER JOIN COMPTE as TATOUEUR on GERER.idCompte_COMPTE = TATOUEUR.idCompte NATURAL JOIN RDV WHERE CLIENT.idCompte = ? OR TATOUEUR.idCompte ='.$idClient;
+        $listeRdv = $this::$bdd->prepare($requete);
+        $array = array($idClient);
+        $listeRdv->execute($array);
+        return $listeRdv->fetchAll();
+    }
 }

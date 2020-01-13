@@ -10,7 +10,7 @@ class VueAccueil {
 		?>
 		    <section class="bg-secondary">
 
-	<div class="container">
+	<div class="container-fluide">
   <div class="row">
     <div class="col-lg-5 center">
       <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -21,7 +21,7 @@ class VueAccueil {
         </ol>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="images/ponney.svg" class="d-block w-25" alt="..." >
+            <img src="images/tatoo1.png" class="d-block w-25" alt="..." >
           </div>
           <div class="carousel-item">
             <img src="images/tatoo2.png" class="d-block w-25" alt="...">
@@ -40,7 +40,7 @@ class VueAccueil {
         </a>
     </div>
 </div>
-    <div class="col-lg-5 center border">
+    <div class="col-lg-5 center">
     	<div class="">
     		<h1>Skink tatoo</h1>
       <span>
@@ -72,7 +72,7 @@ class VueAccueil {
 							  <div class="card-body">
 							    <h5 class="card-title"><?php echo $nomTatoueur[$i]["nomCompte"];?></h5>
 							    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-							    <a href="index.php?module=galerie&action=voirGalerie&id=<?php echo $i+1; ?>" class="btn btn-primary">Voir ses créations</a>
+							    <a href="index.php?module=galerie&action=voirGalerie&id=<?php echo $i+1; ?>" class="btn btn-primary">voir ses créations</a>
 							   </div>
 							</div>
 						</div>

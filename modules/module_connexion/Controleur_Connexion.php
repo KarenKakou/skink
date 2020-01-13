@@ -36,7 +36,7 @@ require_once('modules/module_connexion/Modele_connexion.php');
 
         //Formulaire permettant de se connecter
         public function formConnexion() {
-            $this->vueConnexion->form_Connexion();
+            $this->vueConnexion->form_Connexion_Inscription();
         }
 
         //Method pour se deconnecter

@@ -16,7 +16,6 @@ class ContAccueil{
 	public function accueil(){
 		$this->vue->carousel();
 		$this->vue->carteTatoueur($this->modele->recupNomTatoueur());
-		$this->vue->pied();
 	}
 
 }

@@ -9,7 +9,15 @@ class Modele_Paiement extends Connexion {
         }
 
         public function obtenirProjetsDeClient($compte) {
-          $selectProjets = $this::$bdd->prepare('SELECT * from PROJET NATURAL JOIN GERER NATURAL JOIN COMPTE where idCompte = ?');
+          $selectProjets = $this::$bdd->prepare('SELECT 
+          idProj, nomProjet, arrhesPayees, nbEcheancesTotales, nbEcheancesPayees, 
+          CLIENT.nomCompte as nomCompteClient, CLIENT.prenomCompte as prenomCompteClient, 
+          TATOUEUR.nomCompte as nomCompteTatoueur, TATOUEUR.prenomCompte as prenomCompteTatoueur
+          FROM PROJET NATURAL JOIN GERER 
+          INNER JOIN COMPTE as CLIENT on GERER.idCompte = CLIENT.idCompte
+          INNER JOIN COMPTE as TATOUEUR on GERER.idCompte_COMPTE = TATOUEUR.idCompte 
+          WHERE CLIENT.idCompte = ?');
+
           $array = array($compte);
           $selectProjets->execute($array);
           $resultProjets = $selectProjets->fetchAll();
@@ -18,7 +26,7 @@ class Modele_Paiement extends Connexion {
         }
 
         public function obtenirProjetsDeTatoueur($compte) {
-          $selectProjets = $this::$bdd->prepare('SELECT * from PROJET NATURAL JOIN GERER NATURAL JOIN COMPTE where idCompte_COMPTE = ?');
+          $selectProjets = $this::$bdd->prepare('SELECT * FROM PROJET NATURAL JOIN GERER NATURAL JOIN COMPTE WHERE idCompte_COMPTE = ?');
           $array = array($compte);
           $selectProjets->execute($array);
           $resultProjets = $selectProjets->fetchAll();

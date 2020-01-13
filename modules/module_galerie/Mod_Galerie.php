@@ -28,9 +28,14 @@ require_once('modules/module_galerie/Controleur_Galerie.php');
                     $this->controleur->recupererTousTatoueurs(2);
                 break;
                 case "voirGalerie" :
+                    /*
                     $this->controleur->recupererTatoueur($_GET['id']);
-                    $this->controleur->recupererImages($_GET['id']);
-                    $this->controleur->afficherUpload($_GET['id']);
+                    $this->controleur->recupererImages($_GET['id']);*/
+
+                    $this->controleur->galeriePerso($_GET['id']);
+
+                    if(isset($_SESSION['Statut']) && $_SESSION['Statut'] == 2)
+                        $this->controleur->afficherUpload($_GET['id']);
                 break;
                 case "supprimer" :
                     $this->controleur->supprimerImage($_GET['id']);
@@ -39,6 +44,7 @@ require_once('modules/module_galerie/Controleur_Galerie.php');
                     $this->controleur->recupererImage($_GET['id']);
                 break;
             }
+
         }
     }
 ?>

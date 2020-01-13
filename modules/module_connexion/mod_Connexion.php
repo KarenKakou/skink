@@ -17,7 +17,7 @@ require_once('modules/module_connexion/Controleur_Connexion.php');
             if (isset($_GET['actionConnexion'])) {
                 $actionConnexion = $_GET['actionConnexion'];
             } else {
-                $actionConnexion = 'errorConnexion';
+                $actionConnexion = 'formConnexionInscription';
             }
 
             switch ($actionConnexion) {
@@ -27,8 +27,14 @@ require_once('modules/module_connexion/Controleur_Connexion.php');
                     break;
 
                 //formulaire de Connexion
-                case "formConnexion" :
+                case "formConnexionInscription" :
                     $this->controleur->formConnexion();
+                    /*
+                    if(isset($_GET['Admin'])) {
+                        $this->controleur->formInscriptionAdmin();
+                    }else {
+                        $this->controleur->formInscription();
+                    }*/
                     break;
 
                 //Cas d'inscription, "Admin = 0 ou 1" si l'inscription est faite par l'admin ou le client
