@@ -15,6 +15,7 @@ class Modele_connexion extends Connexion
         $selectUser->execute($array);
         $resultUser = $selectUser->fetchAll();
         $varUser= array_shift($resultUser);
+        var_dump($varUser);
         if(password_verify($password, $varUser['motDePasseCompte']))
         {
             $_SESSION['Login'] = $email;
@@ -61,7 +62,6 @@ class Modele_connexion extends Connexion
             $this::$bdd->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING );
             $insertPrepare = $this::$bdd->prepare('INSERT into COMPTE values(DEFAULT, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
             $array = array($nom, $prenom, $adresse, $telephone, $hashpassword, $email, NULL, NULL, $nbStatut);
-    
             if ($insertPrepare->execute($array)) {
                 echo "L'utilisateur $nom $prenom a bien été enregistré au statut de $statut";
             } else {

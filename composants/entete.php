@@ -54,15 +54,23 @@
             echo "
               <a class='dropdown-item' href='#'>Messagerie</a>
               <a class='dropdown-item' href='index.php?module=rdv'>Mes rendez-vous</a>";
-              if($_SESSION['Statut'] == 2) {
-                echo "<a class='dropdown-item' href='http://localhost/skink/index.php?module=paiement&action=tatoueur&id=$idCompte'>Suivre mes paiements</a>";
+              if(isset($_SESSION['Statut'])) {
+                if($_SESSION['Statut'] == 2) {
+                  echo "<a class='dropdown-item' href='http://localhost/skink/index.php?module=paiement&action=tatoueur&id=$idCompte'>Suivre mes paiements</a>";
+                }
+                else {
+                  echo "<a class='dropdown-item' href='http://localhost/skink/index.php?module=paiement&action=client&id=$idCompte'>Suivre mes paiements</a>";
+                }
+              }
+              if(isset($_SESSION['Login'])) {
+                echo "<div class='dropdown-divider'></div>
+                <a class='dropdown-item' href='index.php?module=connexion'>Se déconnecter</a>";
               }
               else {
-                 echo "<a class='dropdown-item' href='http://localhost/skink/index.php?module=paiement&action=client&id=$idCompte'>Suivre mes paiements</a>";
+                echo "<div class='dropdown-divider'></div>
+                <a class='dropdown-item' href='index.php?module=connexion'>Se connecter</a>";
               }
-              echo "<div class='dropdown-divider'></div>
-              <a class='dropdown-item' href='index.php?module=connexion'>se connecter</a>
-            </div>
+            echo "</div>
           </li>
         </ul>
       </div>
