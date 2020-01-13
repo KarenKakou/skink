@@ -48,7 +48,7 @@ class Modele_connexion extends Connexion
         $array = array($email);
         $selectUser->execute($array);
         $resultUser = $selectUser->fetchAll();
-        if(empty($email)) {
+        if(empty($resultUser)) {
             if ($this->verifEmail($email)) {
                 $hashpassword = password_hash($password, PASSWORD_DEFAULT);
 
