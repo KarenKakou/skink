@@ -32,8 +32,7 @@ class Controleur_messagerie
     }
 
     public function afficheConv($idConv) {
-        //$this->vueMessagerie->afficheMessages($this->modeleMessagerie->accederMessage($idConv), $idConv);
-        $this->vueMessagerie->vue_AffichesMessages($this->modeleMessagerie->accederMessage($idConv), $idConv);
+        $this->vueMessagerie->vue_AffichesMessages($this->modeleMessagerie->listConv(), $this->modeleMessagerie->accederMessage($idConv), $idConv);
     }
 
     public function envoyerMessage($corpsMessage, $idConv, $idCompteEmetteur) {

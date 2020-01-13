@@ -61,77 +61,87 @@ class Vue_Messagerie
             </section>";
     }
 
-    public function vue_AffichesMessages($listMessage, $idConv) {
-        include("composants/entete.php");
+    public function vue_AffichesMessages($listConversation, $listMessage, $idConv) {
         echo "
                 <section>
                     <div class=\"container\">
-                    <h3 class=\" text-center\">Conversation ".$idConv."</h3>
+                    <h3 class=\"text-center\">Conversation</h3>
                     <div class=\"messaging\">
                           <div class=\"inbox_msg\">
-                          
+                            <div class=\"inbox_people\">
+                              <div class=\"headind_srch\">
+                                <div class=\"recent_heading\">
+                                  <h4>Vos conversations</h4>
+                                </div>
+                              </div>
+                              <div class=\"inbox_chat\">";
+        foreach ($listConversation as $key => $value) {
+            if($idConv == $listConversation[$key]['idConv']) {
+                $active = "active_chat";
+            }
+            else {
+                $active ="";
+            }
+            echo "
+                <div id=\"".$listConversation[$key]['idConv']."\" onClick=\"redirectionConv(this.id)\" class=\"chat_list ".$active."\">
+                        <div class=\"chat_people \">
+                            <div class=\"chat_img\"> <img src=\"https://ptetutorials.com/images/user-profile.png\" alt=\"sunil\"> </div>
+                            <div class=\"chat_ib\">
+                                 <h5>".$listConversation[$key]['nomCompte']." ".$listConversation[$key]['nomCompte']."</h5>
+                            </div>
+                        </div>
+                  </div>";
+        }
+        echo "
+                              </div>
+                            </div>
                             <div class=\"mesgs\">
                               <div id='Messagerie' class=\"msg_history\">";
         foreach ($listMessage as $key => $value) {
             if($listMessage[$key]['idCompte'] == $_SESSION['idCompte']){
-                echo "<div class=\"outgoing_msg\">
-                            <div class=\"sent_msg\">";
+                            echo "<div class=\"outgoing_msg\">
+                                        <div class=\"sent_msg\">";
                                    if($listMessage[$key]['pieceJointeMessage'] != null) {
                                       echo "<img src=\"images/images_messagerie/".$listMessage[$key]['pieceJointeMessage']."\" alt=\"\"/>";
                                    }
-                                echo "<p>".$listMessage[$key]['corpsMessage']."</p>
-                            </div>
-                       </div>";
+                                echo "    <p>".$listMessage[$key]['corpsMessage']."</p>
+                                        </div>
+                                  </div>";
             }
             else {
 
-                echo "<div class=\"incoming_msg\">
-                          <div class=\"incoming_msg_img\"> <img src=\"https://ptetutorials.com/images/user-profile.png\" alt=\"sunil\"> </div>
-                          <div class=\"received_msg\">";
+                            echo "<div class=\"incoming_msg\">
+                                      <div class=\"incoming_msg_img\"> <img src=\"https://ptetutorials.com/images/user-profile.png\" alt=\"sunil\"> </div>
+                                      <div class=\"received_msg\">";
                             if($listMessage[$key]['pieceJointeMessage'] != null) {
                                 echo "<img src=\"images/images_messagerie/".$listMessage[$key]['pieceJointeMessage']."\" alt=\"\"/>";
                             }
-                           echo "<div class=\"received_withd_msg\">
-                              <p>".$listMessage[$key]['corpsMessage']."</p>
-                            </div>
-                          </div>
-                      </div>";
+                           echo "        <div class=\"received_withd_msg\">
+                                                <p>".$listMessage[$key]['corpsMessage']."</p>
+                                        </div>
+                                      </div>
+                                  </div>";
             }
         }
         echo "
-          </div>
-          <div class=\"type_msg\">
-            <div class=\"input_msg_write\">
-              <form action =\"Envoyer_Message.php\" id='formMessage' method=\"POST\" enctype=\"multipart/form-data\">
-                <input type=\"text\" id='Message' name ='messageconv' class=\"write_msg\" placeholder=\"Type a message\" /> 
-                <input type=\"file\" id='MessageImage' name=\"MessageImage\" class='btn btn-light uploadButton'/>
-                <input type='hidden' id='idConv' value=".$idConv." />
-                <button class=\"msg_send_btn\" id='envoi' name='submit' type=\"submit\"><i class=\"fa fa-paper-plane-o\" aria-hidden=\"true\"></i></button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-    </div>
-    </div>
-    </section>
-    <script type='text/javascript' src='modules/module_messagerie/MessageScript.js'></script>";
+                              </div>
+                              <div class=\"type_msg\">
+                                <div class=\"input_msg_write\">
+                                  <form action =\"Envoyer_Message.php\" id='formMessage' method=\"POST\" enctype=\"multipart/form-data\">
+                                    <input type=\"text\" id='Message' name ='messageconv' class=\"write_msg\" placeholder=\"Votre message\" /> 
+                                    <!-- <input type=\"file\" id='MessageImage' name=\"MessageImage\" class='btn btn-light uploadButton'/> -->
+                                    <button class=\"msg_send_btn\" id='envoi' name='submit' type=\"submit\">Send</button>
+                                  </form>
+                                </div>
+                              </div>
+                            </div>
+                          </div> 
+                        </div>
+                        </div>
+                        </section>
+                        <script src='modules/module_messagerie/changeConv.js'></script>
+                        <script type='text/javascript' src='modules/module_messagerie/MessageScript.js'></script>
+                        ";
         include ("composants/pied.php");
-    }
-
-    public function afficheMessages($listMessage, $idConv) {
-        foreach ($listMessage as $key => $value) {
-            if($listMessage[$key]['idCompte'] == $_SESSION['idCompte']){
-                echo '<br/>Emetteur : <br/>'.$listMessage[$key]['corpsMessage'].'';
-            }
-            else {
-                echo '<br/>Receveur : <br/>'.$listMessage[$key]['corpsMessage'].'';
-            }
-        }
-        echo "<form action =\"index.php?module=messagerie&actionMessagerie=envoyerMessage&idConv=$idConv\" method=\"POST\">
-              <textarea name='MessageConv' placeholder='Votre nouveau message'></textarea>
-              <input type='submit' value='Envoyer message'>
-              </form>";
     }
 }

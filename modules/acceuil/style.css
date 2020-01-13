@@ -181,7 +181,7 @@ color: #fff;
 
 
 
-/*----------------------- Test Style Messagerie --------------------------*/
+/*----------------------- Style Messagerie --------------------------*/
 
 .bodyMessagerie{
 	margin-top: 100px;
@@ -199,12 +199,15 @@ img{ max-width:100%;}
 	border: 1px solid #c4c4c4;
 	clear: both;
 	overflow: hidden;
-	background: slategray;
+	background: #7a9ca7	;
+	/*slategray
+	#7d8b9a*/
+	border-radius: 1%;
 }
 .top_spac{ margin: 20px 0 0;}
 
 
-.recent_heading {float: left; width:40%;}
+.recent_heading {float: left; width:70%;}
 
 .headind_srch{ padding:10px 29px 10px 20px; overflow:hidden; border-bottom:1px solid #c4c4c4;}
 
@@ -232,8 +235,9 @@ img{ max-width:100%;}
 	border-bottom: 1px solid #c4c4c4;
 	margin: 0;
 	padding: 18px 16px 10px;
+	cursor: pointer;
 }
-.inbox_chat { height: 550px; overflow-y: scroll;}
+.inbox_chat { height: 563px; overflow-y: scroll;}
 
 .active_chat{ background:#ebebeb;}
 
@@ -266,11 +270,12 @@ img{ max-width:100%;}
 .mesgs {
 	float: left;
 	padding: 30px 15px 0 25px;
-	width: 100%;
+	width: 60%;
 }
 
 .sent_msg p {
-	background: #05728f none repeat scroll 0 0;
+	background: #378EA5 none repeat scroll 0 0;
+	/*#05728F*/
 	border-radius: 3px;
 	font-size: 14px;
 	margin: 0; color:#fff;
@@ -291,27 +296,30 @@ img{ max-width:100%;}
 	width: 100%;
 }
 
+.write_msg::placeholder {
+	color: whitesmoke;
+	opacity: 0.7;
+}
+
 .type_msg {border-top: 1px solid #c4c4c4;position: relative;}
 .msg_send_btn {
-	background: #05728f none repeat scroll 0 0;
+	background: #2C7284 none repeat scroll 0 0;
 	border: medium none;
-	border-radius: 50%;
-	color: #fff;
+	border-radius: 25%;
+	color: #ffff;
 	cursor: pointer;
-	font-size: 17px;
-	height: 33px;
+	font-size: 13px;
+	height: 35px;
 	position: absolute;
 	right: 0;
-	top: 11px;
-	width: 33px;
+	top: 8px;
+	width: 40px;
 }
 
-.uploadButton {
-
+.messaging { padding: 0 0 50px 0;
 }
-.messaging { padding: 0 0 50px 0;}
 .msg_history {
-	height: 516px;
+	height: 530px;
 	overflow-y: auto;
 }
 
