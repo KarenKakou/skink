@@ -13,3 +13,13 @@ function redirectionAfficheRdv(id){
 function redirectionAjoutProjet(){
 	$.redirect('index.php?module=projet&actionProjet=formProjet', {});
 }
+
+function redirectionAjoutProjet(idProjet){
+	$.post('index.php?module=paiement&action=incEcheances', {'idProjet':idProjet});
+	$.redirect('index.php?module=paiement&action=voirProjet', {'idProjet':idProjet})
+}
+
+function redirectionMajArrhesProjet(idProjet){
+	$.post('index.php?module=paiement&action=majArrhes', {'idProjet':idProjet});
+	$.redirect('index.php?module=paiement&action=voirProjet', {'idProjet':idProjet});
+}

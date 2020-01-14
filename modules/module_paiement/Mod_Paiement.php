@@ -27,13 +27,17 @@ require_once('modules/module_paiement/Controleur_Paiement.php');
                     $this->controleur->recupererProjetsDeTatoueur($_GET['id']);
                 break;
                 case "voirProjet" :
-                    $this->controleur->avancementPaiement($_GET['id']);
+                    if(isset($_POST['idProjet'])) {
+                        $this->controleur->avancementPaiement($_POST['idProjet']);
+                    }else {
+                        $this->controleur->avancementPaiement($_GET['id']);
+                    }
                 break;
                 case "majArrhes" :
-                    $this->controleur->majArrhes($_GET['id']);
+                    $this->controleur->majArrhes($_POST['idProjet']);
                 break;
                 case "incEcheances" :
-                    $this->controleur->incrementerEcheances($_GET['id']);
+                    $this->controleur->incrementerEcheances($_POST['idProjet']);
                 break;
             }
         }
