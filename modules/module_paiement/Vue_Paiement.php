@@ -105,11 +105,13 @@
                                         <h4 style=\"text-align:center\";>Arrhes</h4>
                                         <span>Les arrhes n'ont pas été payées !</span>
                                     </div>
-                                    <div class=\"tile-footer\">
-                                        <a href=\"index.php?module=paiement&action=majArrhes&id=$idProjet\">
+                                    <div class=\"tile-footer\">";
+                                        if($_SESSION['Statut'] == 2 && $echeancePayee != $echeanceTotal) {
+                                        echo "<a href=\"index.php?module=paiement&action=majArrhes&id=$idProjet\">
                                             <div class=\"alert alert-warning\">Activer les arrhes pour ce client</div>
-                                        </a>
-                                    </div>";
+                                        </a>";
+                                        }
+                                    echo "</div>";
                             }
                             echo "</div>
                             </div>
