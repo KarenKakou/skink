@@ -23,6 +23,7 @@
   <!-- jQuery est inclus ! -->
   <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script> <!-- jQuery est inclus ! -->
   <script src="jquery.redirect.js"></script>
+  <script src="modules/module_messagerie/changeConv.js"></script>
       
 <?php
   if(isset($_SESSION['Login']))
@@ -62,10 +63,13 @@
 
             echo "
               <a class='dropdown-item' href='index.php?module=messagerie&actionMessagerie=lireConv'>Messagerie</a>
-              <a class='dropdown-item' href='index.php?module=rdv'>Mes rendez-vous</a>";
+              <a class='dropdown-item'  id=\"".$idCompte."\" onClick='redirectionAfficheRdv(this.id)'>Mes rendez-vous</a>";
               if(isset($_SESSION['Login'])){
                 if($_SESSION['Statut'] == 2) {
-                  echo "<a class='dropdown-item' href='index.php?module=paiement&action=tatoueur&id=$idCompte'>Suivre mes paiements</a>";
+                  echo "<a class='dropdown-item' href='index.php?module=paiement&action=tatoueur&id=$idCompte'>Suivre mes paiements</a>
+                        <a class='dropdown-item' href='index.php?module=projet&actionProjet=formProjet'>Ajouter projet</a>
+                        ";
+
                 }
                 else {
                    echo "<a class='dropdown-item' href='index.php?module=paiement&action=client&id=$idCompte'>Suivre mes paiements</a>";

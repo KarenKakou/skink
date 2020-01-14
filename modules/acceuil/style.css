@@ -368,6 +368,23 @@ h1{
 
 .rdv{
 	margin-bottom: 30px;
-	border-radius: 20px;
+	border-radius: 10px;
+}
+
+.btnRdv{
+	margin-top:50px;
+	margin-bottom: 30px;
+}
+/*
+.btnRdv > button {
+	margin-bottom: 20px;
+}*/
+
+#blockBtnRdv{
+	border-radius: 10px;
+}
+
+#blockRdv{
+	margin-top:30px;
 }
 

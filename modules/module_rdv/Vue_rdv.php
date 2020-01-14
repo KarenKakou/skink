@@ -6,6 +6,24 @@ class Vue_rdv
 
     public function __construct()
     {
+        echo "
+        <div class='container-fluid'>
+
+            <div class='row'>
+                <div class='col-md-3 bg-dark' id='blockBtnRdv'>
+                    <div class='btnRdv'>
+                        <button type='button' id=\"".$_SESSION['idCompte']."\" class='btn btn-primary btn-lg btn-block' onClick='redirectionAfficheRdv(this.id)'>Voir mes RDV</button><br/>";
+                        if($_SESSION['Statut']==2){
+                            echo "<button type='button' class='btn btn-primary btn-lg btn-block' onClick='redirectionFormRdv()'>Ajouter un rdv</button>";
+                        }
+                        else{
+                            echo "<button type='button' class='btn btn-primary btn-lg btn-block'>Demander a modifier un rdv</button>";
+                        }
+                        echo "
+                    </div>
+                </div>
+                <div class='col-md-9' id='blockRdv'>
+        ";
     }
 
     public function formulaireRDV($listProjet) {
@@ -49,13 +67,15 @@ class Vue_rdv
                 </select>
                 
                 <input type='submit' value='Valider le RDV'>
-            </form>";
+            </form>
+
+            <button type='button' class='btn btn-primary btn-lg btn-block' onClick='redirectionAjoutProjet()'>Ajouter un projet</button>
+
+            </div>
+        </div>";
     }
 
     public function afficheRdv($rdvs){
-
-        echo "<div class='container-fluide'>
-                ";
 
         foreach ($rdvs as $key => $value){
                 echo  "
@@ -66,6 +86,11 @@ class Vue_rdv
                     </div>
                 ";
         }
+
+        echo "</div>
+            </div>
+        </div>
+        ";
     }
 
     

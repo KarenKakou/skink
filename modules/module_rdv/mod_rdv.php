@@ -29,7 +29,7 @@ class mod_rdv
                 $this->controleur->ajoutRDV($_POST['dateRDV'], $_POST['heureDebRDV'], $_POST['RDVProjet'], $_POST['tempsRDV']);
                 break;
             case "listeRdv" :
-                $this->controleur->listeRdv($_GET['id']);
+                $this->controleur->listeRdv($_POST['id']);
                 break;
         }
     }
