@@ -43,7 +43,11 @@
           </li>
           <li class='nav-item'>
             <a class='nav-link' href='index.php?module=galerie'>Galeries</a>
-          </li>
+          </li>";
+
+          if(isset($_SESSION['Login'])){
+
+          echo "
           <li class='nav-item dropdown right'>
             <a class='nav-link dropdown-toggle' href='index.php?module=connexion' id='navbarDropdown' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
               Mon espace <img src='images/compte.png' id='logoCompte'/>
@@ -67,18 +71,23 @@
                    echo "<a class='dropdown-item' href='index.php?module=paiement&action=client&id=$idCompte'>Suivre mes paiements</a>";
                 }
               }
-              echo "<div class='dropdown-divider'></div>";
+              echo "<div class='dropdown-divider'></div>
 
-              if(isset($_SESSION['Login'])){
-                  echo "<a class='dropdown-item' href='index.php?module=connexion&actionConnexion=deconnexion'>se deconnecter</a>";
-              }
-              else {
-                  echo "<a class='dropdown-item' href='index.php?module=connexion'>se connecter</a>";
-              }
+                    <a class='dropdown-item' href='index.php?module=connexion&actionConnexion=deconnexion'>se deconnecter</a>
 
-             echo "
             </div>
-          </li>
+          </li>";
+        }
+        else {
+          echo "
+            <li class='nav-item'>
+              <a class='nav-link' href='index.php?module=connexion'>se connecter</a>
+            </li>
+
+          ";
+        }
+
+        echo "
         </ul>
       </div>
     </nav>";
