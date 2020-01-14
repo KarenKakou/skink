@@ -116,6 +116,7 @@ class Vue_Messagerie
                                   <form action =\"Envoyer_Message.php\" id='formMessage' method=\"POST\" enctype=\"multipart/form-data\">
                                     <input type=\"text\" id='Message' name ='messageconv' class=\"write_msg\" placeholder=\"Votre message\" /> 
                                     <!-- <input type=\"file\" id='MessageImage' name=\"MessageImage\" class='btn btn-light uploadButton'/> -->
+                                    <input type='hidden' id='idConv' value='".$idConv."'>
                                     <button class=\"msg_send_btn\" id='envoi' name='submit' type=\"submit\">Send</button>
                                   </form>
                                 </div>
