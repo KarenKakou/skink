@@ -23,7 +23,10 @@
   <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script> <!-- jQuery est inclus ! -->
 
 <?php
-  $idCompte = $_SESSION['idCompte']; 
+  if(isset($_SESSION['Login']))
+    $idCompte = $_SESSION['idCompte']; 
+  else
+    $idCompte = 0;
   echo "
 
     <nav class='navbar navbar-expand-lg navbar-dark bg-dark fixed-top'>
@@ -54,14 +57,24 @@
             echo "
               <a class='dropdown-item' href='#'>Messagerie</a>
               <a class='dropdown-item' href='index.php?module=rdv'>Mes rendez-vous</a>";
-              if($_SESSION['Statut'] == 2) {
-                echo "<a class='dropdown-item' href='http://localhost/skink/index.php?module=paiement&action=tatoueur&id=$idCompte'>Suivre mes paiements</a>";
+              if(isset($_SESSION['Login'])){
+                if($_SESSION['Statut'] == 2) {
+                  echo "<a class='dropdown-item' href='index.php?module=paiement&action=tatoueur&id=$idCompte'>Suivre mes paiements</a>";
+                }
+                else {
+                   echo "<a class='dropdown-item' href='index.php?module=paiement&action=client&id=$idCompte'>Suivre mes paiements</a>";
+                }
+              }
+              echo "<div class='dropdown-divider'></div>";
+
+              if(isset($_SESSION['Login'])){
+                  echo "<a class='dropdown-item' href='index.php?module=connexion&actionConnexion=deconnexion'>se deconnecter</a>";
               }
               else {
-                 echo "<a class='dropdown-item' href='http://localhost/skink/index.php?module=paiement&action=client&id=$idCompte'>Suivre mes paiements</a>";
+                  echo "<a class='dropdown-item' href='index.php?module=connexion'>se connecter</a>";
               }
-              echo "<div class='dropdown-divider'></div>
-              <a class='dropdown-item' href='index.php?module=connexion'>se connecter</a>
+
+             echo "
             </div>
           </li>
         </ul>

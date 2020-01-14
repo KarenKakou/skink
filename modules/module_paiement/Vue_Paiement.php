@@ -120,6 +120,7 @@
         }
 
         public function afficherProjetsPaiement($array) {
+
             echo "
             <section>
             <div class=\"container\">

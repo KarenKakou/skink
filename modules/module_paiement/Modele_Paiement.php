@@ -5,7 +5,6 @@ class Modele_Paiement extends Connexion {
         public function __construct()
         {
           $this::$bdd->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING );
-
         }
 
         public function obtenirProjetsDeClient($compte) {
