@@ -75,9 +75,11 @@
                         ";
 
                 }
+
                 else {
                    echo "<a class='dropdown-item' href='index.php?module=paiement&action=client&id=$idCompte'>Suivre mes paiements</a>";
                 }
+                echo "<a class='dropdown-item' href='index.php?module=modifier&action=formulaire&id=$idCompte'>Modifier le profil</a>";
               }
               echo "<div class='dropdown-divider'></div>
 

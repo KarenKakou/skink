@@ -14,20 +14,18 @@ class Modele_Modifier extends Connexion
         $array = array($compte);
         $selectCompte->execute($array);
         $resultCompte = $selectCompte->fetchAll();
-        return $resultCompte;
+        return $resultCompte[0];
     }
 
     public function updateAvatar($nomImage, $compte) {
-        if($nomImage != "") {
-          $updateAvatar = $this::$bdd->prepare('UPDATE COMPTE SET avatarCompte = ? where idCompte=?');
-          $array = array($nomImage, $compte);
-          $updateAvatar->execute($array);
-        } 
+        $updateAvatar = $this::$bdd->prepare('UPDATE COMPTE SET avatarCompte = ? where idCompte=?');
+        $array = array($nomImage, $compte);
+        $updateAvatar->execute($array);
 	  }
 
-    public function updateCompte($description, $compte) {
-        $updateCompte = $this::$bdd->prepare('UPDATE COMPTE SET descriptionCompte = ? where idCompte=?');
-        $array = array($description, $compte);
+    public function updateCompte($prenom, $nom, $telephone, $description, $compte) {
+        $updateCompte = $this::$bdd->prepare('UPDATE COMPTE SET prenomCompte = ?, nomCompte = ?, telephoneCompte = ?, descriptionCompte = ? where idCompte=?');
+        $array = array($prenom, $nom, $telephone, $description, $compte);
         $updateCompte->execute($array);
     }
 

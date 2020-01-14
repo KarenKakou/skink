@@ -28,8 +28,12 @@ require_once('modules/module_modifier/Controleur_Modifier.php');
                     $_GET['id']);
                     break;
                 case "mettreAJourCompte":
-                    $this->controleur->mettreAJourCompte($_POST['descriptionCompte'], 
-                    $_GET['id']);
+                    $this->controleur->mettreAJourCompte(
+                        $_POST['prenomCompte'], 
+                        $_POST['nomCompte'], 
+                        $_POST['telephoneCompte'],
+                        $_POST['descriptionCompte'], 
+                        $_GET['id']);
                     break;
             }
         }

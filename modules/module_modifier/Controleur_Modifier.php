@@ -15,15 +15,11 @@ require_once('modules/module_modifier/Modele_Modifier.php');
         }
 
         public function formulaireCompte($idCompte){
-            $this->vueModifier->afficherFormulaires($idCompte);
+            $this->vueModifier->afficherFormulaires($idCompte, $this->modeleModifier->obtenirCompte($idCompte));
         }
 
-        public function compteActuel($compte) {
-            $this->vueModifier->afficherCompteActuel($this->modeleModifier->obtenirCompte($compte));
-        }
-
-        public function mettreAJourCompte($description,$idCompte) {
-             $this->modeleModifier->updateCompte($description, $idCompte);
+        public function mettreAJourCompte($prenom, $nom, $telephone , $description, $idCompte) {
+             $this->modeleModifier->updateCompte($prenom, $nom, $telephone, $description, $idCompte);
         }
 
         public function mettreAJourAvatar($avatarCompte,$idCompte) {
