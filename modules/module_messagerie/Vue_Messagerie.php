@@ -1,24 +1,10 @@
 <?php
 
-
-//require_once ('modules/module_messagerie/Envoyer_Message.php');
-
 class Vue_Messagerie
 {
     public function __construct()
     {
         include('composants/entete.php');
-    }
-
-    public function formCreationOuAccesConv() {
-        echo "<section>
-              <form action =\"index.php?module=messagerie&actionMessagerie=accesConv\" method=\"POST\">
-                    <button type='submit' class='btn btn-light'>Accéder à ses conversations</button>
-              </form>
-              <form action =\"index.php?module=messagerie&actionMessagerie=formCreatConv\" method=\"POST\">
-                    <button type='submit' class='btn btn-light'>Créer une nouvelle Conversation</button>
-              </form>
-              </section>";
     }
 
     public function formCreationConv($listTatoueur) {

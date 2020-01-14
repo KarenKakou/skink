@@ -2,7 +2,7 @@
 
 require_once('modules/module_connexion/Vue_Connexion.php');
 require_once('modules/module_connexion/Modele_connexion.php');
-
+require_once('lib/Generique.php');
     class Controleur_Connexion
     {
         private $vueConnexion;
@@ -15,8 +15,13 @@ require_once('modules/module_connexion/Modele_connexion.php');
         }
 
         //Methode de connexion
-        public function connect($email, $password) {
-            $this->modeleConnexion->connect($email, $password);
+        public function connect($email, $password, $token) {
+            if(Generique::checkToken($token)) {
+                $this->modeleConnexion->connect($email, $password);
+            }else {
+                echo "<section>Veuillez recommencer</section>";
+                $this->formConnexion();
+            }
         }
 
         //Formulaire d'inscription pour le client
