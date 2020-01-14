@@ -233,7 +233,7 @@ class Vue_Modifier
                 <textarea name='descriptionCompte'></textarea>
                 <input type='submit' value='mettreAJourCompte'>
         </form>";*/
-
+    }
     public function afficheCompteActuel($compte) {
 
     }
