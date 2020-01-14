@@ -64,7 +64,7 @@ class Vue_Messagerie
     public function vue_AffichesMessages($listConversation, $listMessage, $idConv) {
         echo "
                 <section>
-                    <div class=\"container\">
+                    <div class=\"container-fluid\">
                     <h3 class=\"text-center\">Conversation</h3>
                     <div class=\"messaging\">
                           <div class=\"inbox_msg\">
@@ -142,6 +142,5 @@ class Vue_Messagerie
                         <script src='modules/module_messagerie/changeConv.js'></script>
                         <script type='text/javascript' src='modules/module_messagerie/MessageScript.js'></script>
                         ";
-        include ("composants/pied.php");
     }
 }
