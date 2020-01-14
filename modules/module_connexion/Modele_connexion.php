@@ -15,7 +15,6 @@ class Modele_connexion extends Connexion
         $selectUser->execute($array);
         $resultUser = $selectUser->fetchAll();
         $varUser= array_shift($resultUser);
-        var_dump($varUser);
         if(password_verify($password, $varUser['motDePasseCompte']))
         {
             $_SESSION['Login'] = $email;

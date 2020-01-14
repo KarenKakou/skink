@@ -12,6 +12,8 @@ require_once('modules/module_galerie/Mod_Galerie.php');
 require_once ('modules/module_messagerie/Mod_Messagerie.php');
 require_once "modules/acceuil/mod_accueil.php";
 require_once ('modules/module_paiement/Mod_Paiement.php');
+require_once ('modules/module_modifier/Mod_Modifier.php');
+
 
 
 Connexion::initConnexion();
@@ -25,6 +27,8 @@ $moduleALancer = new mod_Connexion();
 $moduleConnexion = new mod_Connexion();
 $moduleGalerie = new Mod_Galerie();
 $modulePaiement = new Mod_Paiement();
+$moduleModifier = new Mod_Modifier();
+
 
 
 switch($module){
@@ -72,6 +76,18 @@ switch($module){
 	case "acceuil":
 		$modAcceuil = new ModAccueil();
 		break;
+
+	case "modifier" :
+		if(isset($_SESSION['Login'])){
+			$moduleALancer = new Mod_Modifier();
+			$moduleALancer->launchModModifier();
+			break;			
+		}
+		else{
+			$moduleALancer = new mod_Connexion();
+			$moduleALancer->launchModConnexion();
+			break;
+		}
 
 }
 
