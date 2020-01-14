@@ -42,34 +42,42 @@ class Modele_connexion extends Connexion
 
     //Methode permettant d'ajouter un compte a la base de donnee / Statut est par défaut a 1 pour les clients
     public function ajoutCompte($nom, $prenom, $adresse, $telephone, $email, $password, $statut = 1) {
-        if($this->verifEmail($email)) {
-            $hashpassword = password_hash($password, PASSWORD_DEFAULT);
-            $nbStatut = 0;
-            switch ($statut) {
-                case 'Client':
-                    $nbStatut = 1;
-                    break;
-                case 'Tatoueur' :
-                    $nbStatut = 2;
-                    break;
-                case 'Admin':
-                    $nbStatut = 3;
-                    break;
-                default:
-                    $nbStatut = 1;
-            }
-            $this::$bdd->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING );
-            $insertPrepare = $this::$bdd->prepare('INSERT into COMPTE values(DEFAULT, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
-            $array = array($nom, $prenom, $adresse, $telephone, $hashpassword, $email, NULL, NULL, $nbStatut);
-    
-            if ($insertPrepare->execute($array)) {
-                echo "L'utilisateur $nom $prenom a bien été enregistré au statut de $statut";
+        //Verification que l'email n'existe pas déjà
+        $selectUser = $this::$bdd->prepare('SELECT * from COMPTE where emailCompte=?');
+        $array = array($email);
+        $selectUser->execute($array);
+        $resultUser = $selectUser->fetchAll();
+        if(empty($resultUser)) {
+            if ($this->verifEmail($email)) {
+                $hashpassword = password_hash($password, PASSWORD_DEFAULT);
+
+                switch ($statut) {
+                    case 'Client':
+                        $nbStatut = 1;
+                        break;
+                    case 'Tatoueur' :
+                        $nbStatut = 2;
+                        break;
+                    case 'Admin':
+                        $nbStatut = 3;
+                        break;
+                    default:
+                        $nbStatut = 1;
+                }
+                $this::$bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
+                $insertPrepare = $this::$bdd->prepare('INSERT into COMPTE values(DEFAULT, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
+                $array = array($nom, $prenom, $adresse, $telephone, $hashpassword, $email, NULL, NULL, $nbStatut);
+                if ($insertPrepare->execute($array)) {
+                    echo "L'utilisateur $nom $prenom a bien été enregistré au statut de $statut";
+                } else {
+                    // echo $this::$bdd->errorInfo();
+                    echo "linsert na pas marché";
+                }
             } else {
-               // echo $this::$bdd->errorInfo();
-               echo "linsert na pas marché";
+                echo "L'adresse email n'est pas valide";
             }
         }else {
-            echo "L'adresse email n'est pas valide";
+            echo "<section>Cette adresse e-mail existe déjà</section>";
         }
     }
 

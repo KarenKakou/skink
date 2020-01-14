@@ -8,15 +8,16 @@
 #------------------------------------------------------------
 
 CREATE TABLE COMPTE(
-        idCompte        int (11) Auto_increment  NOT NULL ,
-        nomCompte       Varchar (25) NOT NULL ,
-        prenomCompte    Varchar (25) NOT NULL ,
-        adresseCompte   Varchar (100) ,
-        telephoneCompte Varchar (10) ,
-        motDePasse      Varchar (120) NOT NULL ,
-        emailCompte     Varchar (60) NOT NULL ,
-        avatarCompte    Varchar (100) ,
-        idStatut        Int NOT NULL ,
+        idCompte          int (11) Auto_increment  NOT NULL ,
+        nomCompte         Varchar (25) NOT NULL ,
+        prenomCompte      Varchar (25) NOT NULL ,
+        adresseCompte     Varchar (100) ,
+        telephoneCompte   Varchar (10) ,
+        motDePasseCompte        Varchar (120) NOT NULL ,
+        emailCompte       Varchar (60) NOT NULL ,
+        avatarCompte      Varchar (100) ,
+        descriptionCompte Text ,
+        idStatut          Int NOT NULL ,
         PRIMARY KEY (idCompte )
 )ENGINE=InnoDB;
 
@@ -82,8 +83,8 @@ CREATE TABLE PROJET(
 
 CREATE TABLE RDV(
         idRDV        int (11) Auto_increment  NOT NULL ,
-        debRdv       TimeStamp NOT NULL ,
-        finRdv       TimeStamp NOT NULL ,
+        debRdv       Datetime NOT NULL ,
+        finRdv       Datetime NOT NULL ,
         modePaiement Varchar (25) NOT NULL ,
         idProj       Int NOT NULL ,
         PRIMARY KEY (idRDV )

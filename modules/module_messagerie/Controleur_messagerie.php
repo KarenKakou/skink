@@ -32,8 +32,21 @@ class Controleur_messagerie
     }
 
     public function afficheConv($idConv) {
-        //$this->vueMessagerie->afficheMessages($this->modeleMessagerie->accederMessage($idConv), $idConv);
-        $this->vueMessagerie->vue_AffichesMessages($this->modeleMessagerie->accederMessage($idConv), $idConv);
+        $listConv = $this->modeleMessagerie->listConv();
+        if(empty($listConv)) {
+            if($_SESSION['Statut'] == 1)
+                echo "<section>
+                            Vous n'avez pas de conversation en cours, allez dans la galerie pour trouver un tatoueur
+                            <a href='index.php?module=galerie'><button>Se rendre dans la galerie pour trouver un Tatoueur</button></a>
+                      </section>";
+            else
+                echo "<section>En tant que tatoueur, vous n'avez aucune conversation actuelle avec un client</section>";
+        }else {
+            if ($idConv == null) {
+                $idConv = $listConv[0]['idConv'];
+            }
+            $this->vueMessagerie->vue_AffichesMessages($this->modeleMessagerie->listConv(), $this->modeleMessagerie->accederMessage($idConv), $idConv);
+        }
     }
 
     public function envoyerMessage($corpsMessage, $idConv, $idCompteEmetteur) {
