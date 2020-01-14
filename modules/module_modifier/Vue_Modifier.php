@@ -8,7 +8,7 @@ class Vue_Modifier
     {
     }
     public function afficherFormulaires($idCompte) {
-    echo "<div class=\"container bootstrap snippet\">
+    /*echo "<div class=\"container bootstrap snippet\">
     <div class=\"row\">
         <div class=\"col-sm-10\"><h1>User name</h1></div>
         <div class=\"col-sm-2\"><a href=\"/users\" class=\"pull-right\"><img title=\"profile image\" class=\"img-circle img-responsive\" src=\"http://www.gravatar.com/avatar/28fd20ccec6865e2d5f0e1f4446eb7bf?s=100\"></a></div>
@@ -232,7 +232,7 @@ class Vue_Modifier
                 <label>Description</label>
                 <textarea name='descriptionCompte'></textarea>
                 <input type='submit' value='mettreAJourCompte'>
-        </form>";
+        </form>";*/
 
     public function afficheCompteActuel($compte) {
 
