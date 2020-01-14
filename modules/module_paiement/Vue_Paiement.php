@@ -83,9 +83,7 @@
                                     </div>
                                     <div class=\"tile-footer\">";
                                     if($_SESSION['Statut'] == 2 && $echeancePayee != $echeanceTotal) {
-                                        echo "<a href=\"index.php?module=paiement&action=incEcheances&id=$idProjet\">
-                                            <div class=\"alert alert-warning\">Incrémenter</div>
-                                        </a>";
+                                        echo "<div id=\"".$idProjet."\" onclick='redirectionAjoutProjet(this.id)' class=\"alert alert-warning divPaiement\">Incrémenter</div>";
                                     }
                                 echo " </div>
                             </div>
@@ -106,10 +104,8 @@
                                         <span>Les arrhes n'ont pas été payées !</span>
                                     </div>
                                     <div class=\"tile-footer\">";
-                                        if($_SESSION['Statut'] == 2 && $echeancePayee != $echeanceTotal) {
-                                        echo "<a href=\"index.php?module=paiement&action=majArrhes&id=$idProjet\">
-                                            <div class=\"alert alert-warning\">Activer les arrhes pour ce client</div>
-                                        </a>";
+                                        if($_SESSION['Statut'] == 2 && $arrhes == 0) {
+                                        echo "<div id=\"".$idProjet."\" onclick='redirectionMajArrhesProjet(this.id)' class=\"alert alert-warning divPaiement\">Activer les arrhes pour ce client</div>";
                                         }
                                     echo "</div>";
                             }
