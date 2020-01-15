@@ -1,17 +1,8 @@
 <?php
 session_start();
-//require_once ('modules/module_messagerie/Modele_Messagerie.php');
+require_once ('connexion.php');
 
-try
-{
-    $bdd = new PDO('mysql:host=localhost;dbname=skinkv3', 'root', '');
-}
-catch (Exception $e)
-{
-    die('Erreur : ' . $e->getMessage());
-}
-
-//$modele = new Modele_Messagerie();
+Connexion::initConnexion();
 
     if(!empty($_POST['messageconv'])) {
         $message = $_POST['messageconv'];
@@ -20,7 +11,7 @@ catch (Exception $e)
         $idCompteEmetteur = $_SESSION['idCompte'];
 
         //Récupérer le compte receveur
-        $listMessage = $bdd->prepare('SELECT * from MESSAGE where idConv=?');
+        $listMessage = Connexion::$bdd->prepare('SELECT * from MESSAGE where idConv=?');
         $array = array($idConv);
         $listMessage->execute($array);
         $list = $listMessage->fetchAll();
@@ -32,7 +23,7 @@ catch (Exception $e)
 
         $pieceJointe = null;
 
-        $insertMessagePrepare = $bdd->prepare('INSERT into MESSAGE values(DEFAULT, ?, ?, ?, ?, ?)');
+        $insertMessagePrepare = Connexion::$bdd->prepare('INSERT into MESSAGE values(DEFAULT, ?, ?, ?, ?, ?)');
         $array = array($message, $pieceJointe, $idConv, $idCompteEmetteur, $idCompteReceveur);
         $insertMessagePrepare->execute($array);
 
