@@ -4,7 +4,6 @@ class Vue_Messagerie
 {
     public function __construct()
     {
-        include('composants/entete.php');
     }
 
     public function formCreationConv($listTatoueur) {
@@ -49,7 +48,7 @@ class Vue_Messagerie
 
     public function vue_AffichesMessages($listConversation, $listMessage, $idConv) {
         echo "
-                <section>
+                <section id='vue_messagerie'>
                     <div class=\"container-fluid\">
                     <h3 class=\"text-center\">Conversation</h3>
                     <div class=\"messaging\">
@@ -125,9 +124,12 @@ class Vue_Messagerie
                           </div> 
                         </div>
                         </div>
+                        
                         </section>
+                        <button id='addFormProjet' class='btn btn-info'>Créer un projet à ce client</button>
                         <script src='modules/module_messagerie/changeConv.js'></script>
                         <script type='text/javascript' src='modules/module_messagerie/MessageScript.js'></script>
+                        <script src='modules/module_messagerie/addFormProjet.js'></script>
                         ";
     }
 }

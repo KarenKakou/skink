@@ -14,7 +14,6 @@ function redirectionAjoutProjet(){
 	$.redirect('index.php?module=projet&actionProjet=formProjet', {});
 }
 
-
 function redirectionConvTatoueur(idCompte){
 	$.redirect('index.php?module=messagerie&actionMessagerie=creatConv', {'CompteTatoueurNewMessage':idCompte});
 }
@@ -22,12 +21,12 @@ function redirectionConvTatoueur(idCompte){
 function redirectionInscription(){
 	$.redirect('index.php?module=connexion', {});
 }
-/*
-function redirectionAjoutProjet(idProjet){
+
+function redirectionIncremente(idProjet){
 	$.post('index.php?module=paiement&action=incEcheances', {'idProjet':idProjet});
-	$.redirect('index.php?module=paiement&action=voirProjet', {'idProjet':idProjet})
+	$.redirect('index.php?module=paiement&action=voirProjet', {'idProjet':idProjet});
 }
-*/
+
 function redirectionMajArrhesProjet(idProjet){
 	$.post('index.php?module=paiement&action=majArrhes', {'idProjet':idProjet});
 	$.redirect('index.php?module=paiement&action=voirProjet', {'idProjet':idProjet});
