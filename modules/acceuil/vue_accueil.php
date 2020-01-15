@@ -3,7 +3,6 @@
 class VueAccueil {
 
 	public function __construct (){
-		include("composants/entete.php");
 	}
 
 	public function carousel(){
@@ -82,10 +81,6 @@ class VueAccueil {
 			</div>
 		</div>
 	<?php
-	}
-
-	public function pied(){
-		include("composants/pied.php");
 	}
 
 }

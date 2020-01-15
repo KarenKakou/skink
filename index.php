@@ -29,7 +29,7 @@ $moduleGalerie = new Mod_Galerie();
 $modulePaiement = new Mod_Paiement();
 $moduleModifier = new Mod_Modifier();
 
-
+include('composants/entete.php');
 
 switch($module){
 

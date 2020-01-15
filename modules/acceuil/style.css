@@ -384,10 +384,7 @@ h1{
 	margin-top:50px;
 	margin-bottom: 30px;
 }
-/*
-.btnRdv > button {
-	margin-bottom: 20px;
-}*/
+
 
 #blockBtnRdv{
 	border-radius: 10px;
@@ -395,4 +392,5 @@ h1{
 
 #blockRdv{
 	margin-top:30px;
+	padding-left: 30px;
 }
