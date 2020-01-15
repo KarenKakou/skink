@@ -22,12 +22,12 @@ function redirectionConvTatoueur(idCompte){
 function redirectionInscription(){
 	$.redirect('index.php?module=connexion', {});
 }
-
+/*
 function redirectionAjoutProjet(idProjet){
 	$.post('index.php?module=paiement&action=incEcheances', {'idProjet':idProjet});
 	$.redirect('index.php?module=paiement&action=voirProjet', {'idProjet':idProjet})
 }
-
+*/
 function redirectionMajArrhesProjet(idProjet){
 	$.post('index.php?module=paiement&action=majArrhes', {'idProjet':idProjet});
 	$.redirect('index.php?module=paiement&action=voirProjet', {'idProjet':idProjet});
