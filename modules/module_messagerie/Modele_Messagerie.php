@@ -45,11 +45,13 @@ class Modele_Messagerie  extends Connexion {
 
     //permet de créer une nouvelle conversation entre la personne connecté et la personne desire (Et lui envoit un message de Nouvelle conversation
     public function newConversation($compteTatoueur) {
-        $listConv = $this::$bdd->prepare('SELECT distinct idConv, COMPTE.idCompte, nomCompte, prenomCompte from MESSAGE INNER JOIN COMPTE ON MESSAGE.idCompte_COMPTE = COMPTE.idCompte where MESSAGE.idCompte=?');
-        $array = array($compteTatoueur);
+        $listConv = $this::$bdd->prepare('SELECT distinct idConv, COMPTE.idCompte, nomCompte, prenomCompte from MESSAGE INNER JOIN COMPTE ON MESSAGE.idCompte_COMPTE = COMPTE.idCompte where MESSAGE.idCompte=? AND MESSAGE.idCompte_COMPTE=?');
+        $array = array($_SESSION['idCompte'],$compteTatoueur);
         $listConv->execute($array);
-
-        if(empty($listConv->fetchAll())) {
+        $listConversation = $listConv->fetchAll();
+        var_dump($listConversation);
+        if(empty($listConversation)) {
+            echo"Mon dieu";
             $insertPrepare = $this::$bdd->prepare('INSERT into CONVERSATION values(DEFAULT)');
             if ($insertPrepare->execute()) {
                 $idConv = $this::$bdd->lastInsertId();
@@ -73,9 +75,7 @@ class Modele_Messagerie  extends Connexion {
         }
         $insertMessagePrepare = $this::$bdd->prepare('INSERT into MESSAGE values(DEFAULT, ?, ?, ?, ?, ?)');
         $array = array($corps, $pieceJointe, $idConv, $idCompteEmetteur, $idCompteReceveur);
-        if($insertMessagePrepare->execute($array)) {
-            echo "Le message a bien été envoyé";
-        }else {
+        if(!$insertMessagePrepare->execute($array)) {
             echo "Il y a eu un problème avec l'envoie du message";
         }
     }
