@@ -38,6 +38,7 @@
 
             $nomTatoueur = $tatoo[0]['nomCompte'];
             $avatar = $tatoo[0]['avatarCompte'];
+            $idCompte = $tatoo[0]['idCompte'];
             $i=0;
             echo "
                 <div class='container'>
@@ -50,8 +51,17 @@
                             </div>
                             <div class='logo'>
                                 <a href=''><img src='images/logoInsta.png' width='50' height='50'/></a>
-                            </div>
-                            <input type='button' value='contacter $nomTatoueur'>
+                            </div>";
+                            if(isset($_SESSION['Login'])){
+                                echo "
+                            <input type='button' id=\"".$idCompte."\" onClick='redirectionConvTatoueur(this.id)' value='contacter $nomTatoueur'>";
+                            }
+                            else{
+                                echo "
+                            <input type='button' onClick='redirectionInscription()' value='contacter $nomTatoueur'>
+                                ";
+                            }
+                        echo "    
                         </div>
 
                         <div class='col-md-8'>";

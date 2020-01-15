@@ -13,3 +13,11 @@ function redirectionAfficheRdv(id){
 function redirectionAjoutProjet(){
 	$.redirect('index.php?module=projet&actionProjet=formProjet', {});
 }
+
+function redirectionConvTatoueur(idCompte){
+	$.redirect('index.php?module=messagerie&actionMessagerie=creatConv', {'CompteTatoueurNewMessage':idCompte});
+}
+
+function redirectionInscription(){
+	$.redirect('index.php?module=connexion', {});
+}
