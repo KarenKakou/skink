@@ -1,24 +1,10 @@
 <?php
 
-
-//require_once ('modules/module_messagerie/Envoyer_Message.php');
-
 class Vue_Messagerie
 {
     public function __construct()
     {
         include('composants/entete.php');
-    }
-
-    public function formCreationOuAccesConv() {
-        echo "<section>
-              <form action =\"index.php?module=messagerie&actionMessagerie=accesConv\" method=\"POST\">
-                    <button type='submit' class='btn btn-light'>Accéder à ses conversations</button>
-              </form>
-              <form action =\"index.php?module=messagerie&actionMessagerie=formCreatConv\" method=\"POST\">
-                    <button type='submit' class='btn btn-light'>Créer une nouvelle Conversation</button>
-              </form>
-              </section>";
     }
 
     public function formCreationConv($listTatoueur) {
@@ -130,6 +116,7 @@ class Vue_Messagerie
                                   <form action =\"Envoyer_Message.php\" id='formMessage' method=\"POST\" enctype=\"multipart/form-data\">
                                     <input type=\"text\" id='Message' name ='messageconv' class=\"write_msg\" placeholder=\"Votre message\" /> 
                                     <!-- <input type=\"file\" id='MessageImage' name=\"MessageImage\" class='btn btn-light uploadButton'/> -->
+                                    <input type='hidden' id='idConv' value='".$idConv."'>
                                     <button class=\"msg_send_btn\" id='envoi' name='submit' type=\"submit\">Send</button>
                                   </form>
                                 </div>

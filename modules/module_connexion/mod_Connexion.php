@@ -23,7 +23,7 @@ require_once('modules/module_connexion/Controleur_Connexion.php');
             switch ($actionConnexion) {
                 //Se connecter
                 case "connexion" :
-                    $this->controleur->connect($_POST['identifiantConnexion'], $_POST['MotDePasseConnexion']);
+                    $this->controleur->connect($_POST['identifiantConnexion'], $_POST['MotDePasseConnexion'], $_POST['token']);
                     break;
 
                 //formulaire de Connexion

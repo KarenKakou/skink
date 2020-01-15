@@ -1,5 +1,6 @@
 <?php
 
+require_once('lib/Generique.php');
 
     class Vue_Connexion
     {
@@ -23,6 +24,7 @@
                                 <label for='mdp'>Entrez votre MotDePasse</label>
                                 <input type='password' name='MotDePasseConnexion' id='mdp' class='form-control deuxTiers'>
                             </div>
+                            <input type='hidden' name='token' value='".Generique::createToken()."'>
                             <input type='submit' value='Se connecter' class='btn btn-light'>
                         </form>
                     </div>

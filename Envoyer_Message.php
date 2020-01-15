@@ -40,4 +40,4 @@ catch (Exception $e)
     else {
         echo "Il y a une erreur dans le remplissage du message";
     }
-
+?>

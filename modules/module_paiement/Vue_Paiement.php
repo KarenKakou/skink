@@ -62,8 +62,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>";
-                            echo "</div>
+                        </div>
+                        </div>
                         <div class = \"col-md-8\">
                             <div class = row>
                                 <div class=\"col-sm-6\">";
@@ -83,9 +83,7 @@
                                     </div>
                                     <div class=\"tile-footer\">";
                                     if($_SESSION['Statut'] == 2 && $echeancePayee != $echeanceTotal) {
-                                        echo "<a href=\"index.php?module=paiement&action=incEcheances&id=$idProjet\">
-                                            <div class=\"alert alert-warning\">Incrémenter</div>
-                                        </a>";
+                                        echo "<div id=\"".$idProjet."\" onclick='redirectionAjoutProjet(this.id)' class=\"alert alert-warning divPaiement\">Incrémenter</div>";
                                     }
                                 echo " </div>
                             </div>
@@ -105,11 +103,11 @@
                                         <h4 style=\"text-align:center\";>Arrhes</h4>
                                         <span>Les arrhes n'ont pas été payées !</span>
                                     </div>
-                                    <div class=\"tile-footer\">
-                                        <a href=\"index.php?module=paiement&action=majArrhes&id=$idProjet\">
-                                            <div class=\"alert alert-warning\">Activer les arrhes pour ce client</div>
-                                        </a>
-                                    </div>";
+                                    <div class=\"tile-footer\">";
+                                        if($_SESSION['Statut'] == 2 && $arrhes == 0) {
+                                        echo "<div id=\"".$idProjet."\" onclick='redirectionMajArrhesProjet(this.id)' class=\"alert alert-warning divPaiement\">Activer les arrhes pour ce client</div>";
+                                        }
+                                    echo "</div>";
                             }
                             echo "</div>
                             </div>
