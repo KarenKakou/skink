@@ -14,9 +14,9 @@ function redirectionAjoutProjet(){
 	$.redirect('index.php?module=projet&actionProjet=formProjet', {});
 }
 
-function redirectionAjoutProjet(idProjet){
+function redirectionIncremente(idProjet){
 	$.post('index.php?module=paiement&action=incEcheances', {'idProjet':idProjet});
-	$.redirect('index.php?module=paiement&action=voirProjet', {'idProjet':idProjet})
+	$.redirect('index.php?module=paiement&action=voirProjet', {'idProjet':idProjet});
 }
 
 function redirectionMajArrhesProjet(idProjet){

@@ -83,7 +83,7 @@
                                     </div>
                                     <div class=\"tile-footer\">";
                                     if($_SESSION['Statut'] == 2 && $echeancePayee != $echeanceTotal) {
-                                        echo "<div id=\"".$idProjet."\" onclick='redirectionAjoutProjet(this.id)' class=\"alert alert-warning divPaiement\">Incrémenter</div>";
+                                        echo "<div id=\"".$idProjet."\" onclick='redirectionIncremente(this.id)' class=\"alert alert-warning divPaiement\">Incrémenter</div>";
                                     }
                                 echo " </div>
                             </div>
