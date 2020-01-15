@@ -72,7 +72,7 @@ class Vue_Messagerie
                         <div class=\"chat_people \">
                             <div class=\"chat_img\"> <img src=\"https://ptetutorials.com/images/user-profile.png\" alt=\"sunil\"> </div>
                             <div class=\"chat_ib\">
-                                 <h5>".$listConversation[$key]['nomCompte']." ".$listConversation[$key]['nomCompte']."</h5>
+                                 <h5>".$listConversation[$key]['nomCompte']." ".$listConversation[$key]['prenomCompte']."</h5>
                             </div>
                         </div>
                   </div>";
@@ -125,8 +125,12 @@ class Vue_Messagerie
                         </div>
                         </div>
                         
-                        </section>
-                        <button id='addFormProjet' class='btn btn-info'>Créer un projet à ce client</button>
+                        </section>";
+        if($_SESSION['Statut'] == 2) {
+            echo "
+                        <button id='addFormProjet' class='btn btn-info'>Créer un projet à ce client</button>";
+        }
+        echo "
                         <script src='modules/module_messagerie/changeConv.js'></script>
                         <script type='text/javascript' src='modules/module_messagerie/MessageScript.js'></script>
                         <script src='modules/module_messagerie/addFormProjet.js'></script>
