@@ -52,8 +52,7 @@
                                 <a href=''><img src='images/logoInsta.png' width='50' height='50'/></a>
                             </div>";
                             if(isset($_SESSION['Login'])){
-                                echo "
-                            <input type='button' id=\"".$idCompte."\" onClick='redirectionConvTatoueur(this.id)' value='contacter $nomTatoueur'>";
+                                echo "<input type='button' id=\"".$idCompte."\" onClick='redirectionConvTatoueur(this.id)' value=\"Contacter ".$nomTatoueur."\">";
                             }
                             else{
                                 echo "

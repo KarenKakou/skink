@@ -48,9 +48,8 @@ class Modele_Messagerie  extends Connexion {
         $listConv = $this::$bdd->prepare('SELECT distinct idConv, COMPTE.idCompte, nomCompte, prenomCompte from MESSAGE INNER JOIN COMPTE ON MESSAGE.idCompte_COMPTE = COMPTE.idCompte where MESSAGE.idCompte=?');
         $array = array($compteTatoueur);
         $listConv->execute($array);
-        $listConv->fetchAll();
 
-        if(empty($listConv)) {
+        if(empty($listConv->fetchAll())) {
             $insertPrepare = $this::$bdd->prepare('INSERT into CONVERSATION values(DEFAULT)');
             if ($insertPrepare->execute()) {
                 $idConv = $this::$bdd->lastInsertId();
@@ -58,8 +57,6 @@ class Modele_Messagerie  extends Connexion {
                 //Insérer le message "Nouvelle conversation"
                 $this->nouveauMessage("Voici votre nouvelle conversation avec un tatoueur, écrivez lui votre idée de projet ou demandez lui des conseils !", $idConv, $_SESSION['idCompte'], $compteTatoueur);
                 return $idConv;
-            } else {
-                echo "Il y a eu un problème avec la création de la conversation";
             }
         }
         else {
