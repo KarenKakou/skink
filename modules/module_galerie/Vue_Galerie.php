@@ -4,7 +4,6 @@
     {
         public function __construct()
         {
-            include("composants/entete.php");
         }
 
         //affiche tous les tatoueurs

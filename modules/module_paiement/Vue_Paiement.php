@@ -1,5 +1,4 @@
 <?php
-    include("composants/entete.php");
     class Vue_Paiement
     {
         public function __construct()
