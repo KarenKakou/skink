@@ -32,3 +32,7 @@ function redirectionMajArrhesProjet(idProjet){
 	$.redirect('index.php?module=paiement&action=voirProjet', {'idProjet':idProjet});
 }
 
+function redirectionMessage(){
+	$.redirect('index.php?module=messagerie&actionMessagerie=lireConv', {});
+}
+

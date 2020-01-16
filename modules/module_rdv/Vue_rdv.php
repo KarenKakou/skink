@@ -14,15 +14,13 @@ class Vue_rdv
                     <div class='btnRdv'>
                         <button type='button' id=\"".$_SESSION['idCompte']."\" class='btn btn-primary btn-lg btn-block' onClick='redirectionAfficheRdv(this.id)'>Voir mes RDV</button><br/>";
                         if($_SESSION['Statut']==2){
-                            echo "<button type='button' class='btn btn-primary btn-lg btn-block' onClick='redirectionFormRdv()'>Ajouter un rdv</button><br/>";
+                            echo "<button type='button' class='btn btn-primary btn-lg btn-block' onClick='redirectionFormRdv()'>Ajouter un rdv</button><br/>
+                                <button type='button' class='btn btn-primary btn-lg btn-block' onClick='redirectionAjoutProjet()'>Ajouter un projet</button>";
                         }
                         else{
-                            echo "<button type='button' class='btn btn-primary btn-lg btn-block'>Demander a modifier un rdv</button><br/>";
+                            echo "<button type='button' class='btn btn-primary btn-lg btn-block' onClick='redirectionMessage()'>Demander a modifier un rdv</button><br/>";
                         }
                         echo "
-
-                        <button type='button' class='btn btn-primary btn-lg btn-block' onClick='redirectionAjoutProjet()'>Ajouter un projet</button>
-
                     </div>
                 </div>
                 <div class='col-md-9' id='blockRdv'>
