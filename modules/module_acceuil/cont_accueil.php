@@ -1,7 +1,7 @@
 <?php
 
-require_once "modules/acceuil/modele_accueil.php";
-require_once "modules/acceuil/vue_accueil.php";
+require_once "modules/module_acceuil/modele_accueil.php";
+require_once "modules/module_acceuil/vue_accueil.php";
 
 class ContAccueil{
 

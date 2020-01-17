@@ -11,6 +11,10 @@ require_once('modules/module_galerie/Controleur_Galerie.php');
             $this->controleur = new Controleur_Galerie();
         }
 
+        public function getAffichage() {
+            return $this->controleur->getAffichage();
+        }
+
         public function launchModGalerie()
         {
             if(isset($_GET['action'])){

@@ -19,6 +19,10 @@ require_once('modules/module_paiement/Modele_Paiement.php');
             $this->vuePaiement->afficherProjetsPaiement($array);
         }
 
+        public function getAffichage() {
+            return $this->vuePaiement->getAffichage();
+        }
+
         public function recupererProjetsDeTatoueur($idCompte) {
             $array = $this->modelePaiement->obtenirProjetsDeTatoueur($idCompte);
             $this->vuePaiement->afficherProjetsPaiement($array);

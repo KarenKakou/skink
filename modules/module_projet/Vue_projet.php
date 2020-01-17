@@ -1,11 +1,13 @@
 <?php
 
 require_once('modules/module_projet/Modele_projet.php');
+require_once "Vue_Generique.php";
 
-class Vue_projet
+class Vue_projet extends VueGenerique
 {
     public function __construct()
     {
+        parent::__construct();
     }
 
     public function formCreationProjet($listClient, $listTatoueur) {

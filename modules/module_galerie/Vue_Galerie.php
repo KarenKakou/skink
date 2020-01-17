@@ -1,9 +1,12 @@
 <?php
 
-    class Vue_Galerie
+require_once "Vue_Generique.php";
+
+    class Vue_Galerie extends VueGenerique
     {
         public function __construct()
         {
+            parent::__construct();
         }
 
         //affiche tous les tatoueurs

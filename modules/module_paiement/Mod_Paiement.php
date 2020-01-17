@@ -11,6 +11,10 @@ require_once('modules/module_paiement/Controleur_Paiement.php');
             $this->controleur = new Controleur_Paiement();
         }
 
+        public function getAffichage() {
+            return $this->controleur->getAffichage();
+        }
+
         public function launchModPaiement()
         {
             if(isset($_GET['action'])){

@@ -20,6 +20,10 @@ class Controleur_projet
         $this->vueProjet->formCreationProjet($this->modeleProjet->listeDeComptePar("Client"), $this->modeleProjet->listeDeComptePar("Tatoueur"));
     }
 
+    public function getAffichage() {
+        return $this->vueProjet->getAffichage();
+    }
+
     public function ajoutProjet($nomProjet, $idClient, $idTatoueur, $descriptionProjet, $montantProjet, $nbEcheance) {
         $this->modeleProjet->ajoutProjet($nomProjet, $idClient, $idTatoueur, $descriptionProjet, $montantProjet, $nbEcheance);
     }

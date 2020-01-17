@@ -1,11 +1,13 @@
 <?php
 
 require_once('lib/Generique.php');
+include("Vue_Generique.php");
 
-    class Vue_Connexion
+    class Vue_Connexion extends VueGenerique
     {
         public function __construct()
         {
+            parent::__construct();
         }
 
         public function form_Connexion_Inscription() {
