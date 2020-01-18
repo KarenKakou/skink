@@ -43,7 +43,7 @@ class Entete {
                     <li class='nav-item'>
                       <a class='nav-link' href='index.php?module=galerie'>Galeries</a>
                     </li>";
-                  if(isset($_SESSION['Login'])){
+                  if(isset($_SESSION['Login']) && $_SESSION['Statut'] != 3){
                     $login = $_SESSION['prenom'];
                     $idCompte = $_SESSION['idCompte']; 
                     echo "
@@ -67,6 +67,16 @@ class Entete {
                         <a class='dropdown-item' href='index.php?module=connexion&actionConnexion=deconnexion'>se deconnecter</a>
                       </div>
                     </li>";
+                  }
+                  else if(isset($_SESSION['Login']) && $_SESSION['Statut'] == 3){
+                    echo "
+                    <li class='nav-item'>
+                      <a class='nav-link' href='index.php?module=connexion&actionConnexion=inscription&Admin=1'>Ajouter des compte</a>
+                    </li>
+                    <li class='nav-item'>
+                      <a class='nav-link' href='index.php?module=connexion&actionConnexion=deconnexion'>se deconnecter</a>
+                    </li>
+                    ";
                   }
                   else {
                     $idCompte = 0;

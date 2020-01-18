@@ -36,3 +36,4 @@ function redirectionMessage(){
 	$.redirect('index.php?module=messagerie&actionMessagerie=lireConv', {});
 }
 
+
