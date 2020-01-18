@@ -20,12 +20,14 @@
 	color:white;
 	font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
 	font-weight: bold;
-	text-shadow: 0.1em 0.1em 0.2em black;
+	text-shadow: 0.1em 0.1em 0.4em black;
+	font-size: 20px;
 }
 
 body{
-	width: 90%;
+	
 	margin: auto;
+	font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
 }
 
 nav{
@@ -45,10 +47,30 @@ section {
 	border-top: 1px solid black;
 }
 
+.tache{
+	position: absolute;
+	opacity: 0.4;
+}
+
+.carteTatoueur{
+	padding-top:50px;
+	padding-bottom: 50px;
+	border-bottom: 1px solid black;
+}
+
+.imageCarte{
+	width: 200px;
+}
+
 .card > img {
 	margin:auto;
 	width: 80%;
 }
+
+.carte2{
+	padding-top:10px;
+}
+
 
 footer{
 
@@ -371,20 +393,46 @@ h1{
 
 }
 
-.imgGalerie{
+.logoDesc{
 
-	margin-bottom:20px;
-	margin-left: 40px;
+	text-align: center;
+}
+
+.logoDesc > h2 {
 
 }
 
+.description{
+	margin-top:20px;
+}
+
+.imgGalerie {
+	margin-top:10px;
+	margin-bottom: 10px;
+}
+
+.blockImg{
+	padding-left: 30px;
+}
+
+.galeriePerso{
+	width: 95%;
+	margin: auto;
+	color:white;
+}
+
 .logo{
-	margin-left: 50px;
+	margin-left: 10px;
+	display: inline-block;
 }
 
 #logoCompte{
 	width: 30px;
 
+}
+
+.pageRdv{
+	margin-top:100px;
 }
 
 .rdv{

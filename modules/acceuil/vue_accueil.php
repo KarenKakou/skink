@@ -57,30 +57,54 @@ class VueAccueil {
 	public function carteTatoueur($nomTatoueur){
 		?>
   
-		<div id="carte" class="container">
-			<div class="row">
-
+		<div id="carte" class="container-fluide">
+      <div class='container'>
 				<?php
 					for($i=0; $i<count($nomTatoueur); $i++){
-						?>
-						<div class="col-lg">
-							<div class="card bg-secondary">
-							  <img src="images/dadyInk.png" alt="photo de dadyink" class="rounded-circle">
-							  <div class="card-body">
-							    <h5 class="card-title"><?php echo $nomTatoueur[$i]["nomCompte"];?></h5>
-							    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-							    <a href="index.php?module=galerie&action=voirGalerie&id=<?php echo $i+1; ?>" class="btn btn-primary">Voir ses créations</a>
-							   </div>
-							</div>
-						</div>
+            if($i%2==0){
+              $this->droite($nomTatoueur[$i]['idCompte'], $nomTatoueur[$i]['nomCompte'], $nomTatoueur[$i]['descriptionCompte'], $nomTatoueur[$i]['avatarCompte']);
+            }
+            else{
+              $this->gauche($nomTatoueur[$i]['idCompte'], $nomTatoueur[$i]['nomCompte'], $nomTatoueur[$i]['descriptionCompte'], $nomTatoueur[$i]['avatarCompte']);
+            }
+						
+          } ?>
 
-					<?php } ?>
 
-			</div>
     </div>
 
 	<?php
 	}
+
+  private function droite($id, $nom, $description, $avatar){
+    echo "
+      <div class='row carteTatoueur'>
+        <div class='col-8'>
+          <h5>$nom</h5>
+          <p class='card-text'>$description</p>
+          <a href='index.php?module=galerie&action=voirGalerie&id=".$id."' class='btn btn-primary'>Voir ses création</a>
+        </div>
+        <div class='col-4'>
+          <img src='images/".$avatar."'' class='rounded-circle imageCarte'>
+        </div>
+      </div>";
+  }
+
+  private function gauche($id, $nom, $description, $avatar){
+    echo "
+      <div class='row carteTatoueur'>
+        <div class='col-4'>
+          <img src='images/".$avatar."'' class='rounded-circle imageCarte'>
+        </div>
+        <div class='col-8'>
+          <h5>$nom</h5>
+          <p class='card-text'>$description</p>
+          <a href='index.php?module=galerie&action=voirGalerie&id=".$id."' class='btn btn-primary'>Voir ses création</a>
+        </div>
+      </div>
+    ";
+
+  }
 
 }
 

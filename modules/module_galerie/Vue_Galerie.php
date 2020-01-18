@@ -29,7 +29,8 @@
             }
                 ?>
                     </div>
-                </div><?php
+                </div>
+            </section><?php
             
         }
 
@@ -38,19 +39,26 @@
             $nomTatoueur = $tatoo[0]['nomCompte'];
             $avatar = $tatoo[0]['avatarCompte'];
             $idCompte = $tatoo[0]['idCompte'];
+            $description = $tatoo[0]['descriptionCompte'];
             $i=0;
             echo "
-                <div class='container'>
+                <div class='container-fluide galeriePerso'>
                     <div class='row'>
-                        <div class='col-md-4 bg-dark'>
-                            <img src='images/$avatar' class='rounded-circle' width='200'>
-                            <h2>$nomTatoueur</h2>
-                            <div class='logo'>
-                                <a href=''><img src='images/logoFB.png' width='50' height='50'/></a>
+                        <div class='col-md-3 bg-dark'>
+                            <div class='logoDesc'>
+                                <img src='images/$avatar' class='rounded-circle imgGalerie' width='200'>
+                                <h2>$nomTatoueur</h2>
+                                <div class='logo'>
+                                    <a href=''><img src='images/logoFB.png' width='30' height='30'/></a>
+                                </div>
+                                <div class='logo'>
+                                    <a href=''><img src='images/logoInstaSf.png' width='30' height='30'/></a>
+                                </div>
                             </div>
-                            <div class='logo'>
-                                <a href=''><img src='images/logoInsta.png' width='50' height='50'/></a>
-                            </div>";
+                            <div class='description'>
+                                <p>".$description."<p>
+                            </div>
+                            ";
                             if(isset($_SESSION['Login'])){
                                 if($_SESSION['Statut'] == 1) {
                                     echo "<input type='button' id=\"" . $idCompte . "\" onClick='redirectionConvTatoueur(this.id)' value=\"Contacter " . $nomTatoueur . "\">";
@@ -64,26 +72,29 @@
                         echo "    
                         </div>
 
-                        <div class='col-md-8'>";
+                        <div class='col-md-9'>
+                            <div class='row blockImg'>";
             foreach ($img as $row) 
             {
                 $chemin = "images/images_galerie/".$row['cheminImage'];
                 $idImage = $row['idImage'];
                 $date = $row['dateAjoutImage'];
-            
-                if($i%2==0){
+            /*
+                if($i%3==0){
                     echo "
-                            <div class='row'>
+                            <div class='row border'>
                             ";
-                }
+                }*/
+
                 echo "
-                                <div class='col-lg imgGalerie'>
-                                     <a href=\"index.php?module=image&action=noAction&id=$idImage\"><img src=\"$chemin\"alt=\"modifiée le $date\"width=\"250\" height=\"250\"/></a>
+                                <div class='col-lg-4 imgGalerie'>
+                                     <a href=\"index.php?module=image&action=noAction&id=$idImage\"><img src=\"$chemin\"alt=\"modifiée le $date\" width='300' height='300'/></a>
                                 </div>
                 ";
-                if($i%2 != 0){
+                /*
+                if($i%3 != 0){
                     echo "</div>";
-                }
+                }*/
 
                 $i++;
             }
