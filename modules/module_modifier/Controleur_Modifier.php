@@ -1,4 +1,7 @@
 <?php
+if(!defined('CONST_INCLUDE'))
+    die('Acces direct interdit !');
+
 
 require_once('modules/module_modifier/Vue_Modifier.php');
 require_once('modules/module_modifier/Modele_Modifier.php');
@@ -15,7 +18,12 @@ require_once('modules/module_modifier/Modele_Modifier.php');
         }
 
         public function formulaireCompte($idCompte){
-            $this->vueModifier->afficherFormulaires($idCompte, $this->modeleModifier->obtenirCompte($idCompte));
+            $this->vueModifier->afficherFormulaires($idCompte, $this->modeleModifier->obtenirCompte($idCompte),
+                $this->modeleModifier->nombreProjetsEnCours($idCompte), $this->modeleModifier->nombreProjetsTermines($idCompte));
+        }
+
+        public function getAffichage() {
+            return $this->vueModifier->getAffichage();
         }
 
         public function mettreAJourCompte($prenom, $nom, $telephone , $description, $idCompte) {
@@ -23,7 +31,7 @@ require_once('modules/module_modifier/Modele_Modifier.php');
         }
 
         public function mettreAJourAvatar($avatarCompte,$idCompte) {
-             $this->modeleModifier->updateAvatar($this->modeleModifier->uploadImage(), $idCompte);
+             $this->modeleModifier->updateAvatar(Util::uploadImage("images_avatar"), $idCompte);
         }
     }
 ?>

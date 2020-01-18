@@ -5,7 +5,8 @@ require_once ('connexion.php');
 Connexion::initConnexion();
 
     if(!empty($_POST['messageconv'])) {
-        $message = $_POST['messageconv'];
+        $messageNonSafe = $_POST['messageconv'];
+        $message = htmlspecialchars($messageNonSafe, ENT_QUOTES);
         $idConv = $_POST['idConv'];
 
         $idCompteEmetteur = $_SESSION['idCompte'];

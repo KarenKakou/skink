@@ -1,4 +1,7 @@
 <?php
+if(!defined('CONST_INCLUDE'))
+    die('Acces direct interdit !');
+
 
 require_once('lib/Generique.php');
 
@@ -9,7 +12,6 @@ require_once('lib/Generique.php');
         }
 
         public function form_Connexion_Inscription() {
-
             echo"
             <div class='container bg-dark' id='inscription'>
                 <div class='row'>
@@ -60,7 +62,6 @@ require_once('lib/Generique.php');
                      </div>
                 </div>
             </div>";
-
         }
 
         public function form_InscriptionClient() {

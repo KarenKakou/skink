@@ -1,5 +1,6 @@
 <?php
-ob_start();
+define('CONST_INCLUDE', NULL);
+
 session_start();
 
 
@@ -13,8 +14,7 @@ require_once ('modules/module_messagerie/Mod_Messagerie.php');
 require_once "modules/acceuil/mod_accueil.php";
 require_once ('modules/module_paiement/Mod_Paiement.php');
 require_once ('modules/module_modifier/Mod_Modifier.php');
-
-
+require_once ('composants/entete.php');
 
 Connexion::initConnexion();
 
@@ -29,7 +29,7 @@ $moduleGalerie = new Mod_Galerie();
 $modulePaiement = new Mod_Paiement();
 $moduleModifier = new Mod_Modifier();
 
-include('composants/entete.php');
+require_once('composants/entete.php');
 
 switch($module){
 
@@ -90,6 +90,7 @@ switch($module){
 		}
 
 }
+
 
 include("composants/pied.php");
 

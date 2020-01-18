@@ -1,5 +1,6 @@
 <?php
-
+if(!defined('CONST_INCLUDE'))
+    die('Acces direct interdit !');
 
 class Vue_rdv
 {
@@ -7,7 +8,7 @@ class Vue_rdv
     public function __construct()
     {
         echo "
-        <div class='container-fluid'>
+        <div class='container pageRdv'>
 
             <div class='row'>
                 <div class='col-md-3 bg-dark' id='blockBtnRdv'>
@@ -18,7 +19,7 @@ class Vue_rdv
                                 <button type='button' class='btn btn-primary btn-lg btn-block' onClick='redirectionAjoutProjet()'>Ajouter un projet</button>";
                         }
                         else{
-                            echo "<button type='button' class='btn btn-primary btn-lg btn-block' onClick='redirectionMessage()'>Demander a modifier un rdv</button><br/>";
+                            echo "<button type='button' class='btn btn-primary btn-lg btn-block' onClick='redirectionMessage()'>Modifier un rdv</button><br/>";
                         }
                         echo "
                     </div>
@@ -92,11 +93,23 @@ class Vue_rdv
     public function afficheRdv($rdvs){
 
         foreach ($rdvs as $key => $value){
+                $date = substr($value['debRdv'], 8,2)."/".substr($value['debRdv'], 5,2)."/".substr($value['debRdv'], 0,4);
+                $heure = substr($value['debRdv'], 10,3);
+                $min = substr($value['debRdv'], 14,2);
+
+                if($_SESSION['Statut']==2){
+                    $nom = $value['nomCompteClient']." ".$value['prenomCompte'];
+                }
+                else{
+                    $nom = $value['nomCompteTatoueur'];
+                }
+
                 echo  "
                     <div class='container bg-light rdv'>
                         <h2>RDV</h2>
-                        <span>vous avez rdv le : "; echo $value['debRdv']; echo " </span>
-                        <span>avec : "; echo $value['nomCompteTatoueur']; echo " </span>
+                        <span>vous avez rdv le : <strong>"; echo $date; echo "</strong> </span>
+                        <span> à <strong>"; echo $heure; echo "H".$min."</strong></span>
+                        <span>avec : <strong>"; echo $nom; echo "</strong> </span>
                     </div>
                 ";
         }

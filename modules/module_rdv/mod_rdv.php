@@ -1,4 +1,6 @@
 <?php
+if(!defined('CONST_INCLUDE'))
+    die('Acces direct interdit !');
 
 require_once('modules/module_rdv/Controleur_rdv.php');
 
@@ -9,6 +11,10 @@ class mod_rdv
     public function __construct()
     {
         $this->controleur = new Controleur_rdv();
+    }
+
+    public function getAffichage() {
+        return $this->controleur->getAffichage();
     }
 
     public function launchModRdv() {

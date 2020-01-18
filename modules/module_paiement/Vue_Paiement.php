@@ -1,4 +1,8 @@
 <?php
+if(!defined('CONST_INCLUDE'))
+    die('Acces direct interdit !');
+
+
     class Vue_Paiement
     {
         public function __construct()
@@ -117,58 +121,60 @@
         }
 
         public function afficherProjetsPaiement($array) {
-
-            echo "
-            <section>
-            <div class=\"container\">
-                <div class=\"row\">
-                    <div class=\"span5 col-lg-10 center\">
-                        <table class=\"table table-striped table-condensed\">
-                        <thead>
-                            <tr>
-                                <th>Nom du projet</th>";
-                                if($_SESSION['Statut']==2) {
-                                    echo "<th>Client</th>";
+            
+                echo "
+                <section>
+                <div class=\"container\">
+                    <div class=\"row\">
+                        <div class=\"span5 col-lg-10 center\">
+                            <table class=\"table table-striped table-condensed\">
+                            <thead>
+                                <tr>
+                                    <th>Nom du projet</th>";
+                                    if($_SESSION['Statut']==2) {
+                                        echo "<th>Client</th>";
+                                    }
+                                    else {
+                                        echo "<th>Tatoueur</th>";
+                                    }
+                                    echo "<th>Paiement</th>                                          
+                                </tr>
+                            </thead>   
+                            <tbody>";
+                            foreach ($array as $row) {
+                                if ($_SESSION['Statut']==2) {
+                                     $nomCompte = $row['nomCompte']." ".$row['prenomCompte'];
                                 }
                                 else {
-                                    echo "<th>Tatoueur</th>";
+                                    $nomCompte = $row['nomCompteTatoueur']." ".$row['prenomCompteTatoueur'];
                                 }
-                                echo "<th>Paiement</th>                                          
-                            </tr>
-                        </thead>   
-                        <tbody>";
-                        foreach ($array as $row) {
-                            if ($_SESSION['Statut']==2) {
-                                 $nomCompte = $row['nomCompte']." ".$row['prenomCompte'];
-                            }
-                            else {
-                                $nomCompte = $row['nomCompteTatoueur']." ".$row['prenomCompteTatoueur'];
-                            }
-                            $nomProjet = $row['nomProjet'];
-                            $idProjet = $row['idProj'];
-                            $echeanceTotal = $row['nbEcheancesTotales'];
-                            $echeancePayee = $row['nbEcheancesPayees'];
-                            $arrhes = $row['arrhesPayees'];
-                            echo "<tr>
-                                <td>$nomProjet</td>
-                                <td>$nomCompte</td>
-                                <td>
-                                    <a href=\"index.php?module=paiement&action=voirProjet&id=$idProjet\"></strong>";
-                                    if($arrhes != 0 && $echeancePayee == $echeanceTotal) {
-                                                echo "</strong><span class=\"tags1\" id=\"user-status\">Terminé</span></p>";
-                                            }
-                                            else {
-                                                echo "</strong><span class=\"tags2\" id=\"user-status\">En cours</span></p>";
-                                            }
-                                echo"</td>                              
-                            </tr>";
-                        }                      
-                        echo "</tbody>
-                    </table>
+                                $nomProjet = $row['nomProjet'];
+                                $idProjet = $row['idProj'];
+                                $echeanceTotal = $row['nbEcheancesTotales'];
+                                $echeancePayee = $row['nbEcheancesPayees'];
+                                $arrhes = $row['arrhesPayees'];
+                                echo "<tr>
+                                    <td>$nomProjet</td>
+                                    <td>$nomCompte</td>
+                                    <td>
+                                        <a href=\"index.php?module=paiement&action=voirProjet&id=$idProjet\"></strong>";
+                                        if($arrhes != 0 && $echeancePayee == $echeanceTotal) {
+                                                    echo "</strong><span class=\"tags1\" id=\"user-status\">Terminé</span></p>";
+                                                }
+                                                else {
+                                                    echo "</strong><span class=\"tags2\" id=\"user-status\">En cours</span></p>";
+                                                }
+                                    echo"</td>                              
+                                </tr>";
+                            }                      
+                            echo "</tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
-        </div>
-        </section>";
-        }
+            </section>";
+        
+        
     }
+}
 ?>

@@ -1,4 +1,6 @@
 <?php
+if(!defined('CONST_INCLUDE'))
+    die('Acces direct interdit !');
 
 require_once('modules/module_rdv/Modele_rdv.php');
 require_once('modules/module_rdv/Vue_rdv.php');
@@ -26,7 +28,7 @@ class Controleur_rdv
             return $this->modele->listProjetAvecActeur();
         }
 
-        public function listeRdv($idClient){
-            $this->vue->afficheRdv($this->modele->listeDesRdvs($idClient));
+        public function listeRdv($id){
+            $this->vue->afficheRdv($this->modele->listeDesRdvs($id));
         }
 }

@@ -1,8 +1,12 @@
 <?php
+if(!defined('CONST_INCLUDE'))
+    die('Acces direct interdit !');
 
 
 require_once('modules/module_projet/Vue_projet.php');
 require_once('modules/module_projet/Modele_projet.php');
+require_once('util.php');
+
 
 class Controleur_projet
 {
@@ -17,11 +21,10 @@ class Controleur_projet
     }
 
     public function formulaireProjet() {
-        $this->vueProjet->formCreationProjet($this->modeleProjet->listeDeComptePar("Client"), $this->modeleProjet->listeDeComptePar("Tatoueur"));
+        $this->vueProjet->formCreationProjet(Util::listeDeComptePar("Client"), Util::listeDeComptePar("Tatoueur"));
     }
 
     public function ajoutProjet($nomProjet, $idClient, $idTatoueur, $descriptionProjet, $montantProjet, $nbEcheance) {
         $this->modeleProjet->ajoutProjet($nomProjet, $idClient, $idTatoueur, $descriptionProjet, $montantProjet, $nbEcheance);
     }
-
 }

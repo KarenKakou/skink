@@ -1,4 +1,7 @@
 <?php
+if(!defined('CONST_INCLUDE'))
+    die('Acces direct interdit !');
+
 
 require_once('modules/module_modifier/Controleur_Modifier.php');
 
@@ -9,6 +12,10 @@ require_once('modules/module_modifier/Controleur_Modifier.php');
         public function __construct()
         {
             $this->controleur = new Controleur_Modifier();
+        }
+
+        public function getAffichage() {
+            return $this->controleur->getAffichage();
         }
 
         public function launchModModifier()

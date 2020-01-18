@@ -1,4 +1,6 @@
 <?php
+if(!defined('CONST_INCLUDE'))
+    die('Acces direct interdit !');
 
 require_once('modules/module_paiement/Vue_Paiement.php');
 require_once('modules/module_paiement/Modele_Paiement.php');
@@ -28,7 +30,6 @@ require_once('modules/module_paiement/Modele_Paiement.php');
             $arrayClient = $this->modelePaiement->obtenirProjet($idProjet);
             $arrayTatoueur = $this->modelePaiement->obtenirTatoueurProjet($idProjet);
             $this->vuePaiement->afficherAvancementPaiement($arrayClient[0], $arrayClient[0], $arrayTatoueur[0]);
-
 
         }
 

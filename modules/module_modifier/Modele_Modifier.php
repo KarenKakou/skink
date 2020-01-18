@@ -1,6 +1,11 @@
 <?php
+if(!defined('CONST_INCLUDE'))
+    die('Acces direct interdit !');
+
 
 require_once('connexion.php');
+require_once('util.php');
+
 class Modele_Modifier extends Connexion
 {
     
@@ -17,47 +22,47 @@ class Modele_Modifier extends Connexion
         return $resultCompte[0];
     }
 
-    public function updateAvatar($nomImage, $compte) {
+    public function updateAvatar($nomImageNonSafe, $compte) {
+        $nomImage = htmlspecialchars($nomImageNonSafe, ENT_QUOTES);
         $updateAvatar = $this::$bdd->prepare('UPDATE COMPTE SET avatarCompte = ? where idCompte=?');
+        $_SESSION['Avatar'] = $nomImage;
         $array = array($nomImage, $compte);
         $updateAvatar->execute($array);
 	  }
 
-    public function updateCompte($prenom, $nom, $telephone, $description, $compte) {
+    public function updateCompte($prenomNonSafe, $nomNonSafe, $telephoneNonSafe, $descriptionNonSafe, $compte) {
+        $prenom = htmlspecialchars($prenomNonSafe, ENT_QUOTES);
+        $nom = htmlspecialchars($nomNonSafe, ENT_QUOTES);
+        $telephone = htmlspecialchars($telephoneNonSafe, ENT_QUOTES);
+        $description = htmlspecialchars($descriptionNonSafe, ENT_QUOTES);
+
         $updateCompte = $this::$bdd->prepare('UPDATE COMPTE SET prenomCompte = ?, nomCompte = ?, telephoneCompte = ?, descriptionCompte = ? where idCompte=?');
         $array = array($prenom, $nom, $telephone, $description, $compte);
         $updateCompte->execute($array);
     }
 
-    public function uploadImage() {
+    public function nombreProjetsEnCours($idCompte) {
+          $count = $this::$bdd->prepare('SELECT count(*)
+          FROM PROJET NATURAL JOIN GERER 
+          INNER JOIN COMPTE as CLIENT on GERER.idCompte = CLIENT.idCompte
+          INNER JOIN COMPTE as TATOUEUR on GERER.idCompte_COMPTE = TATOUEUR.idCompte 
+          WHERE (CLIENT.idCompte = ? or TATOUEUR.idCompte = ?) and (arrhesPayees = 1 or nbEcheancesPayees != nbEcheancesTotales)');
+          $array = array($idCompte, $idCompte);
+          $count->execute($array);
+          $resultCount = $count->fetchAll();
+          return $resultCount[0];
+    }
 
-    	$image_name=$_FILES['image']['name'];
-    	$file_size =$_FILES['image']['size'];
-      $explode = explode('.',$_FILES['image']['name']);
-    	$file_ext=strtolower(end($explode));
-      
-      	$extensions= array("jpeg","jpg","png");
-      
-      	if(in_array($file_ext,$extensions)=== false){
-        	$errors[]="extension non prise en charge";
-      	}
-      
-      	if($file_size > 2097152){
-        	$errors[]='fichier trop lourd (doit être inférieur à 2 MB)';
-      	}
-
-       	$temp = explode(".", $image_name);
-       	$imagepath="images/images_avatar/".$image_name;
-
-      	if(empty($errors)==true){
- 			    move_uploaded_file($_FILES["image"]["tmp_name"],$imagepath);
-        	echo "image ajoutée";
-      	}
-      	else{
-        	print_r($errors);
-      	}
-       	return $image_name;
-	   }
-
+    public function nombreProjetsTermines($idCompte) {
+        $count = $this::$bdd->prepare('SELECT count(*)
+          FROM PROJET NATURAL JOIN GERER 
+          INNER JOIN COMPTE as CLIENT on GERER.idCompte = CLIENT.idCompte
+          INNER JOIN COMPTE as TATOUEUR on GERER.idCompte_COMPTE = TATOUEUR.idCompte 
+          WHERE (CLIENT.idCompte = ? or TATOUEUR.idCompte = ?) and (arrhesPayees != 1 and nbEcheancesPayees = nbEcheancesTotales)');
+          $array = array($idCompte, $idCompte);
+          $count->execute($array);
+          $resultCount = $count->fetchAll();
+          return $resultCount[0];
+    }
 
 }
