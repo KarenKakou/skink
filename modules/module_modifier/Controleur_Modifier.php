@@ -27,7 +27,7 @@ require_once('modules/module_modifier/Modele_Modifier.php');
         }
 
         public function mettreAJourAvatar($avatarCompte,$idCompte) {
-             $this->modeleModifier->updateAvatar($this->modeleModifier->uploadImage(), $idCompte);
+             $this->modeleModifier->updateAvatar(Util::uploadImage("images_avatar"), $idCompte);
         }
     }
 ?>

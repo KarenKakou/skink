@@ -2,6 +2,8 @@
 
 require_once ('modules/module_messagerie/Modele_Messagerie.php');
 require_once ('modules/module_messagerie/Vue_Messagerie.php');
+require_once('util.php');
+
 
 class Controleur_messagerie
 {
@@ -19,7 +21,7 @@ class Controleur_messagerie
     }
 
     public function formCreateConv(){
-        $this->vueMessagerie->formCreationConv($this->modeleMessagerie->listeDeComptePar("Tatoueur"));
+        $this->vueMessagerie->formCreationConv(Self::listeDeComptePar("Tatoueur"));
     }
 
     public function accessConv() {

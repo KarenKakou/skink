@@ -2,6 +2,7 @@
 
 require_once('modules/module_galerie/Vue_Galerie.php');
 require_once('modules/module_galerie/Modele_Galerie.php');
+require_once('util.php');
 
     class Controleur_Galerie
     {
@@ -40,7 +41,7 @@ require_once('modules/module_galerie/Modele_Galerie.php');
         }
 
         public function uploaderImage($tatoueur) {
-            $image = $this->modeleGalerie->uploadImage($tatoueur);
+            $image = Util::uploadImage("images_galerie");
             $this->modeleGalerie->insererImage($image,$tatoueur);
         }
 

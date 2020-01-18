@@ -14,8 +14,6 @@ require_once ('modules/module_paiement/Mod_Paiement.php');
 require_once ('modules/module_modifier/Mod_Modifier.php');
 require_once ('composants/entete.php');
 
-
-
 Connexion::initConnexion();
 
 if(isset($_GET['module']))
@@ -28,8 +26,8 @@ $moduleConnexion = new mod_Connexion();
 $moduleGalerie = new Mod_Galerie();
 $modulePaiement = new Mod_Paiement();
 $moduleModifier = new Mod_Modifier();
-$entete = new Entete();
-$entete->afficherEntete();
+
+require_once('composants/entete.php');
 
 switch($module){
 

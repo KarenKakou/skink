@@ -6,25 +6,6 @@ class Modele_projet extends Connexion
         {
         }
 
-        public function listeDeComptePar($typeCompte) {
-
-            switch ($typeCompte){
-                case "Client" :
-                    $idStatut = 1;
-                    break;
-                case "Tatoueur" :
-                    $idStatut = 2;
-                    break;
-                case "Admin" :
-                    $idStatut = 3;
-                    break;
-            }
-
-            $listCompte = $this::$bdd->prepare('SELECT * from COMPTE where idStatut=?');
-            $array = array($idStatut);
-            $listCompte->execute($array);
-            return $listCompte->fetchAll();
-        }
 
         public function ajoutProjet($nomProjet, $idClient, $idTatoueur, $descriptionProjet, $montantProjet, $nbEcheance) {
            $insertProjet = $this::$bdd->prepare('INSERT into PROJET values(DEFAULT, ?, ?, ?, ?, ?, ?)');

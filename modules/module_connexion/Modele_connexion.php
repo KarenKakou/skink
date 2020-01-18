@@ -21,6 +21,7 @@ class Modele_connexion extends Connexion
             $_SESSION['prenom'] = $varUser['prenomCompte'];
             $_SESSION['Statut'] = $varUser['idStatut'];
             $_SESSION['idCompte'] = $varUser['idCompte'];
+            $_SESSION['Avatar'] = $varUser['avatarCompte'];
             echo "Vous etes connecté $email !";
         }
         else

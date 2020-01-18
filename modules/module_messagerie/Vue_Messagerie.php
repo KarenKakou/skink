@@ -70,9 +70,19 @@ class Vue_Messagerie
             }
             echo "
                 <div id=\"".$listConversation[$key]['idConv']."\" onClick=\"redirectionConv(this.id)\" class=\"chat_list ".$active."\">
-                        <div class=\"chat_people \">
-                            <div class=\"chat_img\"> <img src=\"https://ptetutorials.com/images/user-profile.png\" alt=\"sunil\"> </div>
-                            <div class=\"chat_ib\">
+                        <div class=\"chat_people \">";
+                          if($listConversation[$key]['avatarCompte']) {
+                            echo "
+                            <div class=\"chat_img\"> <img src=\"images/images_avatar/".$listConversation[$key]['avatarCompte']."\" alt=\"sunil\" style=\"width: 35px; height: 35px;\"></div>";
+                          }
+                          else {
+                            echo "
+                            <div class=\"chat_img\"> <img src=\"https://ptetutorials.com/images/user-profile.png\" alt=\"sunil\" style=\"width: 35px; height: 35px;\"> </div>";
+                          }
+                            
+                            
+
+                            echo "<div class=\"chat_ib\">
                                  <h5>".$listConversation[$key]['nomCompte']." ".$listConversation[$key]['prenomCompte']."</h5>
                             </div>
                         </div>

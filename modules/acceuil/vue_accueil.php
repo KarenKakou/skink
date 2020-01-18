@@ -6,60 +6,51 @@ class VueAccueil {
 	}
 
 	public function carousel(){
-		?>
-		    <section class="bg-secondary">
-
-	<div class="container-fluide">
- 
-          <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-              <div class="carousel-inner">
-                <div class="carousel-item active">
-                  <img src="images/tatoo4.png" class="d-block w-100" alt="..." >
-                </div>
-                <div class="carousel-item">
-                  <img src="images/tatoo5.png" class="d-block w-100 " alt="...">
-                </div>
-                <div class="carousel-item">
-                  <img src="images/tatoo6.png" class="d-block w-100" alt="...">
-                </div>
+		echo" 
+		    <section class=\"bg-secondary\">
+	       <div class=\"container-fluide\">
+          <div id=\"carouselExampleIndicators\" class=\"carousel slide\" data-ride=\"carousel\">
+            <div class=\"carousel-inner\">
+              <div class=\"carousel-item active\">
+                <img src=\"images/tatoo4.png\" class=\"d-block w-100\" alt=\"...\" >
               </div>
-              <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
+              <div class=\"carousel-item\">
+                <img src=\"images/tatoo5.png\" class=\"d-block w-100 \" alt=\"...\">
+              </div>
+              <div class=\"carousel-item\">
+                <img src=\"images/tatoo6.png\" class=\"d-block w-100\" alt=\"...\">
+              </div>
+            </div>
+              <a class=\"carousel-control-prev\" href=\"#carouselExampleIndicators\" role=\"button\" data-slide=\"prev\">
+                <span class=\"carousel-control-prev-icon\" aria-hidden=\"true\"></span>
+                <span class=\"sr-only\">Previous</span>
               </a>
-              <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
+              <a class=\"carousel-control-next\" href=\"#carouselExampleIndicators\" role=\"button\" data-slide=\"next\">
+                <span class=\"carousel-control-next-icon\" aria-hidden=\"true\"></span>
+                <span class=\"sr-only\">Next</span>
               </a>
-              <ol class="carousel-indicators descend">
-                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+              <ol class=\"carousel-indicators descend\">
+                <li data-target=\"#carouselExampleIndicators\" data-slide-to=\"0\" class=\"active\"></li>
+                <li data-target=\"#carouselExampleIndicators\" data-slide-to=\"1\"></li>
+                <li data-target=\"#carouselExampleIndicators\" data-slide-to=\"2\"></li>
               </ol>
           </div>
-    
-          <div class="center front">
-          	<div class="center">
+          <div class=\"center front\">
+          	<div class=\"center\">
           		<h1>Skink tatoo</h1>
             </div>
             <span><strong>
             	Skink tatouage - Salon de tatoueur tout style. Professionel du tatouage depuis 2004. <br/>Vous pouvez contacter nos tatoueur directement sur ce site et prendre rdv avec eux.</strong>
             </span>
           </div>
-
-</div>
-
-    </section>
-
-    <?php
+        </div>
+    </section>";
 	}
 
 	public function carteTatoueur($nomTatoueur){
-		?>
-  
-		<div id="carte" class="container-fluide">
-      <div class='container'>
-				<?php
+		echo "
+    <div id=\"carte\" class=\"container-fluide\">
+      <div class='container'>";
 					for($i=0; $i<count($nomTatoueur); $i++){
             if($i%2==0){
               $this->droite($nomTatoueur[$i]['idCompte'], $nomTatoueur[$i]['nomCompte'], $nomTatoueur[$i]['descriptionCompte'], $nomTatoueur[$i]['avatarCompte']);
@@ -68,12 +59,8 @@ class VueAccueil {
               $this->gauche($nomTatoueur[$i]['idCompte'], $nomTatoueur[$i]['nomCompte'], $nomTatoueur[$i]['descriptionCompte'], $nomTatoueur[$i]['avatarCompte']);
             }
 						
-          } ?>
-
-
-    </div>
-
-	<?php
+          }
+    echo "</div>";
 	}
 
   private function droite($id, $nom, $description, $avatar){
@@ -82,10 +69,10 @@ class VueAccueil {
         <div class='col-8'>
           <h5>$nom</h5>
           <p class='card-text'>$description</p>
-          <a href='index.php?module=galerie&action=voirGalerie&id=".$id."' class='btn btn-primary'>Voir ses création</a>
+          <a href='index.php?module=galerie&action=voirGalerie&id=\".$id.\"' class='btn btn-primary'>Voir ses création</a>
         </div>
         <div class='col-4'>
-          <img src='images/".$avatar."'' class='rounded-circle imageCarte'>
+          <img src='images/images_avatar/$avatar' class='rounded-circle imageCarte'/>
         </div>
       </div>";
   }
@@ -94,19 +81,14 @@ class VueAccueil {
     echo "
       <div class='row carteTatoueur'>
         <div class='col-4'>
-          <img src='images/".$avatar."'' class='rounded-circle imageCarte'>
+          <img src='images/images_avatar/$avatar' class='rounded-circle imageCarte'/>
         </div>
         <div class='col-8'>
           <h5>$nom</h5>
           <p class='card-text'>$description</p>
-          <a href='index.php?module=galerie&action=voirGalerie&id=".$id."' class='btn btn-primary'>Voir ses création</a>
+          <a href='index.php?module=galerie&action=voirGalerie&id=\".$id.\"' class='btn btn-primary'>Voir ses création</a>
         </div>
-      </div>
-    ";
-
+      </div>";
   }
-
 }
-
-
 ?>

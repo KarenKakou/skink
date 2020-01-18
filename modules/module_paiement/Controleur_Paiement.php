@@ -29,7 +29,6 @@ require_once('modules/module_paiement/Modele_Paiement.php');
             $arrayTatoueur = $this->modelePaiement->obtenirTatoueurProjet($idProjet);
             $this->vuePaiement->afficherAvancementPaiement($arrayClient[0], $arrayClient[0], $arrayTatoueur[0]);
 
-
         }
 
         public function majArrhes($idProjet) {

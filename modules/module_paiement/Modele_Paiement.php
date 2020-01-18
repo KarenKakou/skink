@@ -1,13 +1,14 @@
 <?php
+require_once('connexion.php');
+
 
 class Modele_Paiement extends Connexion {
 
         public function __construct()
         {
-          $this::$bdd->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING );
         }
 
-        public function obtenirProjetsDeClient($compte) {
+        public function obtenirProjetsDeClient($compte){
           $selectProjets = $this::$bdd->prepare('SELECT 
           idProj, nomProjet, arrhesPayees, nbEcheancesTotales, nbEcheancesPayees, 
           CLIENT.nomCompte as nomCompteClient, CLIENT.prenomCompte as prenomCompteClient, 
@@ -20,25 +21,23 @@ class Modele_Paiement extends Connexion {
           $array = array($compte);
           $selectProjets->execute($array);
           $resultProjets = $selectProjets->fetchAll();
-          //var_dump($this::$bdd->errorInfo());
+          
           return $resultProjets;
         }
 
-        public function obtenirProjetsDeTatoueur($compte) {
+        public function obtenirProjetsDeTatoueur($compte){
           $selectProjets = $this::$bdd->prepare('SELECT * FROM PROJET NATURAL JOIN GERER NATURAL JOIN COMPTE WHERE idCompte_COMPTE = ?');
           $array = array($compte);
           $selectProjets->execute($array);
           $resultProjets = $selectProjets->fetchAll();
-          //var_dump($this::$bdd->errorInfo());
           return $resultProjets;
         }
 
-        public function obtenirProjet($idProjet) {
+        public function obtenirProjet($idProjet){
           $selectProjet = $this::$bdd->prepare('SELECT * from PROJET NATURAL JOIN GERER NATURAL JOIN COMPTE where idProj = ?');
           $array = array($idProjet);
           $selectProjet->execute($array);
           $resultProjet = $selectProjet->fetchAll();
-          //var_dump($this::$bdd->errorInfo());
           return $resultProjet;
         }
 
@@ -47,7 +46,6 @@ class Modele_Paiement extends Connexion {
           $array = array($idProjet);
           $selectTatoueur->execute($array);
           $resultTatoueur = $selectTatoueur->fetchAll();
-          //var_dump($this::$bdd->errorInfo());
           return $resultTatoueur;
         }
 

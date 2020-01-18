@@ -1,10 +1,5 @@
 <?php
-class Entete {
-    public function __construct() {
-    }
-
-    public function afficherEntete() {
-            echo "
+echo "
       <!doctype html>
         <html lang=\"en\">
           <head>
@@ -45,11 +40,18 @@ class Entete {
                     </li>";
                   if(isset($_SESSION['Login'])){
                     $login = $_SESSION['prenom'];
-                    $idCompte = $_SESSION['idCompte']; 
+                    $idCompte = $_SESSION['idCompte'];
+                    $avatar = $_SESSION['Avatar'];
                     echo "
                     <li class='nav-item dropdown right'>
-                      <a class='nav-link dropdown-toggle' href='index.php?module=connexion' id='navbarDropdown' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
-                        Mon espace <img src='images/compte.png' id='logoCompte'/>
+                      <a class='nav-link dropdown-toggle' href='index.php?module=connexion' id='navbarDropdown' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>";
+                        if($avatar) {
+                          echo "Mon espace <img src='images/images_avatar/$avatar' id='avatarCompte' style='width: 20px; height: 20px; border-radius: 50%;'/>";
+                        }
+                        else {
+                          echo "Mon espace <img src='images/compte.png' id='avatarCompte' style='width: 10px; height: 10px; border-radius: 50%;'/>";
+                        }
+                        echo"
                       </a>
                       <div class='dropdown-menu' aria-labelledby='navbarDropdown'>
                       <span class='dropdown-item text-danger'>$login</span>
@@ -82,9 +84,7 @@ class Entete {
             </header>
 
           <section>";
-    }
 
-  }
 
 ?>
 
