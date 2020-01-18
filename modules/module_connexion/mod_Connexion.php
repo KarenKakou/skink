@@ -11,10 +11,6 @@ require_once('modules/module_connexion/Controleur_Connexion.php');
             $this->controleur = new Controleur_Connexion();
         }
 
-        public function getAffichage() {
-            return $this->controleur->getAffichage();
-        }
-
         public function launchModConnexion()
         {
             //Si pas de "actionConnexion", error

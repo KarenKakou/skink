@@ -1,13 +1,10 @@
 <?php
 
-require_once "Vue_Generique.php";
-
-class Vue_rdv extends VueGenerique
+class Vue_rdv
 {
 
     public function __construct()
     {
-        parent::__construct();
         echo "
         <div class='container-fluid'>
 

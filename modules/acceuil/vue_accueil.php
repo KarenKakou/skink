@@ -1,11 +1,8 @@
 <?php
 
-require_once "Vue_Generique.php";
-
-class VueAccueil extends VueGenerique {
+class VueAccueil {
 
 	public function __construct (){
-    parent::__construct();
 	}
 
 	public function carousel(){

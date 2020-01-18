@@ -1,30 +1,11 @@
 <?php
-class Entete {
+
+class VueNav {
     public function __construct() {
     }
 
-    public function afficherEntete() {
+    public function afficherNav() {
             echo "
-      <!doctype html>
-        <html lang=\"en\">
-          <head>
-            <!-- Required meta tags -->
-              <meta charset=\"utf-8\">
-              <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\"> 
-
-              <!-- Bootstrap CSS -->
-
-              <link href=\"//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css\" rel=\"stylesheet\" id=\"bootstrap-css\">
-
-              <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css\" integrity=\"sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh\" crossorigin=\"anonymous\" /> 
-              <link href=\"modules/acceuil/style.css\" rel=\"stylesheet\" type=\"text/css\" /> 
-              <link href=\"https://use.fontawesome.com/releases/v5.0.7/css/all.css\" rel=\"stylesheet\"/>
-              <link href=\"//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css\" rel=\"stylesheet\"/>
-    
-
-              <title>Skink</title> 
-          </head>
-          <body class=\"bg-secondary\">
             <header>
             <!-- jQuery est inclus ! -->
               <script src=\"https://code.jquery.com/jquery-3.1.1.min.js\"></script> <!-- jQuery est inclus ! -->
@@ -45,7 +26,7 @@ class Entete {
                     </li>";
                   if(isset($_SESSION['Login'])){
                     $login = $_SESSION['prenom'];
-                    $idCompte = $_SESSION['idCompte']; 
+                    $idCompte = $_SESSION['idCompte'];
                     echo "
                     <li class='nav-item dropdown right'>
                       <a class='nav-link dropdown-toggle' href='index.php?module=connexion' id='navbarDropdown' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>

@@ -11,10 +11,6 @@ class Mod_Messagerie
         $this->controleur= new Controleur_messagerie();
     }
 
-    public function getAffichage() {
-        return $this->controleur->getAffichage();
-    }
-
     public function launchModMessagerie() {
         //Si pas de "actionMessagerie", error
         if (isset($_GET['actionMessagerie'])) {

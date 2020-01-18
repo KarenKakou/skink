@@ -1,12 +1,10 @@
 <?php
 
-require_once "Vue_Generique.php";
 
-class Vue_Messagerie extends VueGenerique
+class Vue_Messagerie
 {
     public function __construct()
     {
-      parent::__construct();
     }
 
     public function formCreationConv($listTatoueur) {

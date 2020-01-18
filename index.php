@@ -91,9 +91,6 @@ switch($module){
 
 }
 
-echo $entete->getAffichage();
-echo $moduleALancer->getAffichage();
-
 
 include("composants/pied.php");
 

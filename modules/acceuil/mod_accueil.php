@@ -11,10 +11,6 @@ class ModAccueil {
 		$this->controleur->accueil();
 	}
 
-	public function getAffichage() {
-		return $this->controleur->getAffichage();
-	}
-
 }
 
 

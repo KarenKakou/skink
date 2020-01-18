@@ -1,14 +1,13 @@
 <?php
 
 require_once('modules/module_modifier/Modele_Modifier.php');
-require_once "Vue_Generique.php";
 
-class Vue_Modifier extends VueGenerique
+class Vue_Modifier
 {
     public function __construct()
     {
-      parent::__construct();
     }
+    
     public function afficherFormulaires($idCompte, $compte) {
     $image = $compte['avatarCompte'];
     $prenom = $compte['prenomCompte'];

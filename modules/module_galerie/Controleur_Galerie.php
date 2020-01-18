@@ -19,10 +19,6 @@ require_once('modules/module_galerie/Modele_Galerie.php');
             $this->vueGalerie->afficherImagesGalerie($array);
         }
 
-        public function getAffichage() {
-            return $this->vueGalerie->getAffichage();
-        }
-
         public function recupererTatoueur($tatoueur) {
             $array = $this->modeleGalerie->obtenirTatoueur($tatoueur);
             $this->vueGalerie->afficherTatoueurGalerie($array[0]);

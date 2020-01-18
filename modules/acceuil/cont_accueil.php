@@ -18,10 +18,6 @@ class ContAccueil{
 		$this->vue->carteTatoueur($this->modele->recupNomTatoueur());
 	}
 
-	public function getAffichage() {
-		return $this->vue->getAffichage();
-	}
-
 }
 
 ?>

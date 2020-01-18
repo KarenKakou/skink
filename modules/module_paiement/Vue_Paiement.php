@@ -1,13 +1,9 @@
 <?php
 
-require_once "Vue_Generique.php";
-
-
-    class Vue_Paiement extends VueGenerique
+    class Vue_Paiement
     {
         public function __construct()
         {
-            parent::__construct();
         }
 
         public function afficherAvancementPaiement($projet, $client, $tatoueur) {

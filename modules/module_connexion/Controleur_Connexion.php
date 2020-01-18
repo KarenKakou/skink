@@ -14,10 +14,6 @@ require_once('lib/Generique.php');
             $this->modeleConnexion = new Modele_connexion();
         }
 
-        public function getAffichage() {
-        return $this->vueConnexion->getAffichage();
-    }
-
         //Methode de connexion
         public function connect($email, $password, $token) {
             if(Generique::checkToken($token)) {

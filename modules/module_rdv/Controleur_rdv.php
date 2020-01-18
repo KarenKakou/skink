@@ -14,10 +14,6 @@ class Controleur_rdv
             $this->vue = new Vue_rdv();
         }
 
-        public function getAffichage() {
-            return $this->vue->getAffichage();
-        }
-
         public function formRDV($listProjet) {
             $this->vue->formulaireRDV($listProjet);
         }

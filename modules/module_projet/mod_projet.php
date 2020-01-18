@@ -11,10 +11,6 @@ class mod_projet
         $this->controleur = new Controleur_projet();
     }
 
-    public function getAffichage() {
-        return $this->controleur->getAffichage();
-    }
-
     public function launchModProjet() {
 
         //Si pas de "actionProjet", error
