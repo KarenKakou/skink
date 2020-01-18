@@ -22,10 +22,9 @@
 }
 
 body{
-	
 	margin: auto;
 	background-color: #CDCDCD;
-  font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+  	font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
 	/*
 	Cool vs. warm
 	-Navy Blue
@@ -49,12 +48,27 @@ body{
 	 */
 }
 
-.card {
-	background-color: #40acc4;
-	color: #E9E9E9;
+#carte{
+	background-color: #CDCDCD;
+}
+
+.carteTatoueur {
+	background-color: #88BBD6;
+	color: grey;
+
+	padding-top:50px;
+	padding-bottom: 50px;
+	padding-left: 20px;
+	padding-right: 20px;
+	margin-bottom: 10px;
+	border-bottom: 1px solid #99D3DF;
+	border-radius: 5px;
 }
 
 .card:hover img {
+	animation: flotte 1s infinite;
+}
+.carteTatoueur:hover img {
 	animation: flotte 1s infinite;
 }
 /* Move it (define the animation) */
@@ -97,18 +111,12 @@ section {
 	/*
 	border-top: 1px solid black;
 	*/
-	background-color: #E9E9E9;
+	background-color: #CDCDCD;
 }
 
 .tache{
 	position: absolute;
 	opacity: 0.4;
-}
-
-.carteTatoueur{
-	padding-top:50px;
-	padding-bottom: 50px;
-	border-bottom: 1px solid black;
 }
 
 .imageCarte{

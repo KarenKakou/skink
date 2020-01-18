@@ -7,7 +7,7 @@ class VueAccueil {
 
 	public function carousel(){
 		echo" 
-		    <section class=\"bg-secondary\">
+		    <section>
 	       <div class=\"container-fluide\">
           <div id=\"carouselExampleIndicators\" class=\"carousel slide\" data-ride=\"carousel\">
             <div class=\"carousel-inner\">

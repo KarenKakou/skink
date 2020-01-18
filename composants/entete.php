@@ -19,13 +19,13 @@ echo "
 
               <title>Skink</title> 
           </head>
-          <body class=\"bg-secondary\">
+          <body>
             <header>
             <!-- jQuery est inclus ! -->
               <script src=\"https://code.jquery.com/jquery-3.1.1.min.js\"></script> <!-- jQuery est inclus ! -->
               <script src=\"jquery.redirect.js\"></script>
               <script src=\"modules/module_messagerie/changeConv.js\"></script>
-              <nav class='navbar navbar-expand-lg navbar-dark bg-dark fixed-top'>
+              <nav class='navbar navbar-expand-lg fixed-top'>
                 <a class='navbar-brand' href='index.php?module=acceuil'>Skink</a>
                 <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation'>
                   <span class='navbar-toggler-icon'></span>

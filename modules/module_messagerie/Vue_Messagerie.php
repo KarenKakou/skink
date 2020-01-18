@@ -110,7 +110,7 @@ class Vue_Messagerie
             else {
 
                             echo "<div class=\"incoming_msg\">";
-                              if($listConversation[$key]['avatarCompte']) {
+                              if(isset($listConversation[$key]['avatarCompte'])) {
                                   echo "
                                     <div class=\"chat_img\"> <img src=\"images/images_avatar/".$listConversation[$key]['avatarCompte']."\" alt=\"sunil\" style=\"width: 45px; height: 45px;\"></div>";
                               }
