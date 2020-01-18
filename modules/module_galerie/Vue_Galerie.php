@@ -29,11 +29,11 @@ if(!defined('CONST_INCLUDE'))
                 echo " 
                         <div class='col-12 col-md'>
                         <div class='card carteGalerie'>
-                            </br><a href=\"index.php?module=galerie&action=voirGalerie&id=$idTatoueur\">
+                            </br><a href=\"index.php?module=galerie&action=voirGalerie&id=".$idTatoueur."\">
                             <img src='images/images_avatar/$avatar' style=\"width: 300px; height: 300px; border-radius: 50%\"></a></br>
                             </a></br>
                             <div class='card-body'>
-                                <a href='index.php?module=galerie&action=voirGalerie&id=$idTatoueur'><h5 class='card-text text-body'>$nomTatoueur</h5></a>
+                                <a href='index.php?module=galerie&action=voirGalerie&id=".$idTatoueur."'><h5 class='card-text text-body'>$nomTatoueur</h5></a>
                             </div>
                         </div></div>";
             }
