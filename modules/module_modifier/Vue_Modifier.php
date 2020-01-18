@@ -8,7 +8,7 @@ class Vue_Modifier
     {
     }
     
-    public function afficherFormulaires($idCompte, $compte) {
+    public function afficherFormulaires($idCompte, $compte, $projetsEnCours, $projetsTermines) {
       $prenom = $compte['prenomCompte'];
       $nom = $compte['nomCompte'];
       $telephone = $compte['telephoneCompte'];
@@ -29,16 +29,18 @@ class Vue_Modifier
         	}
          
           echo
-          "<form action=\"index.php?module=modifier&action=mettreAJourAvatar&id=$idCompte\" method=\"post\" enctype=\"multipart/form-data\">
-          		<h6>Changer votre avatar</h6>
+          "<form action=\"index.php?module=modifier&action=mettreAJourAvatar&id=$idCompte\" method=\"post\" enctype=\"multipart/form-data\"></br>
+          		<h6><strong>Changer votre avatar</strong></h6>
           		<input type=\"file\" name=\"image\" >
                   <input type=\"submit\" value=\"Valider\">
           </form>
         </div></hr><br>
             <ul class=\"list-group\">
               <li class=\"list-group-item text-muted\">Projets <i class=\"fa fa-dashboard fa-1x\"></i></li>
-              <li class=\"list-group-item text-right\"><span class=\"pull-left\"><strong>Projets en cours</strong></span>?</li>
-              <li class=\"list-group-item text-right\"><span class=\"pull-left\"><strong>Projets terminés</strong></span> 13</li>
+              <li class=\"list-group-item text-right\"><span class=\"pull-left\"><strong>Projets en cours</strong></span>";
+              if($projetsEnCours) {echo "$projetsEnCours[0]";} else {echo "0";} echo"</li>
+              <li class=\"list-group-item text-right\"><span class=\"pull-left\"><strong>Projets terminés</strong></span>";
+              if($projetsTermines) {echo "$projetsTermines[0]";} else {echo "0";} echo"</li>
             </ul>         
           </div><!--/col-3-->
       	<div class=\"col-sm-8\">   

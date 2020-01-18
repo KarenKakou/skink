@@ -9,8 +9,14 @@
         //affiche tous les tatoueurs
         public function afficherTousTatoueursGalerie($array) {
             ?>
-                <div class="container bg-dark">
-                    <div class="row">
+
+            <div class='container'>
+
+                <p></p>
+
+            </div>
+            <div class="container bg-dark">
+                  <div class="row">
 
             <?php
 
@@ -21,7 +27,9 @@
                 echo " 
                         <div class='col-12 col-md'>
                         <div class='card carteGalerie'>
-                            </br><a href=\"index.php?module=galerie&action=voirGalerie&id=$idTatoueur\"><img src='images/$avatar' class='card-img-top'></img></a></br>
+                            </br><a href=\"index.php?module=galerie&action=voirGalerie&id=$idTatoueur\">
+                            <img src='images/images_avatar/$avatar' style=\"width: 300px; height: 300px; border-radius: 50%\"></a></br>
+                            </a></br>
                             <div class='card-body'>
                                 <a href='index.php?module=galerie&action=voirGalerie&id=$idTatoueur'><h5 class='card-text text-body'>$nomTatoueur</h5></a>
                             </div>
@@ -46,7 +54,7 @@
                     <div class='row'>
                         <div class='col-md-3 bg-dark'>
                             <div class='logoDesc'>
-                                <img src='images/$avatar' class='rounded-circle imgGalerie' width='200'>
+                                <img src='images/images_avatar/$avatar' style=\"width: 200px; height: 200px; border-radius: 50%\"></a></br>
                                 <h2>$nomTatoueur</h2>
                                 <div class='logo'>
                                     <a href=''><img src='images/logoFB.png' width='30' height='30'/></a>

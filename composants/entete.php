@@ -38,7 +38,7 @@ echo "
                     <li class='nav-item'>
                       <a class='nav-link' href='index.php?module=galerie'>Galeries</a>
                     </li>";
-                  if(isset($_SESSION['Login'])){
+                  if(isset($_SESSION['Login']) && $_SESSION['Statut'] != 3){
                     $login = $_SESSION['prenom'];
                     $idCompte = $_SESSION['idCompte'];
                     $avatar = $_SESSION['Avatar'];
@@ -49,19 +49,22 @@ echo "
                           echo "Mon espace <img src='images/images_avatar/$avatar' id='avatarCompte' style='width: 20px; height: 20px; border-radius: 50%;'/>";
                         }
                         else {
-                          echo "Mon espace <img src='images/compte.png' id='avatarCompte' style='width: 10px; height: 10px; border-radius: 50%;'/>";
+                          echo "Mon espace <img src='images/compte.png' id='avatarCompte' style='width: 20px; height: 20px; border-radius: 50%;'/>";
                         }
                         echo"
                       </a>
                       <div class='dropdown-menu' aria-labelledby='navbarDropdown'>
                       <span class='dropdown-item text-danger'>$login</span>
                       <a class='dropdown-item' href='index.php?module=messagerie&actionMessagerie=lireConv'>Messagerie</a>
-                      <a class='dropdown-item'  id=\"$idCompte\" onClick='redirectionAfficheRdv(this.id)'>Mes rendez-vous</a>
-                      <a class='dropdown-item' href='index.php?module=paiement&action=tatoueur&id=$idCompte'>Suivre mes paiements</a>";
+                      <a class='dropdown-item'  id=\"$idCompte\" onClick='redirectionAfficheRdv(this.id)'>Mes rendez-vous</a>";
                       if($_SESSION['Statut'] == 2) {
                         echo "
+                        <a class='dropdown-item' href='index.php?module=paiement&action=tatoueur&id=$idCompte'>Suivre mes paiements</a>
                         <a class='dropdown-item' href='index.php?module=projet&actionProjet=formProjet'>Ajouter projet</a>
                                   ";
+                      }
+                      else {
+                        echo "<a class='dropdown-item' href='index.php?module=paiement&action=client&id=$idCompte'>Suivre mes paiements</a>";
                       }
                       echo 
                         "<a class='dropdown-item' href='index.php?module=modifier&action=formulaire&id=$idCompte'>Modifier le profil</a>
@@ -69,6 +72,16 @@ echo "
                         <a class='dropdown-item' href='index.php?module=connexion&actionConnexion=deconnexion'>se deconnecter</a>
                       </div>
                     </li>";
+                  }
+                  else if(isset($_SESSION['Login']) && $_SESSION['Statut'] == 3){
+                    echo "
+                    <li class='nav-item'>
+                      <a class='nav-link' href='index.php?module=connexion&actionConnexion=inscription&Admin=1'>Ajouter des compte</a>
+                    </li>
+                    <li class='nav-item'>
+                      <a class='nav-link' href='index.php?module=connexion&actionConnexion=deconnexion'>se deconnecter</a>
+                    </li>
+                    ";
                   }
                   else {
                     $idCompte = 0;

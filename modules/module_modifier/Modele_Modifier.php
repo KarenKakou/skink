@@ -31,4 +31,28 @@ class Modele_Modifier extends Connexion
         $updateCompte->execute($array);
     }
 
+    public function nombreProjetsEnCours($idCompte) {
+          $count = $this::$bdd->prepare('SELECT count(*)
+          FROM PROJET NATURAL JOIN GERER 
+          INNER JOIN COMPTE as CLIENT on GERER.idCompte = CLIENT.idCompte
+          INNER JOIN COMPTE as TATOUEUR on GERER.idCompte_COMPTE = TATOUEUR.idCompte 
+          WHERE (CLIENT.idCompte = ? or TATOUEUR.idCompte = ?) and (arrhesPayees = 1 or nbEcheancesPayees != nbEcheancesTotales)');
+          $array = array($idCompte, $idCompte);
+          $count->execute($array);
+          $resultCount = $count->fetchAll();
+          return $resultCount[0];
+    }
+
+    public function nombreProjetsTermines($idCompte) {
+        $count = $this::$bdd->prepare('SELECT count(*)
+          FROM PROJET NATURAL JOIN GERER 
+          INNER JOIN COMPTE as CLIENT on GERER.idCompte = CLIENT.idCompte
+          INNER JOIN COMPTE as TATOUEUR on GERER.idCompte_COMPTE = TATOUEUR.idCompte 
+          WHERE (CLIENT.idCompte = ? or TATOUEUR.idCompte = ?) and (arrhesPayees != 1 and nbEcheancesPayees = nbEcheancesTotales)');
+          $array = array($idCompte, $idCompte);
+          $count->execute($array);
+          $resultCount = $count->fetchAll();
+          return $resultCount[0];
+    }
+
 }

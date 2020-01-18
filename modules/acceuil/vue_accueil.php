@@ -34,18 +34,21 @@ class VueAccueil {
                 <li data-target=\"#carouselExampleIndicators\" data-slide-to=\"1\"></li>
                 <li data-target=\"#carouselExampleIndicators\" data-slide-to=\"2\"></li>
               </ol>
-          </div>
-          <div class=\"center front\">
-          	<div class=\"center\">
-          		<h1>Skink tatoo</h1>
+            <div class=\"center front\">
+                <div class=\"center\">
+                  <h1>Skink tatoo</h1>
+                </div>
+                <span><strong>
+                  Skink tatouage - Salon de tatoueur tout style. Professionel du tatouage depuis 2004. <br/>Vous pouvez contacter nos tatoueur directement sur ce site et prendre rdv avec eux.</strong>
+                </span>
+                </div>
             </div>
-            <span><strong>
-            	Skink tatouage - Salon de tatoueur tout style. Professionel du tatouage depuis 2004. <br/>Vous pouvez contacter nos tatoueur directement sur ce site et prendre rdv avec eux.</strong>
-            </span>
           </div>
         </div>
     </section>";
 	}
+
+
 
 	public function carteTatoueur($nomTatoueur){
 		echo "
@@ -60,7 +63,7 @@ class VueAccueil {
             }
 						
           }
-    echo "</div>";
+
 	}
 
   private function droite($id, $nom, $description, $avatar){
@@ -72,7 +75,8 @@ class VueAccueil {
           <a href='index.php?module=galerie&action=voirGalerie&id=\".$id.\"' class='btn btn-primary'>Voir ses création</a>
         </div>
         <div class='col-4'>
-          <img src='images/images_avatar/$avatar' class='rounded-circle imageCarte'/>
+          <img src='images/images_avatar/$avatar' class='rounded-circle imageCarte' style=\"width: 200px;
+      height: 200px;\"/>
         </div>
       </div>";
   }
@@ -81,7 +85,8 @@ class VueAccueil {
     echo "
       <div class='row carteTatoueur'>
         <div class='col-4'>
-          <img src='images/images_avatar/$avatar' class='rounded-circle imageCarte'/>
+          <img src='images/images_avatar/$avatar' class='rounded-circle imageCarte' style=\"width: 200px;
+      height: 200px;\"/>
         </div>
         <div class='col-8'>
           <h5>$nom</h5>

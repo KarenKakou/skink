@@ -106,8 +106,17 @@ class Vue_Messagerie
             }
             else {
 
-                            echo "<div class=\"incoming_msg\">
-                                      <div class=\"incoming_msg_img\"> <img src=\"https://ptetutorials.com/images/user-profile.png\" alt=\"sunil\"> </div>
+                            echo "<div class=\"incoming_msg\">";
+                              if($listConversation[$key]['avatarCompte']) {
+                                  echo "
+                                    <div class=\"chat_img\"> <img src=\"images/images_avatar/".$listConversation[$key]['avatarCompte']."\" alt=\"sunil\" style=\"width: 45px; height: 45px;\"></div>";
+                              }
+                              else {
+                                  echo "
+                                    <div class=\"chat_img\"> <img src=\"https://ptetutorials.com/images/user-profile.png\" alt=\"sunil\" style=\"width: 45px; height: 45px;\"> </div>";
+                                }
+
+                                      echo "
                                       <div class=\"received_msg\">";
                             if($listMessage[$key]['pieceJointeMessage'] != null) {
                                 echo "<img src=\"images/images_messagerie/".$listMessage[$key]['pieceJointeMessage']."\" alt=\"\"/>";

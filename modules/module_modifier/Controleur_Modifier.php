@@ -15,7 +15,8 @@ require_once('modules/module_modifier/Modele_Modifier.php');
         }
 
         public function formulaireCompte($idCompte){
-            $this->vueModifier->afficherFormulaires($idCompte, $this->modeleModifier->obtenirCompte($idCompte));
+            $this->vueModifier->afficherFormulaires($idCompte, $this->modeleModifier->obtenirCompte($idCompte),
+                $this->modeleModifier->nombreProjetsEnCours($idCompte), $this->modeleModifier->nombreProjetsTermines($idCompte));
         }
 
         public function getAffichage() {
