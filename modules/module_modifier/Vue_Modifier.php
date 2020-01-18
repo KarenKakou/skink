@@ -32,7 +32,7 @@ class Vue_Modifier
         	}
          
           echo
-          "<form action=\"index.php?module=modifier&action=mettreAJourAvatar&id=$idCompte\" method=\"post\" enctype=\"multipart/form-data\"></br>
+          "<form action=\"index.php?module=modifier&action=mettreAJourAvatar&id=".$idCompte."\" method=\"post\" enctype=\"multipart/form-data\"></br>
           		<h6><strong>Changer votre avatar</strong></h6>
           		<input type=\"file\" name=\"image\" >
                   <input type=\"submit\" value=\"Valider\">
@@ -48,7 +48,7 @@ class Vue_Modifier
           </div><!--/col-3-->
       	<div class=\"col-sm-8\">   
                   <hr>
-                    <form class=\"form\" action=\"index.php?module=modifier&action=mettreAJourCompte&id=$idCompte\" method=\"post\" id=\"registrationForm\">
+                    <form class=\"form\" action=\"index.php?module=modifier&action=mettreAJourCompte&id=".$idCompte."\" method=\"post\" id=\"registrationForm\">
                         <div class=\"form-group\">
                             
                             <div class=\"col-xs-6\">

@@ -25,6 +25,7 @@ class Modele_Modifier extends Connexion
     public function updateAvatar($nomImageNonSafe, $compte) {
         $nomImage = htmlspecialchars($nomImageNonSafe, ENT_QUOTES);
         $updateAvatar = $this::$bdd->prepare('UPDATE COMPTE SET avatarCompte = ? where idCompte=?');
+        $_SESSION['Avatar'] = $nomImage;
         $array = array($nomImage, $compte);
         $updateAvatar->execute($array);
 	  }
