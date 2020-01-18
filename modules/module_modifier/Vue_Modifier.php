@@ -1,6 +1,9 @@
 <?php
+if(!defined('CONST_INCLUDE'))
+    die('Error 282');
 
 require_once('modules/module_modifier/Modele_Modifier.php');
+require_once('lib/Token.php');
 
 class Vue_Modifier
 {
@@ -34,6 +37,7 @@ class Vue_Modifier
         "<form action=\"index.php?module=modifier&action=mettreAJourAvatar&id=$idCompte\" method=\"post\" enctype=\"multipart/form-data\">
         		<h6>Changer votre avatar</h6>
         		<input type=\"file\" name=\"image\" >
+        		<input type='hidden' name='tokenAvatar' value='".Token::createToken()."'>
                 <input type=\"submit\" value=\"Valider\">
         </form>
       </div></hr><br>
@@ -78,6 +82,7 @@ class Vue_Modifier
                       <div class=\"form-group\">
                            <div class=\"col-xs-12\">
                                 <br>
+                                <input type='hidden' name='tokenModif' value='".Token::createToken()."'>
                                 <input class=\"btn btn-lg btn-success\" type=\"submit\" value=\"Enregistrer\">
                             </div>
                       </div>

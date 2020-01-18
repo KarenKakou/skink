@@ -1,4 +1,6 @@
 <?php
+if(!defined('CONST_INCLUDE'))
+    die('Error 282');
 
 require_once('modules/module_connexion/Controleur_Connexion.php');
 
@@ -29,12 +31,6 @@ require_once('modules/module_connexion/Controleur_Connexion.php');
                 //formulaire de Connexion
                 case "formConnexionInscription" :
                     $this->controleur->formConnexion();
-                    /*
-                    if(isset($_GET['Admin'])) {
-                        $this->controleur->formInscriptionAdmin();
-                    }else {
-                        $this->controleur->formInscription();
-                    }*/
                     break;
 
                 //Cas d'inscription, "Admin = 0 ou 1" si l'inscription est faite par l'admin ou le client
@@ -54,7 +50,8 @@ require_once('modules/module_connexion/Controleur_Connexion.php');
                         $_POST['telephoneInscriptionAdmin'],
                         $_POST['emailInscriptionAdmin'],
                         $_POST['motDePasseInscriptionAdmin'],
-                        $_POST['statutInscriptionAdmin']);
+                        $_POST['statutInscriptionAdmin'],
+                        $_POST['tokenInscription']);
                     break;
 
                 //Ajout d'un compte par un client
@@ -64,7 +61,8 @@ require_once('modules/module_connexion/Controleur_Connexion.php');
                         $_POST['adresseInscription'],
                         $_POST['telephoneInscription'],
                         $_POST['emailInscription'],
-                        $_POST['motDePasseInscription']);
+                        $_POST['motDePasseInscription'],
+                        $_POST['tokenInscription']);
                     break;
 
                 //Cas de deconnexion

@@ -1,6 +1,8 @@
 <?php
+if(!defined('CONST_INCLUDE'))
+    die('Error 282');
 
-require_once('lib/Generique.php');
+require_once('lib/Token.php');
 
     class Vue_Connexion
     {
@@ -9,6 +11,7 @@ require_once('lib/Generique.php');
         }
 
         public function form_Connexion_Inscription() {
+            $idToken = Token::createToken();
 
             echo"
             <div class='container bg-dark' id='inscription'>
@@ -24,7 +27,7 @@ require_once('lib/Generique.php');
                                 <label for='mdp'>Entrez votre MotDePasse</label>
                                 <input type='password' name='MotDePasseConnexion' id='mdp' class='form-control deuxTiers'>
                             </div>
-                            <input type='hidden' name='token' value='".Generique::createToken()."'>
+                            <input type='hidden' name='token' value='".$idToken."'>
                             <input type='submit' value='Se connecter' class='btn btn-light'>
                         </form>
                     </div>
@@ -55,6 +58,7 @@ require_once('lib/Generique.php');
                                 <label for='mdp'>Mot de passe* </label>
                                 <input type='password' name='motDePasseInscription' id='mdp' class='form-control deuxTiers'>
                             </div>
+                            <input type='hidden' name='tokenInscription' value='".$idToken."'>
                             <input type='submit' value='Valider inscription' class='btn btn-light'>
                         </form>
                      </div>
@@ -95,6 +99,7 @@ require_once('lib/Generique.php');
                                 <option>Tatoueur</option>
                                 <option>Admin</option>
                         </select> 
+                <input type='hidden' name='tokenInscription' value='".Token::createToken()."'>
                 <input type='submit' value='Valider inscription'>
             </form>
             </div>";

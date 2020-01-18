@@ -1,4 +1,6 @@
 <?php
+if(!defined('CONST_INCLUDE'))
+    die('Error 282');
 
 require_once('modules/module_projet/Controleur_projet.php');
 class mod_projet

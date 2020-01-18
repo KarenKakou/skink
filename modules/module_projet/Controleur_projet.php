@@ -1,8 +1,10 @@
 <?php
-
+if(!defined('CONST_INCLUDE'))
+    die('Error 282');
 
 require_once('modules/module_projet/Vue_projet.php');
 require_once('modules/module_projet/Modele_projet.php');
+require_once('lib/Token.php');
 
 class Controleur_projet
 {

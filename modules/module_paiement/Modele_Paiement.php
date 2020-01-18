@@ -1,4 +1,6 @@
 <?php
+if(!defined('CONST_INCLUDE'))
+    die('Error 282');
 
 class Modele_Paiement extends Connexion {
 

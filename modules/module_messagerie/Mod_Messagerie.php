@@ -1,4 +1,6 @@
 <?php
+if(!defined('CONST_INCLUDE'))
+    die('Error 282');
 
 require_once ('modules/module_messagerie/Controleur_messagerie.php');
 
@@ -21,7 +23,6 @@ class Mod_Messagerie
 
         switch ($actionMessagerie) {
             case "creerOuAcceder":
-                $this->controleur->creerOuAccederConv();
                 break;
 
             case "formCreatConv":

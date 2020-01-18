@@ -1,4 +1,6 @@
 <?php
+if(!defined('CONST_INCLUDE'))
+    die('Error 282');
 
 class Modele_Messagerie  extends Connexion {
 
@@ -101,33 +103,4 @@ class Modele_Messagerie  extends Connexion {
             return $premierMess['idCompte'];
     }
 
-    public function uploadImageMessagerie() {
-
-        $image_name=$_FILES['MessageImage']['name'];
-        $file_size =$_FILES['MessageImage']['size'];
-        $explode = explode('.',$_FILES['MessageImage']['name']);
-        $file_ext=strtolower(end($explode));
-
-        $extensions= array("jpeg","jpg","png");
-
-            if(in_array($file_ext,$extensions)=== false){
-                //s$errors[]="extension non prise en charge";
-            }
-
-            if($file_size > 2097152){
-                $errors[]='fichier trop lourd (doit être inférieur à 2 MB)';
-            }
-
-            $temp = explode(".", $image_name);
-            $imagepath="images/images_messagerie/".$image_name;
-
-            if(empty($errors)==true){
-                move_uploaded_file($_FILES["MessageImage"]["tmp_name"],$imagepath);
-                echo "image ajoutée";
-            }
-            else{
-            print_r($errors);
-        }
-        return $image_name;
-    }
 }

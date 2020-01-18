@@ -1,4 +1,8 @@
 <?php
+if(!defined('CONST_INCLUDE'))
+    die('Error 282');
+
+require_once('lib/Token.php');
 
     class Vue_Galerie
     {
@@ -124,6 +128,7 @@
             "<form action=\"index.php?module=galerie&id=$idTatoueur&action=upload\" method=\"post\" 
             enctype=\"multipart/form-data\">
                 <input type=\"file\" name=\"image\" >
+                <input type='hidden' name='tokenImage' value='".Token::createToken()."'>
                 <input type=\"submit\" value=\"submit\">
             </form>";
         }

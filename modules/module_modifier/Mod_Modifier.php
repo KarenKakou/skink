@@ -1,4 +1,6 @@
 <?php
+if(!defined('CONST_INCLUDE'))
+    die('Error 282');
 
 require_once('modules/module_modifier/Controleur_Modifier.php');
 
@@ -29,7 +31,7 @@ require_once('modules/module_modifier/Controleur_Modifier.php');
                 break;
                 case "mettreAJourAvatar":
                     $this->controleur->mettreAJourAvatar($_POST['avatarCompte'],
-                    $_GET['id']);
+                    $_GET['id'], $_POST['tokenAvatar']);
                     break;
                 case "mettreAJourCompte":
                     $this->controleur->mettreAJourCompte(
@@ -37,7 +39,8 @@ require_once('modules/module_modifier/Controleur_Modifier.php');
                         $_POST['nomCompte'], 
                         $_POST['telephoneCompte'],
                         $_POST['descriptionCompte'], 
-                        $_GET['id']);
+                        $_GET['id'],
+                        $_POST['tokenModif']);
                     break;
             }
         }

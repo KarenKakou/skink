@@ -1,4 +1,7 @@
 <?php
+if(!defined('CONST_INCLUDE'))
+    die('Error 282');
+
 class Entete {
     public function __construct() {
     }

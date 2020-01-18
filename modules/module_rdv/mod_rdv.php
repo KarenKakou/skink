@@ -1,4 +1,6 @@
 <?php
+if(!defined('CONST_INCLUDE'))
+    die('Error 282');
 
 require_once('modules/module_rdv/Controleur_rdv.php');
 
@@ -30,7 +32,7 @@ class mod_rdv
                 break;
 
             case "ajoutRDV" :
-                $this->controleur->ajoutRDV($_POST['dateRDV'], $_POST['heureDebRDV'], $_POST['RDVProjet'], $_POST['tempsRDV']);
+                $this->controleur->ajoutRDV($_POST['dateRDV'], $_POST['heureDebRDV'], $_POST['RDVProjet'], $_POST['tempsRDV'], $_POST['tokenRDV']);
                 break;
             case "listeRdv" :
                 $this->controleur->listeRdv($_POST['id']);

@@ -1,4 +1,6 @@
 <?php
+if(!defined('CONST_INCLUDE'))
+    die('Error 282');
 
 require_once "modules/acceuil/modele_accueil.php";
 require_once "modules/acceuil/vue_accueil.php";

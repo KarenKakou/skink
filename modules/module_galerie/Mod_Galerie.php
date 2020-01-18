@@ -1,4 +1,6 @@
 <?php
+if(!defined('CONST_INCLUDE'))
+    die('Error 282');
 
 require_once('modules/module_galerie/Controleur_Galerie.php');
 
@@ -21,7 +23,7 @@ require_once('modules/module_galerie/Controleur_Galerie.php');
             }
             switch($action) {
                 case "upload" :
-                    $this->controleur->uploaderImage($_GET['id']);
+                    $this->controleur->uploaderImage($_GET['id'], $_POST['tokenImage']);
                 break;
                 case "noAction" :
                     //correcte ?

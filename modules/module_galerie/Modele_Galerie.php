@@ -1,4 +1,6 @@
 <?php
+if(!defined('CONST_INCLUDE'))
+    die('Error 282');
 
 require_once('connexion.php');
 class Modele_Galerie extends Connexion
@@ -32,7 +34,9 @@ class Modele_Galerie extends Connexion
         return $resultTatoueurs;
     }
 
-    public function insererImage($nomImage, $idCompte) {
+    public function insererImage($nomImageNonSecu, $idCompte) {
+        $nomImage = htmlspecialchars($nomImageNonSecu, ENT_QUOTES);
+
 		$insertImage = $this::$bdd->prepare('INSERT INTO IMAGE values (DEFAULT,?,now(),?)');
         $array = array($nomImage, $idCompte);
         $insertImage->execute($array);

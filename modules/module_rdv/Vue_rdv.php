@@ -1,4 +1,8 @@
 <?php
+if(!defined('CONST_INCLUDE'))
+    die('Error 282');
+
+require_once('lib/Token.php');
 
 class Vue_rdv
 {
@@ -27,6 +31,7 @@ class Vue_rdv
     }
 
     public function formulaireRDV($listProjet) {
+        $id = Token::createToken();
        echo "
                 <div class='mgAuto'>
                 <form action =\"index.php?module=rdv&actionRDV=ajoutRDV\" method=\"POST\">
@@ -80,7 +85,7 @@ class Vue_rdv
                     <option value='210'>3h30</option>
                     </select>
                 </div>
-                
+                <input type='hidden' name='tokenRDV' value='".$id."'>
                 <input type='submit' value='Valider le RDV' class='btn btn-primary btn-lg btn-block'>
             </form>
             </div>

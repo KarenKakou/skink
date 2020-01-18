@@ -1,4 +1,6 @@
 <?php
+if(!defined('CONST_INCLUDE'))
+    die('Error 282');
 
 require_once ('modules/module_messagerie/Modele_Messagerie.php');
 require_once ('modules/module_messagerie/Vue_Messagerie.php');
@@ -12,18 +14,6 @@ class Controleur_messagerie
     {
         $this->vueMessagerie= new Vue_Messagerie();
         $this->modeleMessagerie= new Modele_Messagerie();
-    }
-
-    public function creerOuAccederConv() {
-        $this->vueMessagerie->formCreationOuAccesConv();
-    }
-
-    public function formCreateConv(){
-        $this->vueMessagerie->formCreationConv($this->modeleMessagerie->listeDeComptePar("Tatoueur"));
-    }
-
-    public function accessConv() {
-        $this->vueMessagerie->choisirDiscussion($this->modeleMessagerie->listConv());
     }
 
     public function createConv($compteTatoueur) {

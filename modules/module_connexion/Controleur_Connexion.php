@@ -1,8 +1,11 @@
 <?php
+if(!defined('CONST_INCLUDE'))
+    die('Error 282');
 
 require_once('modules/module_connexion/Vue_Connexion.php');
 require_once('modules/module_connexion/Modele_connexion.php');
-require_once('lib/Generique.php');
+require_once('lib/Token.php');
+
     class Controleur_Connexion
     {
         private $vueConnexion;
@@ -16,7 +19,7 @@ require_once('lib/Generique.php');
 
         //Methode de connexion
         public function connect($email, $password, $token) {
-            if(Generique::checkToken($token)) {
+            if(Token::checkToken($token)) {
                 $this->modeleConnexion->connect($email, $password);
             }else {
                 echo "<section>Veuillez recommencer</section>";
@@ -35,8 +38,13 @@ require_once('lib/Generique.php');
         }
 
         //Ajout de l'inscripton dans la base de donnee dans la table "Compte"
-        public function ajoutinscription($nom, $prenom, $adresse, $telephone, $email, $password, $statut=1) {
-            $this->modeleConnexion->ajoutCompte($nom, $prenom, $adresse, $telephone,$email, $password, $statut);
+        public function ajoutinscription($nom, $prenom, $adresse, $telephone, $email, $password, $statut=1, $token) {
+            if(Token::checkToken($token)) {
+                $this->modeleConnexion->ajoutCompte($nom, $prenom, $adresse, $telephone, $email, $password, $statut);
+            }else {
+                echo "<section>Veuillez recommencer</section>";
+                $this->formConnexion();
+            }
         }
 
         //Formulaire permettant de se connecter

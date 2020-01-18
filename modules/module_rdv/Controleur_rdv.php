@@ -1,7 +1,10 @@
 <?php
+if(!defined('CONST_INCLUDE'))
+    die('Error 282');
 
 require_once('modules/module_rdv/Modele_rdv.php');
 require_once('modules/module_rdv/Vue_rdv.php');
+require_once('lib/Token.php');
 
 class Controleur_rdv
 {
@@ -18,8 +21,13 @@ class Controleur_rdv
             $this->vue->formulaireRDV($listProjet);
         }
 
-        public function ajoutRDV($date, $heureDebRDV, $projet, $dureeRDV){
-            $this->modele->ajoutRDV($date, $heureDebRDV,$projet, $dureeRDV);
+        public function ajoutRDV($date, $heureDebRDV, $projet, $dureeRDV, $token){
+            if(Token::checkToken($token)) {
+                $this->modele->ajoutRDV($date, $heureDebRDV, $projet, $dureeRDV);
+            }else {
+                echo "<section>Veuillez recommencer l'ajout du RDV</section>";
+                $this->formRDV($this->listProjetAvecActeur());
+            }
         }
 
         public function listProjetAvecActeur() {

@@ -1,4 +1,6 @@
 <?php
+if(!defined('CONST_INCLUDE'))
+    die('Error 282');
 
 class Modele_projet extends Connexion
 {
@@ -26,7 +28,11 @@ class Modele_projet extends Connexion
             return $listCompte->fetchAll();
         }
 
-        public function ajoutProjet($nomProjet, $idClient, $idTatoueur, $descriptionProjet, $montantProjet, $nbEcheance) {
+        public function ajoutProjet($nomProjetNonSecu, $idClient, $idTatoueur, $descriptionProjetNonSecu, $montantProjet, $nbEcheance) {
+
+           $nomProjet = htmlspecialchars($nomProjetNonSecu, ENT_QUOTES);
+           $descriptionProjet = htmlspecialchars($descriptionProjetNonSecu, ENT_QUOTES);
+
            $insertProjet = $this::$bdd->prepare('INSERT into PROJET values(DEFAULT, ?, ?, ?, ?, ?, ?)');
            $array = array($nomProjet, $descriptionProjet, intval($montantProjet), intval($nbEcheance), 0, 0);
            if($insertProjet->execute($array)) {

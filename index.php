@@ -1,4 +1,6 @@
 <?php
+define('CONST_INCLUDE', NULL);
+
 session_start();
 
 
