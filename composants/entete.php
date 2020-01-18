@@ -54,7 +54,7 @@ class Entete {
                       <div class='dropdown-menu' aria-labelledby='navbarDropdown'>
                       <span class='dropdown-item text-danger'>$login</span>
                       <a class='dropdown-item' href='index.php?module=messagerie&actionMessagerie=lireConv'>Messagerie</a>
-                      <a class='dropdown-item'  id=\".$idCompte.\" onClick='redirectionAfficheRdv(this.id)'>Mes rendez-vous</a>
+                      <a class='dropdown-item'  id=\"$idCompte\" onClick='redirectionAfficheRdv(this.id)'>Mes rendez-vous</a>
                       <a class='dropdown-item' href='index.php?module=paiement&action=tatoueur&id=$idCompte'>Suivre mes paiements</a>";
                       if($_SESSION['Statut'] == 2) {
                         echo "
