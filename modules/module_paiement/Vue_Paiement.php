@@ -1,4 +1,5 @@
 <?php
+
     class Vue_Paiement
     {
         public function __construct()

@@ -7,6 +7,7 @@ class Vue_Modifier
     public function __construct()
     {
     }
+    
     public function afficherFormulaires($idCompte, $compte) {
     $image = $compte['avatarCompte'];
     $prenom = $compte['prenomCompte'];

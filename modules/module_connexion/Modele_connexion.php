@@ -34,6 +34,7 @@ class Modele_connexion extends Connexion
         if(isset($_SESSION['Login'])) {
             $log = $_SESSION['Login'];
             session_destroy();
+            $_SESSION = [];
             echo "Vous êtes déconnecté $log";
         }else{
             echo "Vous n'êtes pas connecté";

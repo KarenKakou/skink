@@ -18,6 +18,10 @@ require_once('modules/module_modifier/Modele_Modifier.php');
             $this->vueModifier->afficherFormulaires($idCompte, $this->modeleModifier->obtenirCompte($idCompte));
         }
 
+        public function getAffichage() {
+            return $this->vueModifier->getAffichage();
+        }
+
         public function mettreAJourCompte($prenom, $nom, $telephone , $description, $idCompte) {
              $this->modeleModifier->updateCompte($prenom, $nom, $telephone, $description, $idCompte);
         }

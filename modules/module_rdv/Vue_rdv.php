@@ -1,6 +1,5 @@
 <?php
 
-
 class Vue_rdv
 {
 
