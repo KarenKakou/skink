@@ -96,8 +96,7 @@ class Vue_rdv
                 $min = substr($value['debRdv'], 14,2);
 
                 if($_SESSION['Statut']==2){
-                    $nom = $value['nomCompteClient'];
-                    $prenom = $value['prenomCompte'];
+                    $nom = $value['nomCompteClient']." ".$value['prenomCompte'];
                 }
                 else{
                     $nom = $value['nomCompteTatoueur'];
@@ -108,7 +107,7 @@ class Vue_rdv
                         <h2>RDV</h2>
                         <span>vous avez rdv le : <strong>"; echo $date; echo "</strong> </span>
                         <span> à <strong>"; echo $heure; echo "H".$min."</strong></span>
-                        <span>avec : <strong>"; echo $nom." ".$prenom; echo "</strong> </span>
+                        <span>avec : <strong>"; echo $nom; echo "</strong> </span>
                     </div>
                 ";
         }
