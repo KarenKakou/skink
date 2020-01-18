@@ -1,4 +1,6 @@
 <?php
+if(!defined('CONST_INCLUDE'))
+    die('Acces direct interdit !');
 
     class Vue_Galerie
     {

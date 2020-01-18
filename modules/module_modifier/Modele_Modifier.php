@@ -1,4 +1,7 @@
 <?php
+if(!defined('CONST_INCLUDE'))
+    die('Acces direct interdit !');
+
 
 require_once('connexion.php');
 require_once('util.php');
@@ -19,13 +22,19 @@ class Modele_Modifier extends Connexion
         return $resultCompte[0];
     }
 
-    public function updateAvatar($nomImage, $compte) {
+    public function updateAvatar($nomImageNonSafe, $compte) {
+        $nomImage = htmlspecialchars($nomImageNonSafe, ENT_QUOTES);
         $updateAvatar = $this::$bdd->prepare('UPDATE COMPTE SET avatarCompte = ? where idCompte=?');
         $array = array($nomImage, $compte);
         $updateAvatar->execute($array);
 	  }
 
-    public function updateCompte($prenom, $nom, $telephone, $description, $compte) {
+    public function updateCompte($prenomNonSafe, $nomNonSafe, $telephoneNonSafe, $descriptionNonSafe, $compte) {
+        $prenom = htmlspecialchars($prenomNonSafe, ENT_QUOTES);
+        $nom = htmlspecialchars($nomNonSafe, ENT_QUOTES);
+        $telephone = htmlspecialchars($telephoneNonSafe, ENT_QUOTES);
+        $description = htmlspecialchars($descriptionNonSafe, ENT_QUOTES);
+
         $updateCompte = $this::$bdd->prepare('UPDATE COMPTE SET prenomCompte = ?, nomCompte = ?, telephoneCompte = ?, descriptionCompte = ? where idCompte=?');
         $array = array($prenom, $nom, $telephone, $description, $compte);
         $updateCompte->execute($array);

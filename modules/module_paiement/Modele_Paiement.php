@@ -1,5 +1,7 @@
 <?php
 require_once('connexion.php');
+if(!defined('CONST_INCLUDE'))
+    die('Acces direct interdit !');
 
 
 class Modele_Paiement extends Connexion {

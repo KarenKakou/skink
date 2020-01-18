@@ -1,4 +1,6 @@
 <?php
+if(!defined('CONST_INCLUDE'))
+    die('Acces direct interdit !');
 
 require_once('modules/module_galerie/Controleur_Galerie.php');
 

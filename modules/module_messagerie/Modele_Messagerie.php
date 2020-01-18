@@ -1,5 +1,8 @@
 <?php
 
+if(!defined('CONST_INCLUDE'))
+    die('Acces direct interdit !');
+
 class Modele_Messagerie  extends Connexion {
 
     public function __construct()
@@ -29,9 +32,7 @@ class Modele_Messagerie  extends Connexion {
         $array = array($_SESSION['idCompte'],$compteTatoueur);
         $listConv->execute($array);
         $listConversation = $listConv->fetchAll();
-        var_dump($listConversation);
         if(empty($listConversation)) {
-            echo"Mon dieu";
             $insertPrepare = $this::$bdd->prepare('INSERT into CONVERSATION values(DEFAULT)');
             if ($insertPrepare->execute()) {
                 $idConv = $this::$bdd->lastInsertId();
@@ -48,13 +49,9 @@ class Modele_Messagerie  extends Connexion {
 
     //Methode permettant d'envoyer un nouveau message
     public function nouveauMessage($corps, $idConv, $idCompteEmetteur, $idCompteReceveur) {
-        if(isset($_FILES['MessageImage'])) {
-            $pieceJointe = $this->uploadImageMessagerie();
-        }else {
-            $pieceJointe = null;
-        }
+
         $insertMessagePrepare = $this::$bdd->prepare('INSERT into MESSAGE values(DEFAULT, ?, ?, ?, ?, ?)');
-        $array = array($corps, $pieceJointe, $idConv, $idCompteEmetteur, $idCompteReceveur);
+        $array = array($corps, null, $idConv, $idCompteEmetteur, $idCompteReceveur);
         if(!$insertMessagePrepare->execute($array)) {
             echo "Il y a eu un problème avec l'envoie du message";
         }

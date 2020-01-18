@@ -1,4 +1,6 @@
 <?php
+if(!defined('CONST_INCLUDE'))
+    die('Acces direct interdit !');
 
 require_once ('modules/module_messagerie/Modele_Messagerie.php');
 require_once ('modules/module_messagerie/Vue_Messagerie.php');

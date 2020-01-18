@@ -1,4 +1,7 @@
 <?php
+if(!defined('CONST_INCLUDE'))
+    die('Acces direct interdit !');
+
 
 require_once('connexion.php');
 
@@ -9,7 +12,10 @@ class Modele_connexion extends Connexion
     }
 
     //Connect teste la connection et la permet si le login et le motDePasse correspond
-    public function connect($email, $password) {
+    public function connect($emailNonSafe, $passwordNonSafe) {
+        $email = htmlspecialchars($emailNonSafe, ENT_QUOTES);
+        $password = htmlspecialchars($passwordNonSafe, ENT_QUOTES);
+
         $selectUser = $this::$bdd->prepare('SELECT * from COMPTE where emailCompte=?');
         $array = array($email);
         $selectUser->execute($array);
@@ -43,7 +49,14 @@ class Modele_connexion extends Connexion
     }
 
     //Methode permettant d'ajouter un compte a la base de donnee / Statut est par défaut a 1 pour les clients
-    public function ajoutCompte($nom, $prenom, $adresse, $telephone, $email, $password, $statut = 1) {
+    public function ajoutCompte($nomNonSafe, $prenomNonSafe, $adresseNonSafe, $telephoneNonSafe, $emailNonSafe, $passwordNonSafe, $statut = 1) {
+        $nom = htmlspecialchars($nomNonSafe, ENT_QUOTES);
+        $prenom = htmlspecialchars($prenomNonSafe, ENT_QUOTES);
+        $adresse = htmlspecialchars($adresseNonSafe, ENT_QUOTES);
+        $telephone = htmlspecialchars($telephoneNonSafe, ENT_QUOTES);
+        $email = htmlspecialchars($emailNonSafe, ENT_QUOTES);
+        $password = htmlspecialchars($passwordNonSafe, ENT_QUOTES);
+
         //Verification que l'email n'existe pas déjà
         $selectUser = $this::$bdd->prepare('SELECT * from COMPTE where emailCompte=?');
         $array = array($email);
@@ -84,7 +97,8 @@ class Modele_connexion extends Connexion
     }
 
     //Method qui verifie si l'adresse mail contient un @
-    private function verifEmail($email) {
+    private function verifEmail($emailNonSafe) {
+        $email = htmlspecialchars($emailNonSafe, ENT_QUOTES);
         if(strpos($email, "@") === false) {
             return false;
         }else {
@@ -93,7 +107,8 @@ class Modele_connexion extends Connexion
     }
 
     //Method qui permet de supprimer un compte
-    public function deleteCompte($email) {
+    public function deleteCompte($emailNonSafe) {
+        $email = htmlspecialchars($emailNonSafe, ENT_QUOTES);
         $deleteUser = $this::$bdd->prepare('DELETE from COMPTE where emailCompte=?');
         $array = array($email);
         if ($deleteUser->execute($array)) {
