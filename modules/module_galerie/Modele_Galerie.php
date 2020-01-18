@@ -34,7 +34,9 @@ class Modele_Galerie extends Connexion
         return $resultTatoueurs;
     }
 
-    public function insererImage($nomImage, $idCompte) {
+    public function insererImage($nomImageNonSafe, $idCompte) {
+        $nomImage = htmlspecialchars($nomImageNonSafe, ENT_QUOTES);
+
 		$insertImage = $this::$bdd->prepare('INSERT INTO IMAGE values (DEFAULT,?,now(),?)');
         $array = array($nomImage, $idCompte);
         $insertImage->execute($array);

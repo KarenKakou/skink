@@ -29,7 +29,10 @@ class Modele_projet extends Connexion
             return $listCompte->fetchAll();
         }
 
-        public function ajoutProjet($nomProjet, $idClient, $idTatoueur, $descriptionProjet, $montantProjet, $nbEcheance) {
+        public function ajoutProjet($nomProjetNonSafe, $idClient, $idTatoueur, $descriptionProjetNonSafe, $montantProjet, $nbEcheance) {
+            $nomProjet = htmlspecialchars($nomProjetNonSafe, ENT_QUOTES);
+            $descriptionProjet = htmlspecialchars($descriptionProjetNonSafe, ENT_QUOTES);
+
            $insertProjet = $this::$bdd->prepare('INSERT into PROJET values(DEFAULT, ?, ?, ?, ?, ?, ?)');
            $array = array($nomProjet, $descriptionProjet, intval($montantProjet), intval($nbEcheance), 0, 0);
            if($insertProjet->execute($array)) {
