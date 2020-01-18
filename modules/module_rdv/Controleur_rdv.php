@@ -1,4 +1,6 @@
 <?php
+if(!defined('CONST_INCLUDE'))
+    die('Acces direct interdit !');
 
 require_once('modules/module_rdv/Modele_rdv.php');
 require_once('modules/module_rdv/Vue_rdv.php');

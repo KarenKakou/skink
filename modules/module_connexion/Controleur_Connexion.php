@@ -1,4 +1,7 @@
 <?php
+if(!defined('CONST_INCLUDE'))
+    die('Acces direct interdit !');
+
 
 require_once('modules/module_connexion/Vue_Connexion.php');
 require_once('modules/module_connexion/Modele_connexion.php');
