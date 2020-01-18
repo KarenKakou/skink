@@ -1,5 +1,8 @@
 <?php
 
+if(!defined('CONST_INCLUDE'))
+    die('Acces direct interdit !');
+
 class Modele_Messagerie  extends Connexion {
 
     public function __construct()

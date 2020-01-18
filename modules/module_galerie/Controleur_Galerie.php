@@ -1,4 +1,7 @@
 <?php
+if(!defined('CONST_INCLUDE'))
+    die('Acces direct interdit !');
+
 
 require_once('modules/module_galerie/Vue_Galerie.php');
 require_once('modules/module_galerie/Modele_Galerie.php');

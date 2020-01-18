@@ -6,7 +6,7 @@ class Connexion {
 
     public static function initConnexion() {
     	//Connexion de ma maison
-		$dns = 'mysql:host=localhost; dbname=skink';
+		$dns = 'mysql:host=localhost; dbname=skinkv3';
 		self::$bdd = new PDO($dns, 'root', '');
 
 		/* connexion iut
