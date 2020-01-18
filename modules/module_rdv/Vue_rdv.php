@@ -91,12 +91,13 @@ class Vue_rdv
     public function afficheRdv($rdvs){
 
         foreach ($rdvs as $key => $value){
-                $date = substr($value['debRdv'], 8,2).substr($value['debRdv'], 4,4).substr($value['debRdv'], 0,4);
+                $date = substr($value['debRdv'], 8,2)."/".substr($value['debRdv'], 5,2)."/".substr($value['debRdv'], 0,4);
                 $heure = substr($value['debRdv'], 10,3);
                 $min = substr($value['debRdv'], 14,2);
 
                 if($_SESSION['Statut']==2){
                     $nom = $value['nomCompteClient'];
+                    $prenom = $value['prenomCompte'];
                 }
                 else{
                     $nom = $value['nomCompteTatoueur'];
@@ -105,9 +106,9 @@ class Vue_rdv
                 echo  "
                     <div class='container bg-light rdv'>
                         <h2>RDV</h2>
-                        <span>vous avez rdv le : "; echo $date; echo " </span>
-                        <span> à : "; echo $heure; echo "H ".$min."</span>
-                        <span>avec : "; echo $nom; echo " </span>
+                        <span>vous avez rdv le : <strong>"; echo $date; echo "</strong> </span>
+                        <span> à <strong>"; echo $heure; echo "H".$min."</strong></span>
+                        <span>avec : <strong>"; echo $nom." ".$prenom; echo "</strong> </span>
                     </div>
                 ";
         }
