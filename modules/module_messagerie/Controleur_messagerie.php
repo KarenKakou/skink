@@ -18,18 +18,6 @@ class Controleur_messagerie
         $this->modeleMessagerie= new Modele_Messagerie();
     }
 
-    public function creerOuAccederConv() {
-        $this->vueMessagerie->formCreationOuAccesConv();
-    }
-
-    public function formCreateConv(){
-        $this->vueMessagerie->formCreationConv(Self::listeDeComptePar("Tatoueur"));
-    }
-
-    public function accessConv() {
-        $this->vueMessagerie->choisirDiscussion($this->modeleMessagerie->listConv());
-    }
-
     public function createConv($compteTatoueur) {
         $idConv = $this->modeleMessagerie->newConversation($compteTatoueur);
         $this->afficheConv($idConv);

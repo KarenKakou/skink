@@ -5,7 +5,7 @@ if(!defined('CONST_INCLUDE'))
 
 require_once('lib/Token.php');
 
-    class Vue_Connexion
+    class   Vue_Connexion
     {
         public function __construct()
         {
