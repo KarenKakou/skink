@@ -26,18 +26,12 @@ require_once('modules/module_connexion/Controleur_Connexion.php');
             switch ($actionConnexion) {
                 //Se connecter
                 case "connexion" :
-                    $this->controleur->connect($_POST['identifiantConnexion'], $_POST['MotDePasseConnexion'], $_POST['token']);
+                    $this->controleur->connect($_POST['identifiantConnexion'], $_POST['MotDePasseConnexion'], $_POST['tokenConnexion']);
                     break;
 
                 //formulaire de Connexion
                 case "formConnexionInscription" :
                     $this->controleur->formConnexion();
-                    /*
-                    if(isset($_GET['Admin'])) {
-                        $this->controleur->formInscriptionAdmin();
-                    }else {
-                        $this->controleur->formInscription();
-                    }*/
                     break;
 
                 //Cas d'inscription, "Admin = 0 ou 1" si l'inscription est faite par l'admin ou le client
@@ -57,6 +51,7 @@ require_once('modules/module_connexion/Controleur_Connexion.php');
                         $_POST['telephoneInscriptionAdmin'],
                         $_POST['emailInscriptionAdmin'],
                         $_POST['motDePasseInscriptionAdmin'],
+                        $_POST['tokenInscription'],
                         $_POST['statutInscriptionAdmin']);
                     break;
 
@@ -67,7 +62,8 @@ require_once('modules/module_connexion/Controleur_Connexion.php');
                         $_POST['adresseInscription'],
                         $_POST['telephoneInscription'],
                         $_POST['emailInscription'],
-                        $_POST['motDePasseInscription']);
+                        $_POST['motDePasseInscription'],
+                        $_POST['tokenInscription']);
                     break;
 
                 //Cas de deconnexion
