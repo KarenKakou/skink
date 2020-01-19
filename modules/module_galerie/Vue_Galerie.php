@@ -34,7 +34,7 @@ require_once('lib/Token.php');
                         <div class='col-12 col-md'>
                         <div class='card carteGalerie'>
                             </br><a href=\"index.php?module=galerie&action=voirGalerie&id=".$idTatoueur."\">
-                            <img src='images/images_avatar/$avatar' class='rounded-circle'></a></br>
+                            <img src='images/images_avatar/$avatar' class='rounded-circle' width='200'></a></br>
                             </a></br>
                             <div class='card-body'>
                                 <a href='index.php?module=galerie&action=voirGalerie&id=".$idTatoueur."'><h5 class='card-text text-body'>$nomTatoueur</h5></a>
@@ -102,7 +102,7 @@ require_once('lib/Token.php');
 
                 echo "
                                 <div class='col-lg-4 imgGalerie'>
-                                     <a href=\"index.php?module=image&action=noAction&id=$idImage\"><img src=\"$chemin\"alt=\"modifiée le $date\" width='300' height='300'/></a>
+                                     <a href=\"index.php?module=galerie&action=voirImage&id=$idImage\"><img src=\"$chemin\"alt=\"modifiée le $date\" width='300' height='300'/></a>
                                 </div>
                 ";
                 /*
@@ -119,29 +119,6 @@ require_once('lib/Token.php');
             
             
 
-        }
-
-        public function afficherTatoueurGalerie($row) {
-            $prenomTatoueur = $row['prenomCompte'];
-            $nomTatoueur = $row['nomCompte'];
-            echo "</br>Travaux de $nomTatoueur</br>";
-        }
-
-        public function afficherImagesGalerie($array) {
-            $i=0;
-            foreach ($array as $row) 
-            {
-                $chemin = "images/images_galerie/".$row['cheminImage'];
-                $idImage = $row['idImage'];
-                $date = $row['dateAjoutImage'];
-                echo "<a href=\"index.php?module=galerie&action=voirImage&id=$idImage\"><img src=\"$chemin\"alt=\"modifiée le $date\"width=\"300\" height=\"300\"/></a>";
-                //permet d'avoir un affichage sous forme de tableau (provisoir)
-                if($i===2) {
-                    echo "</br>";
-                    $i=0;
-                }
-                $i++;
-            }
         }
 
         public function afficherUpload($idTatoueur) {
