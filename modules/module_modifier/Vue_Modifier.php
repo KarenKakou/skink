@@ -4,6 +4,7 @@ if(!defined('CONST_INCLUDE'))
 
 
 require_once('modules/module_modifier/Modele_Modifier.php');
+require_once('lib/Token.php');
 
 class Vue_Modifier
 {
@@ -30,11 +31,13 @@ class Vue_Modifier
         	else {
         		echo "<img src=\"http://ssl.gstatic.com/accounts/ui/avatar_2x.png\" alt=\"avatar\" style=\"width: 200px; height: 200px; border-radius: 50%;\">";
         	}
-         
+
+        	$idToken = Token::createToken();
           echo
           "<form action=\"index.php?module=modifier&action=mettreAJourAvatar&id=".$idCompte."\" method=\"post\" enctype=\"multipart/form-data\"></br>
           		<h6><strong>Changer votre avatar</strong></h6>
           		<input type=\"file\" name=\"image\" >
+          		<input type='hidden' name='tokenModifAvatar' value='".$idToken."'>
                   <input type=\"submit\" value=\"Valider\">
           </form>
         </div></hr><br>
@@ -81,6 +84,7 @@ class Vue_Modifier
                         <div class=\"form-group\">
                              <div class=\"col-xs-12\">
                                   <br>
+                                  <input type='hidden' name='tokenModif' value='".$idToken."'>
                                   <input class=\"btn btn-lg btn-success\" type=\"submit\" value=\"Enregistrer\">
                               </div>
                         </div>

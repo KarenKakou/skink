@@ -33,7 +33,8 @@ class mod_projet
                     $_POST['CompteTatoueurProjet'],
                     $_POST['DescriptionProjet'],
                     $_POST['MontantProjet'],
-                    $_POST['NbEcheanceProjet']);
+                    $_POST['NbEcheanceProjet'],
+                    $_POST['tokenProjet']);
                     break;
         }
     }

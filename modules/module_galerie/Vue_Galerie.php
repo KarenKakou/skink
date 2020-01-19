@@ -2,6 +2,8 @@
 if(!defined('CONST_INCLUDE'))
     die('Acces direct interdit !');
 
+require_once('lib/Token.php');
+
     class Vue_Galerie
     {
         public function __construct()
@@ -145,6 +147,7 @@ if(!defined('CONST_INCLUDE'))
             "<form action=\"index.php?module=galerie&id=$idTatoueur&action=upload\" method=\"post\" 
             enctype=\"multipart/form-data\">
                 <input type=\"file\" name=\"image\" >
+                <input type='hidden' name='tokenImage' value='".Token::createToken()."'>
                 <input type=\"submit\" value=\"submit\">
             </form>";
         }

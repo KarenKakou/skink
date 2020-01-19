@@ -3,6 +3,7 @@ if(!defined('CONST_INCLUDE'))
     die('Acces direct interdit !');
 
 require_once('modules/module_projet/Modele_projet.php');
+require_once('lib/Token.php');
 
 class Vue_projet
 {
@@ -73,6 +74,7 @@ class Vue_projet
                     </div>    
                 </div>        
             </div>
+            <input type='hidden' name='tokenProjet' value='".Token::createToken()."'>
             <input type='submit' value='Valider Projet' class='btn btn-primary btn-lg btn-block'>
                 </form>
             </div>";

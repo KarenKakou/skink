@@ -33,11 +33,11 @@ require_once('modules/module_modifier/Controleur_Modifier.php');
                 case "mettreAJourAvatar":
                     if(isset($_POST['avatarCompte'])) {
                         $this->controleur->mettreAJourAvatar($_POST['avatarCompte'],
-                    $_GET['id']);
+                    $_GET['id'], $_POST['tokenModifAvatar']);
                     }
                     else {
                         $this->controleur->mettreAJourAvatar("",
-                    $_GET['id']);
+                    $_GET['id'], $_POST['tokenModifAvatar']);
                     }
                     
                     break;
@@ -47,7 +47,8 @@ require_once('modules/module_modifier/Controleur_Modifier.php');
                         $_POST['nomCompte'], 
                         $_POST['telephoneCompte'],
                         $_POST['descriptionCompte'], 
-                        $_GET['id']);
+                        $_GET['id'],
+                        $_POST['tokenModif']);
                     break;
             }
         }

@@ -6,7 +6,7 @@ if(!defined('CONST_INCLUDE'))
 require_once('modules/module_projet/Vue_projet.php');
 require_once('modules/module_projet/Modele_projet.php');
 require_once('util.php');
-
+require_once('lib/Token.php');
 
 class Controleur_projet
 {
@@ -24,7 +24,12 @@ class Controleur_projet
         $this->vueProjet->formCreationProjet(Util::listeDeComptePar("Client"), Util::listeDeComptePar("Tatoueur"));
     }
 
-    public function ajoutProjet($nomProjet, $idClient, $idTatoueur, $descriptionProjet, $montantProjet, $nbEcheance) {
-        $this->modeleProjet->ajoutProjet($nomProjet, $idClient, $idTatoueur, $descriptionProjet, $montantProjet, $nbEcheance);
+    public function ajoutProjet($nomProjet, $idClient, $idTatoueur, $descriptionProjet, $montantProjet, $nbEcheance, $token) {
+        if(Token::checkToken($token)) {
+            $this->modeleProjet->ajoutProjet($nomProjet, $idClient, $idTatoueur, $descriptionProjet, $montantProjet, $nbEcheance);
+        }else {
+            echo "Veuillez recommencer";
+            $this->formulaireProjet();
+        }
     }
 }
