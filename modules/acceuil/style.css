@@ -180,11 +180,13 @@ footer{
 
 .profile 
 {
-margin-top: 2px;
-padding:1px;
-background-color: #fff;
-    display: inline-block;
-    }
+	margin-top: 2px;
+	padding:1px;
+	background-color: #bcb38a ;
+	display: inline-block;
+	border:3px solid white;
+}
+
 .divider 
 {
     border-top:1px solid rgba(0,0,0,0.1);
@@ -490,10 +492,13 @@ h1{
 .logoDesc{
 
 	text-align: center;
+	padding-top:10px;
 }
 
-.logoDesc > h2 {
 
+.btnCarteGalerie {
+	margin-left: 25%;
+	margin-top:20px;
 }
 
 .description{
