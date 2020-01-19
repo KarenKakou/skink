@@ -35,7 +35,7 @@ require_once('lib/Token.php');
                         <div class='card carteGalerie'>
                             </br><a href=\"index.php?module=galerie&action=voirGalerie&id=".$idTatoueur."\">
 
-                            <img src='images/images_avatar/$avatar' width='200' height='200 ' class='rounded-circle'></a></br>
+                            <img src='images/images_avatar/$avatar' class='rounded-circle imgGal'></a></br>
                             </a></br>
                             <div class='card-body'>
                                 <a href='index.php?module=galerie&action=voirGalerie&id=".$idTatoueur."'><h5 class='card-text text-body'>$nomTatoueur</h5></a>
@@ -60,14 +60,9 @@ require_once('lib/Token.php');
                 <div class='container-fluide galeriePerso'>
                     <div class='row'>
                         <div class='col-md-3 well profile'>
-                            <div class='logoDesc'>";
-                                if($avatar) {
-                                    echo "<img src='images/images_avatar/$avatar' style=\"width: 200px; height: 200px; border-radius: 50%\"></a></br>";
-                                }
-                                else {
-                                    echo "<img src='images/compte.png' style=\"width: 200px; height: 200px; border-radius: 50%\"></a></br>";
-                                }
-                                echo"
+                            <div class='logoDesc'>
+                                <img src='images/images_avatar/$avatar' class='rounded-circle imgGalerie'></a></br>
+                                
                                 <h2>$nomTatoueur</h2>
                                 <div class='logo'>
                                     <a href=''><img src='images/logoFB.png' width='30' height='30'/></a>

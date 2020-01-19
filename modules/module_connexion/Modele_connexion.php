@@ -56,6 +56,7 @@ class Modele_connexion extends Connexion
         $telephone = htmlspecialchars($telephoneNonSafe, ENT_QUOTES);
         $email = htmlspecialchars($emailNonSafe, ENT_QUOTES);
         $password = htmlspecialchars($passwordNonSafe, ENT_QUOTES);
+        $avatar = 'compte.png';
 
         //Verification que l'email n'existe pas déjà
         $selectUser = $this::$bdd->prepare('SELECT * from COMPTE where emailCompte=?');
@@ -81,7 +82,7 @@ class Modele_connexion extends Connexion
                 }
                 $this::$bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
                 $insertPrepare = $this::$bdd->prepare('INSERT into COMPTE values(DEFAULT, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
-                $array = array($nom, $prenom, $adresse, $telephone, $hashpassword, $email, NULL, NULL, $nbStatut);
+                $array = array($nom, $prenom, $adresse, $telephone, $hashpassword, $email, $avatar, NULL, $nbStatut);
                 if ($insertPrepare->execute($array)) {
                     echo "<section>$nom $prenom vous avez bien été enregistré dans Skink !</section>";
                 } else {

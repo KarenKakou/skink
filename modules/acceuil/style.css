@@ -66,6 +66,14 @@ body{
 	border-radius: 5px;
 }
 
+.carteTatoueur img {
+	border : 2px solid white;
+	box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.2);
+}
+.card img {
+	border : 2px solid white;
+	box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.2);
+}
 
 .card:hover img {
 	animation: flotte 1s infinite;
@@ -504,6 +512,12 @@ h1{
 .imgGalerie {
 	margin-top:10px;
 	margin-bottom: 10px;
+	width: 200px;
+}
+
+.imgGal{
+	width: 200px;
+	height: 200px;
 }
 
 .blockImg{

@@ -25,12 +25,8 @@ class Vue_Modifier
       <div class=\"row\">
     		<div class=\"col-sm-4\"><!--left col-->
         <div class=\"text-center\">";
-        	if($_SESSION['Avatar']) {
-        		$this->afficherAvatarActuel();
-        	}
-        	else {
-        		echo "<img src=\"http://ssl.gstatic.com/accounts/ui/avatar_2x.png\" alt=\"avatar\" style=\"width: 200px; height: 200px; border-radius: 50%;\">";
-        	}
+
+        	$this->afficherAvatarActuel();
 
         	$idToken = Token::createToken();
           echo
