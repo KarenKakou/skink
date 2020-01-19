@@ -74,12 +74,12 @@ require_once('lib/Token.php');
                             ";
                             if(isset($_SESSION['Login'])){
                                 if($_SESSION['Statut'] == 1) {
-                                    echo "<input type='button' id=\"" . $idCompte . "\" onClick='redirectionConvTatoueur(this.id)' value=\"Contacter " . $nomTatoueur . "\">";
+                                    echo "<input type='button' id=\"" . $idCompte . "\" onClick='redirectionConvTatoueur(this.id)' value=\"Contacter " . $nomTatoueur . "\" class='btnCarteGalerie'>";
                                 }
                             }
                             else{
                                 echo "
-                            <input type='button' onClick='redirectionInscription()' value='contacter $nomTatoueur'>
+                            <input type='button' onClick='redirectionInscription()' value='contacter $nomTatoueur' class='btnCarteGalerie'>
                                 ";
                             }
                         echo "    
