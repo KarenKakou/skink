@@ -43,7 +43,7 @@ class Modele_Messagerie  extends Connexion {
             }
         }
         else {
-            echo "<section>Vous avez déjà une conversation avec cette personne</section>";
+            echo "Vous avez déjà une conversation avec cette personne";
         }
     }
 
