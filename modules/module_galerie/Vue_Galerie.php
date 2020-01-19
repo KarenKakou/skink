@@ -34,7 +34,8 @@ require_once('lib/Token.php');
                         <div class='col-12 col-md'>
                         <div class='card carteGalerie'>
                             </br><a href=\"index.php?module=galerie&action=voirGalerie&id=".$idTatoueur."\">
-                            <img src='images/images_avatar/$avatar' class='rounded-circle' width='200'></a></br>
+
+                            <img src='images/images_avatar/$avatar' width='200' height='200 ' class='rounded-circle'></a></br>
                             </a></br>
                             <div class='card-body'>
                                 <a href='index.php?module=galerie&action=voirGalerie&id=".$idTatoueur."'><h5 class='card-text text-body'>$nomTatoueur</h5></a>

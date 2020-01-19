@@ -13,10 +13,6 @@ class mod_rdv
         $this->controleur = new Controleur_rdv();
     }
 
-    public function getAffichage() {
-        return $this->controleur->getAffichage();
-    }
-
     public function launchModRdv() {
         //Si pas de "actionRDV", error
         if (isset($_GET['actionRDV'])) {
