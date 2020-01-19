@@ -23,10 +23,6 @@ require_once('lib/Token.php');
                 $this->modeleModifier->nombreProjetsEnCours($idCompte), $this->modeleModifier->nombreProjetsTermines($idCompte));
         }
 
-        public function getAffichage() {
-            return $this->vueModifier->getAffichage();
-        }
-
         public function mettreAJourCompte($prenom, $nom, $telephone , $description, $idCompte, $token) {
             if(Token::checkToken($token)) {
                 $this->modeleModifier->updateCompte($prenom, $nom, $telephone, $description, $idCompte);
@@ -35,7 +31,7 @@ require_once('lib/Token.php');
             }
         }
 
-        public function mettreAJourAvatar($avatarCompte,$idCompte, $token) {
+        public function mettreAJourAvatar($avatarCompte, $idCompte, $token) {
             if(Token::checkToken($token)) {
                 $this->modeleModifier->updateAvatar(Util::uploadImage("images_avatar"), $idCompte);
             }else {

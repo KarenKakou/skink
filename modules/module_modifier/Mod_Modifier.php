@@ -14,10 +14,6 @@ require_once('modules/module_modifier/Controleur_Modifier.php');
             $this->controleur = new Controleur_Modifier();
         }
 
-        public function getAffichage() {
-            return $this->controleur->getAffichage();
-        }
-
         public function launchModModifier()
         {
             if(isset($_GET['action'])){
