@@ -11,7 +11,7 @@ class Vue_rdv
         <div class='container pageRdv'>
 
             <div class='row'>
-                <div class='col-md-3 bg-dark' id='blockBtnRdv'>
+                <div class='col-md-3' id='blockBtnRdv'>
                     <div class='btnRdv'>
                         <button type='button' id=\"".$_SESSION['idCompte']."\" class='btn btn-primary btn-lg btn-block' onClick='redirectionAfficheRdv(this.id)'>Voir mes RDV</button><br/>";
                         if($_SESSION['Statut']==2){

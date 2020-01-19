@@ -12,12 +12,14 @@ if(!defined('CONST_INCLUDE'))
         public function afficherTousTatoueursGalerie($array) {
             ?>
 
-            <div class='container'>
+            <div class='container presentation'>
 
-                <p></p>
+                <p>Vous pouvez consulter en ligne les créations de nos tatoueurs</p>
+                <p>N'hésitez pas à venir nous voir au shop pour tout renseignement !</p>
+                <p>Mais si vous n'aimez pas vous déplacer, contacter les tatoueurs qui vous interrese</p>
 
             </div>
-            <div class="container bg-dark">
+            <div class="container presGaleries">
                   <div class="row">
 
             <?php
@@ -30,7 +32,7 @@ if(!defined('CONST_INCLUDE'))
                         <div class='col-12 col-md'>
                         <div class='card carteGalerie'>
                             </br><a href=\"index.php?module=galerie&action=voirGalerie&id=".$idTatoueur."\">
-                            <img src='images/images_avatar/$avatar' style=\"width: 300px; height: 300px; border-radius: 50%\"></a></br>
+                            <img src='images/images_avatar/$avatar' class='rounded-circle'></a></br>
                             </a></br>
                             <div class='card-body'>
                                 <a href='index.php?module=galerie&action=voirGalerie&id=".$idTatoueur."'><h5 class='card-text text-body'>$nomTatoueur</h5></a>

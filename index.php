@@ -37,10 +37,6 @@ switch($module){
 		$moduleALancer = new mod_Connexion();
 		$moduleALancer->launchModConnexion();
 		break;
-	
-	case "inscription":
-		//à voir mais va sans doute se retrouver inutile
-		break;
 
 	case "projet":
 		$moduleALancer = new mod_projet();
