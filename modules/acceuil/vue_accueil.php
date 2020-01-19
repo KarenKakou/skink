@@ -74,20 +74,32 @@ class VueAccueil {
           <p class='card-text'>$description</p>
           <a href='index.php?module=galerie&action=voirGalerie&id=$id' class='btn btn-primary'>Voir ses création</a>
         </div>
-        <div class='col-4'>
-          <img src='images/images_avatar/$avatar' class='rounded-circle imageCarte' style=\"width: 200px;
-      height: 200px;\"/>
-        </div>
+        <div class='col-4'>";
+          if($avatar) {
+            echo "<img src='images/images_avatar/$avatar' class='rounded-circle imageCarte' style=\"width: 200px;
+      height: 200px;\"/>";
+          }
+          else {
+            echo "<img src='images/compte.png' class='rounded-circle imageCarte' style=\"width: 200px;
+      height: 200px;\"/>";
+          }
+        echo "</div>
       </div>";
   }
 
   private function gauche($id, $nom, $description, $avatar){
     echo "
       <div class='row carteTatoueur'>
-        <div class='col-4'>
-          <img src='images/images_avatar/$avatar' class='rounded-circle imageCarte' style=\"width: 200px;
-      height: 200px;\"/>
-        </div>
+        <div class='col-4'>";
+          if($avatar) {
+            echo "<img src='images/images_avatar/$avatar' class='rounded-circle imageCarte' style=\"width: 200px;
+      height: 200px;\"/>";
+          }
+          else {
+            echo "<img src='images/compte.png' class='rounded-circle imageCarte' style=\"width: 200px;
+      height: 200px;\"/>";
+          }
+        echo "</div>
         <div class='col-8 right'>
           <h5>$nom</h5>
           <p class='card-text'>$description</p>
