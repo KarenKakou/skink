@@ -36,10 +36,10 @@ require_once('modules/module_connexion/Controleur_Connexion.php');
 
                 //Cas d'inscription, "Admin = 0 ou 1" si l'inscription est faite par l'admin ou le client
                 case "inscription" :
-                    if(isset($_GET['Admin'])) {
+                    if(isset($_SESSION['Login']) && $_SESSION['Statut']==3) {
                         $this->controleur->formInscriptionAdmin();
                     }else {
-                        $this->controleur->formInscription();
+                        echo "Vous n'etes pas habilité à venir ici";
                     }
                     break;
 
