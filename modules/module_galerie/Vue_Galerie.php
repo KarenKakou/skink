@@ -60,8 +60,14 @@ require_once('lib/Token.php');
                 <div class='container-fluide galeriePerso'>
                     <div class='row'>
                         <div class='col-md-3 well profile'>
-                            <div class='logoDesc'>
-                                <img src='images/images_avatar/$avatar' style=\"width: 200px; height: 200px; border-radius: 50%\"></a></br>
+                            <div class='logoDesc'>";
+                                if($avatar) {
+                                    echo "<img src='images/images_avatar/$avatar' style=\"width: 200px; height: 200px; border-radius: 50%\"></a></br>";
+                                }
+                                else {
+                                    echo "<img src='images/compte.png' style=\"width: 200px; height: 200px; border-radius: 50%\"></a></br>";
+                                }
+                                echo"
                                 <h2>$nomTatoueur</h2>
                                 <div class='logo'>
                                     <a href=''><img src='images/logoFB.png' width='30' height='30'/></a>
