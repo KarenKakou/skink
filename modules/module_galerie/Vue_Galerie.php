@@ -16,9 +16,9 @@ require_once('lib/Token.php');
 
             <div class='container presentation'>
 
-                <p>Vous pouvez consulter en ligne les créations de nos tatoueurs</p>
-                <p>N'hésitez pas à venir nous voir au shop pour tout renseignement !</p>
-                <p>Mais si vous n'aimez pas vous déplacer, contacter les tatoueurs qui vous interrese</p>
+                <p>Vous pouvez consulter en ligne les créations de nos tatoueurs</br>
+                N'hésitez pas à venir nous voir au shop pour tout renseignement !</br>
+                Mais si vous n'aimez pas vous déplacer, contactez les tatoueurs qui vous intéressent.</p>
 
             </div>
             <div class="container presGaleries">
@@ -59,7 +59,7 @@ require_once('lib/Token.php');
             echo "
                 <div class='container-fluide galeriePerso'>
                     <div class='row'>
-                        <div class='col-md-3 bg-dark'>
+                        <div class='col-md-3 well profile'>
                             <div class='logoDesc'>
                                 <img src='images/images_avatar/$avatar' style=\"width: 200px; height: 200px; border-radius: 50%\"></a></br>
                                 <h2>$nomTatoueur</h2>
@@ -69,9 +69,7 @@ require_once('lib/Token.php');
                                 <div class='logo'>
                                     <a href=''><img src='images/logoInstaSf.png' width='30' height='30'/></a>
                                 </div>
-                            </div>
-                            <div class='description'>
-                                <p>".$description."<p>
+                                <p></br>$description</p>
                             </div>
                             ";
                             if(isset($_SESSION['Login'])){
@@ -94,13 +92,6 @@ require_once('lib/Token.php');
                 $chemin = "images/images_galerie/".$row['cheminImage'];
                 $idImage = $row['idImage'];
                 $date = $row['dateAjoutImage'];
-            /*
-                if($i%3==0){
-                    echo "
-                            <div class='row border'>
-                            ";
-                }*/
-
                 echo "
                                 <div class='col-lg-4 imgGalerie'>";
                                 if(isset($_SESSION['Login']) && $_SESSION['Statut']==2)
@@ -111,11 +102,6 @@ require_once('lib/Token.php');
                                 }
                                 echo "</div>
                 ";
-                /*
-                if($i%3 != 0){
-                    echo "</div>";
-                }*/
-
                 $i++;
             }
 

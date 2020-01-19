@@ -69,7 +69,7 @@ echo "
                       echo 
                         "<a class='dropdown-item' href='index.php?module=modifier&action=formulaire&id=$idCompte'>Modifier le profil</a>
                         <div class='dropdown-divider'></div>
-                        <a class='dropdown-item' onClick='redirectionDeconnexion()'>se deconnecter</a>
+                        <a class='dropdown-item' onClick='redirectionDeconnexion()'>Se déconnecter</a>
                       </div>
                     </li>";
                   }
@@ -79,7 +79,7 @@ echo "
                       <a class='nav-link' href='index.php?module=connexion&actionConnexion=inscription&Admin=1'>Ajouter des compte</a>
                     </li>
                     <li class='nav-item'>
-                      <a class='nav-link' onClick='redirectionDeconnexion()'>se deconnecter</a>
+                      <a class='nav-link' onClick='redirectionDeconnexion()'>Se déconnecter</a>
                     </li>
                     ";
                   }
