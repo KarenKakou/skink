@@ -2,6 +2,7 @@
 if(!defined('CONST_INCLUDE'))
     die('Acces direct interdit !');
 
+require_once('lib/Token.php');
 class Vue_rdv
 {
 
@@ -82,7 +83,7 @@ class Vue_rdv
                     <option value='210'>3h30</option>
                     </select>
                 </div>
-                
+                <input type='hidden' name='tokenRDV' value='".Token::createToken()."'>
                 <input type='submit' value='Valider le RDV' class='btn btn-primary btn-lg btn-block'>
             </form>
             </div>

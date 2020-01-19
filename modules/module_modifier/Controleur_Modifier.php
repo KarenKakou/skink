@@ -5,6 +5,7 @@ if(!defined('CONST_INCLUDE'))
 
 require_once('modules/module_modifier/Vue_Modifier.php');
 require_once('modules/module_modifier/Modele_Modifier.php');
+require_once('lib/Token.php');
 
     class Controleur_Modifier
     {
@@ -26,12 +27,20 @@ require_once('modules/module_modifier/Modele_Modifier.php');
             return $this->vueModifier->getAffichage();
         }
 
-        public function mettreAJourCompte($prenom, $nom, $telephone , $description, $idCompte) {
-             $this->modeleModifier->updateCompte($prenom, $nom, $telephone, $description, $idCompte);
+        public function mettreAJourCompte($prenom, $nom, $telephone , $description, $idCompte, $token) {
+            if(Token::checkToken($token)) {
+                $this->modeleModifier->updateCompte($prenom, $nom, $telephone, $description, $idCompte);
+            }else {
+                $this->formulaireCompte($idCompte);
+            }
         }
 
-        public function mettreAJourAvatar($avatarCompte,$idCompte) {
-             $this->modeleModifier->updateAvatar(Util::uploadImage("images_avatar"), $idCompte);
+        public function mettreAJourAvatar($avatarCompte,$idCompte, $token) {
+            if(Token::checkToken($token)) {
+                $this->modeleModifier->updateAvatar(Util::uploadImage("images_avatar"), $idCompte);
+            }else {
+                $this->formulaireCompte($idCompte);
+            }
         }
     }
 ?>

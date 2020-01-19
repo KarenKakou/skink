@@ -6,7 +6,7 @@ if(!defined('CONST_INCLUDE'))
 require_once('modules/module_galerie/Vue_Galerie.php');
 require_once('modules/module_galerie/Modele_Galerie.php');
 require_once('util.php');
-
+require_once('lib/Token.php');
     class Controleur_Galerie
     {
         private $vueGalerie;
@@ -43,9 +43,14 @@ require_once('util.php');
             $this->vueGalerie->afficherUpload($tatoueur);
         }
 
-        public function uploaderImage($tatoueur) {
-            $image = Util::uploadImage("images_galerie");
-            $this->modeleGalerie->insererImage($image,$tatoueur);
+        public function uploaderImage($tatoueur, $token) {
+            if(Token::checkToken($token)) {
+                $image = Util::uploadImage("images_galerie");
+                $this->modeleGalerie->insererImage($image,$tatoueur);
+            }else {
+                echo "Veuillez recommencer";
+                $this->afficherUpload($tatoueur);
+            }
         }
 
 

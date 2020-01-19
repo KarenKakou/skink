@@ -1,7 +1,7 @@
 <?php
 
 
-class Generique
+class Token
 {
 
     public static function createToken() {
@@ -14,7 +14,7 @@ class Generique
 
     public static function checkToken($tokenID) {
         if($_SESSION['tokenID'] == $tokenID) {
-            if($_SESSION['tokenTimeOut']+10 < time()){
+            if($_SESSION['tokenTimeOut']+600 < time()){
                 return false;
             }
             else {
