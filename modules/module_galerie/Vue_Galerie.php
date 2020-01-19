@@ -101,9 +101,14 @@ require_once('lib/Token.php');
                 }*/
 
                 echo "
-                                <div class='col-lg-4 imgGalerie'>
-                                     <a href=\"index.php?module=galerie&action=voirImage&id=$idImage\"><img src=\"$chemin\"alt=\"modifiée le $date\" width='300' height='300'/></a>
-                                </div>
+                                <div class='col-lg-4 imgGalerie'>";
+                                if(isset($_SESSION['Login']) && $_SESSION['Statut']==2)
+
+                                    echo "   <a href=\"index.php?module=galerie&action=voirImage&id=$idImage\"><img src=\"$chemin\" width='300' height='300'/></a>";
+                                else{
+                                    echo"<img src=\"$chemin\" width='300' height='300'/>";
+                                }
+                                echo "</div>
                 ";
                 /*
                 if($i%3 != 0){

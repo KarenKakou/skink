@@ -54,6 +54,12 @@ require_once('lib/Token.php');
         }
 
 
+        public function recupererImage($image) {
+            $array = $this->modeleGalerie->obtenirImage($image);
+            $this->vueGalerie->afficherImage($array[0]);
+            $this->vueGalerie->optionSuppression($image);
+        }
+
         public function supprimerImage($image) {
             $this->modeleGalerie->supprimerImage($image);
         }
