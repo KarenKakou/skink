@@ -4,11 +4,9 @@
     <footer id="pied">
 
     	<p>Skink tatoo</p>
-    	<p>Horair d'ouverture :</p>
-    	<p>Lundi au Vendredi</p>
+    	<p>Horaire d'ouverture :</p>
+    	<p>Lundi au Samedi</p>
     	<p>9h - 20h</p>
-    	<p>Samedi</p>
-    	<p>10h - 19h</p>
 
 		<span>Skink tatouage - un projet de l'équipe du Skink - 2019</span>    	
 

@@ -34,6 +34,7 @@ require_once('lib/Token.php');
                         <div class='col-12 col-md'>
                         <div class='card carteGalerie'>
                             </br><a href=\"index.php?module=galerie&action=voirGalerie&id=".$idTatoueur."\">
+
                             <img src='images/images_avatar/$avatar' width='200' height='200 ' class='rounded-circle'></a></br>
                             </a></br>
                             <div class='card-body'>
@@ -101,9 +102,14 @@ require_once('lib/Token.php');
                 }*/
 
                 echo "
-                                <div class='col-lg-4 imgGalerie'>
-                                     <a href=\"index.php?module=image&action=noAction&id=$idImage\"><img src=\"$chemin\"alt=\"modifiée le $date\" width='300' height='300'/></a>
-                                </div>
+                                <div class='col-lg-4 imgGalerie'>";
+                                if(isset($_SESSION['Login']) && $_SESSION['Statut']==2)
+
+                                    echo "   <a href=\"index.php?module=galerie&action=voirImage&id=$idImage\"><img src=\"$chemin\" width='300' height='300'/></a>";
+                                else{
+                                    echo"<img src=\"$chemin\" width='300' height='300'/>";
+                                }
+                                echo "</div>
                 ";
                 /*
                 if($i%3 != 0){
@@ -119,29 +125,6 @@ require_once('lib/Token.php');
             
             
 
-        }
-
-        public function afficherTatoueurGalerie($row) {
-            $prenomTatoueur = $row['prenomCompte'];
-            $nomTatoueur = $row['nomCompte'];
-            echo "</br>Travaux de $nomTatoueur</br>";
-        }
-
-        public function afficherImagesGalerie($array) {
-            $i=0;
-            foreach ($array as $row) 
-            {
-                $chemin = "images/images_galerie/".$row['cheminImage'];
-                $idImage = $row['idImage'];
-                $date = $row['dateAjoutImage'];
-                echo "<a href=\"index.php?module=galerie&action=voirImage&id=$idImage\"><img src=\"$chemin\"alt=\"modifiée le $date\"width=\"300\" height=\"300\"/></a>";
-                //permet d'avoir un affichage sous forme de tableau (provisoir)
-                if($i===2) {
-                    echo "</br>";
-                    $i=0;
-                }
-                $i++;
-            }
         }
 
         public function afficherUpload($idTatoueur) {
