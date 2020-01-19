@@ -31,8 +31,15 @@ require_once('modules/module_modifier/Controleur_Modifier.php');
                     $this->controleur->formulaireCompte($_GET['id']);
                 break;
                 case "mettreAJourAvatar":
-                    $this->controleur->mettreAJourAvatar($_POST['avatarCompte'],
+                    if(isset($_POST['avatarCompte'])) {
+                        $this->controleur->mettreAJourAvatar($_POST['avatarCompte'],
                     $_GET['id']);
+                    }
+                    else {
+                        $this->controleur->mettreAJourAvatar("",
+                    $_GET['id']);
+                    }
+                    
                     break;
                 case "mettreAJourCompte":
                     $this->controleur->mettreAJourCompte(
