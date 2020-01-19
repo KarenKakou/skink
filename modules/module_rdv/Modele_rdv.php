@@ -27,7 +27,6 @@ class Modele_rdv extends Connexion
         else {
 
             if($this->estUnRdvValable($dateDeb, $dateFin)) {
-                echo "C'est valable !";
                 $insertRDVPrepare = $this::$bdd->prepare('INSERT into RDV values(DEFAULT, ?, ?, ?)');
                 $array = array($dateDeb, $dateFin, $projet);
                 if ($insertRDVPrepare->execute($array)) {

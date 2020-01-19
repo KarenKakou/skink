@@ -36,4 +36,14 @@ function redirectionMessage(){
 	$.redirect('index.php?module=messagerie&actionMessagerie=lireConv', {});
 }
 
+function redirectionDeconnexion(){
+	$.post('index.php?module=connexion&actionConnexion=deconnexion', {});
+	redirectionAcceuil()
+}
+
+function redirectionAcceuil() {
+	$.redirect('index.php?module=acceuil', {});
+}
+
+
 

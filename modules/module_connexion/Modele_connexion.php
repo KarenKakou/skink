@@ -28,7 +28,7 @@ class Modele_connexion extends Connexion
             $_SESSION['Statut'] = $varUser['idStatut'];
             $_SESSION['idCompte'] = $varUser['idCompte'];
             $_SESSION['Avatar'] = $varUser['avatarCompte'];
-            echo "Vous etes connecté $email !";
+            echo "<script>redirectionAcceuil()</script>";
         }
         else
         {
@@ -83,9 +83,8 @@ class Modele_connexion extends Connexion
                 $insertPrepare = $this::$bdd->prepare('INSERT into COMPTE values(DEFAULT, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
                 $array = array($nom, $prenom, $adresse, $telephone, $hashpassword, $email, NULL, NULL, $nbStatut);
                 if ($insertPrepare->execute($array)) {
-                    echo "L'utilisateur $nom $prenom a bien été enregistré au statut de $statut";
+                    echo "<section>$nom $prenom vous avez bien été enregistré dans Skink !</section>";
                 } else {
-                    // echo $this::$bdd->errorInfo();
                     echo "linsert na pas marché";
                 }
             } else {

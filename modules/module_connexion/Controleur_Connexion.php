@@ -39,7 +39,12 @@ require_once('lib/Generique.php');
 
         //Ajout de l'inscripton dans la base de donnee dans la table "Compte"
         public function ajoutinscription($nom, $prenom, $adresse, $telephone, $email, $password, $statut=1) {
-            $this->modeleConnexion->ajoutCompte($nom, $prenom, $adresse, $telephone,$email, $password, $statut);
+            if($email == "" || $nom == "" || $password == "" || $prenom == "") {
+                echo "Vous devez remplir obligatoirement les champs avec \"*\"";
+                $this->formConnexion();
+            }else {
+                $this->modeleConnexion->ajoutCompte($nom, $prenom, $adresse, $telephone,$email, $password, $statut);
+            }
         }
 
         //Formulaire permettant de se connecter

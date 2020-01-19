@@ -39,6 +39,7 @@ class Modele_Modifier extends Connexion
         $updateCompte = $this::$bdd->prepare('UPDATE COMPTE SET prenomCompte = ?, nomCompte = ?, telephoneCompte = ?, descriptionCompte = ? where idCompte=?');
         $array = array($prenom, $nom, $telephone, $description, $compte);
         $updateCompte->execute($array);
+        echo "<script>redirectionAcceuil()</script>";
     }
 
     public function nombreProjetsEnCours($idCompte) {
